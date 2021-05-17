@@ -1,4 +1,4 @@
-package org.gl52.ptoj.UI;
+package org.gl52.proj.ui;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

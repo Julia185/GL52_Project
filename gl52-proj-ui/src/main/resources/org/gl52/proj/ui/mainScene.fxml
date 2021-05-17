@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1009.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane prefHeight="683.0" prefWidth="1009.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Vente">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView editable="true" layoutX="482.0" layoutY="152.0" prefHeight="402.0" prefWidth="526.0" />
+                        <VBox layoutX="4.0" layoutY="2.0" prefHeight="650.0" prefWidth="474.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="531.0" AnchorPane.topAnchor="2.0">
+                           <padding>
+                              <Insets right="1.0" top="1.0" />
+                           </padding>
+                           <children>
+                              <ToolBar prefHeight="40.0" prefWidth="200.0">
+                                <items>
+                                  <Button mnemonicParsing="false" text="Nouveau client" />
+                                    <Button mnemonicParsing="false" text="Modifier client" />
+                                    <Button mnemonicParsing="false" text="Supprimer client" />
+                                </items>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </ToolBar>
+                              <TextField prefHeight="25.0" prefWidth="380.0" text="Recherche client" />
+                              <HBox minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView prefHeight="300.0" prefWidth="460.0" />
+                                    <ScrollBar orientation="VERTICAL" />
+                                 </children>
+                              </HBox>
+                              <Separator prefWidth="200.0">
+                                 <effect>
+                                    <Shadow blurType="GAUSSIAN" height="0.0" radius="0.0" width="0.0" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Separator>
+                              <TextField text="Recherche produit" />
+                              <HBox layoutX="10.0" layoutY="76.0" minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView prefHeight="300.0" prefWidth="460.0" />
+                                    <ScrollBar orientation="VERTICAL" />
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" text="Scanner" />
+                           </children>
+                        </VBox>
+                        <Button layoutX="936.0" layoutY="592.0" mnemonicParsing="false" text="Carte" />
+                        <Button layoutX="850.0" layoutY="592.0" mnemonicParsing="false" text="Liquide" />
+                        <Label layoutX="759.0" layoutY="600.0" text="Règlement :" />
+                        <Label layoutX="482.0" layoutY="14.0" prefHeight="36.0" prefWidth="176.0" text="Récaptitulatif :">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="759.0" layoutY="126.0" prefHeight="17.0" prefWidth="103.0" text="Montant total (€):" />
+                        <Label layoutX="666.0" layoutY="24.0" prefHeight="17.0" prefWidth="148.0" text="Info client" />
+                        <Label layoutX="905.0" layoutY="126.0" prefHeight="17.0" prefWidth="88.0" text="123.00" />
+                        <Button layoutX="478.0" layoutY="596.0" mnemonicParsing="false" text="Annuler vente" />
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <CheckBox layoutX="593.0" layoutY="600.0" mnemonicParsing="false" text="Facture" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="SAV">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.29797979797979796" layoutY="7.0" prefHeight="676.0" prefWidth="1009.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="-3.0" layoutY="-2.0" prefHeight="677.0" prefWidth="299.0">
+                                       <children>
+                                          <MenuBar>
+                                            <menus>
+                                              <Menu mnemonicParsing="false" text="Filtrer">
+                                                <items>
+                                                      <MenuItem mnemonicParsing="false" text="État Réparation">
+                                                         <graphic>
+                                                            <CheckBox mnemonicParsing="false" />
+                                                         </graphic>
+                                                      </MenuItem>
+                                                      <MenuItem mnemonicParsing="false" text="Nom">
+                                                         <graphic>
+                                                            <CheckBox mnemonicParsing="false" />
+                                                         </graphic>
+                                                      </MenuItem>
+                                                      <SeparatorMenuItem mnemonicParsing="false" />
+                                                  <MenuItem mnemonicParsing="false" text="Close" />
+                                                </items>
+                                              </Menu>
+                                              <Menu mnemonicParsing="false" text="Rechercher">
+                                                <items>
+                                                  <MenuItem mnemonicParsing="false" text="Delete" />
+                                                </items>
+                                              </Menu>
+                                              <Menu mnemonicParsing="false" text="Créer" />
+                                            </menus>
+                                          </MenuBar>
+                                          <Separator prefWidth="200.0" />
+                                          <HBox prefHeight="589.0" prefWidth="299.0">
+                                             <children>
+                                                <ListView prefHeight="589.0" prefWidth="286.0" />
+                                                <ScrollBar orientation="VERTICAL" prefHeight="589.0" prefWidth="14.0" />
+                                             </children>
+                                          </HBox>
+                                          <ScrollBar />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <ToolBar layoutX="7.0" layoutY="-6.0" prefHeight="40.0" prefWidth="689.0">
+                                      <items>
+                                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Modifier" />
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Suppprimer" />
+                                      </items>
+                                    </ToolBar>
+                                    <Label layoutX="14.0" layoutY="53.0" text="Nom :" />
+                                    <Label layoutX="312.0" layoutY="53.0" text="Prénom :" />
+                                    <Label layoutX="14.0" layoutY="93.0" text="Adresse :" />
+                                    <Label layoutX="15.0" layoutY="138.0" text="Téléphone :" />
+                                    <Label layoutX="316.0" layoutY="136.0" text="E-Mail :" />
+                                    <TextField layoutX="84.0" layoutY="49.0" />
+                                    <TextField layoutX="85.0" layoutY="88.0" prefHeight="25.0" prefWidth="446.0" />
+                                    <TextField layoutX="84.0" layoutY="130.0" />
+                                    <TextField layoutX="382.0" layoutY="49.0" />
+                                    <TextField layoutX="382.0" layoutY="134.0" />
+                                    <SplitMenuButton layoutX="560.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="État réparation">
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" text="Non commencé" />
+                                        <MenuItem mnemonicParsing="false" text="Recherche origine" />
+                                          <MenuItem mnemonicParsing="false" text="Recherche de solution" />
+                                          <MenuItem mnemonicParsing="false" text="En réparation" />
+                                          <MenuItem mnemonicParsing="false" text="Attente pièce rechange" />
+                                          <MenuItem mnemonicParsing="false" text="Réparation terminée" />
+                                      </items>
+                                    </SplitMenuButton>
+                                    <Label layoutX="15.0" layoutY="177.0" text="Description panne :" />
+                                    <TextArea layoutX="142.0" layoutY="177.0" prefHeight="122.0" prefWidth="491.0" />
+                                    <ListView layoutX="143.0" layoutY="314.0" prefHeight="200.0" prefWidth="495.0" />
+                                    <Button ellipsisString="" layoutX="11.0" layoutY="314.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Ajouter ligne facture" textAlignment="CENTER" wrapText="true" />
+                                    <Button ellipsisString="" layoutX="11.0" layoutY="373.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Modifier ligne facture" textAlignment="CENTER" wrapText="true" />
+                                    <Button ellipsisString="" layoutX="11.0" layoutY="430.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Supprimer ligne facture" textAlignment="CENTER" wrapText="true" />
+                                    <ScrollBar layoutX="638.0" layoutY="311.0" orientation="VERTICAL" prefHeight="199.0" prefWidth="9.0" />
+                                    <ScrollBar layoutX="143.0" layoutY="514.0" prefHeight="0.0" prefWidth="451.0" />
+                                    <Button layoutX="619.0" layoutY="595.0" mnemonicParsing="false" text="Valider" />
+                                    <Button layoutX="496.0" layoutY="595.0" mnemonicParsing="false" text="Notifier client" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Stock">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="634.0">
+                     <children>
+                        <TableView layoutX="3.0" layoutY="65.0" prefHeight="564.0" prefWidth="975.0">
+                          <columns>
+                            <TableColumn prefWidth="270.0" text="Numéro Produit" />
+                            <TableColumn prefWidth="305.0" text="Désignation" />
+                              <TableColumn prefWidth="66.0" text="Quantité" />
+                              <TableColumn prefWidth="81.0" text="Prix HT" />
+                              <TableColumn prefWidth="88.0" text="Prix TTC" />
+                              <TableColumn prefWidth="91.0" text="TVA" />
+                          </columns>
+                        </TableView>
+                        <TextField layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="200.0" text="Recherche produit" />
+                        <Button layoutX="304.0" layoutY="25.0" mnemonicParsing="false" text="Ajouter porduit" />
+                        <Button layoutX="427.0" layoutY="25.0" mnemonicParsing="false" text="Modifier produit" />
+                        <Button layoutX="557.0" layoutY="25.0" mnemonicParsing="false" text="Supprimer Produit" />
+                        <ScrollBar layoutX="988.0" layoutY="62.0" orientation="VERTICAL" prefHeight="573.0" prefWidth="14.0" />
+                        <ScrollBar layoutX="14.0" layoutY="633.0" prefHeight="14.0" prefWidth="972.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>
