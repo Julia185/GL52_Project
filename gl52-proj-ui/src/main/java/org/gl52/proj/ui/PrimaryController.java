@@ -3,7 +3,7 @@ package org.gl52.proj.ui;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
-public class MainsSceneController {
+public class PrimaryController {
 
     @FXML
     private void switchToSecondary() throws IOException {

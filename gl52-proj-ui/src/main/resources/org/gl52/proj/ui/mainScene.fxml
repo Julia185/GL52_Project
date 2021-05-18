@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1009.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1009.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gl52.proj.ui.MainSceneController">
    <children>
       <TabPane prefHeight="683.0" prefWidth="1009.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -23,9 +23,9 @@
                            <children>
                               <ToolBar prefHeight="40.0" prefWidth="200.0">
                                 <items>
-                                  <Button mnemonicParsing="false" text="Nouveau client" />
-                                    <Button mnemonicParsing="false" text="Modifier client" />
-                                    <Button mnemonicParsing="false" text="Supprimer client" />
+                                  <Button mnemonicParsing="false" text="Nouveau client" onAction="#switchToGestionnaireClient"/>
+                                    <Button mnemonicParsing="false" text="Modifier client" onAction="#switchToGestionnaireClient" />
+                                    <Button mnemonicParsing="false" text="Supprimer client"  />
                                 </items>
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
