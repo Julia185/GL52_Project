@@ -1,9 +1,22 @@
 package fr.utbm.gl52.proj.model.stock;
 
-public class SortieStock {
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity(name="T_SORTIE_STOCK")
+public class SortieStock implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8765726525873048224L;
+	@Column
 	public int qteSortieStock;
+	@Column
 	public int refProd;
+	@Column
 	public String date;
 	
 	public SortieStock() {

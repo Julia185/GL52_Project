@@ -1,12 +1,31 @@
 package fr.utbm.gl52.proj.model;
 
-public class Client {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name="T_CLIENT")
+public class Client implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8871689719055509735L;
+	@Id
+	@Column
 	public int numCli;
+	@Column
 	public String nomCli;
+	@Column
 	public String prenomCli;
+	@Column
 	public String rueCli;
+	@Column
 	public String villeCli;
+	@Column
 	public int cpCli;
+	@Column
 	public String paysCli;
 	
 	public Client(int numCli, String nomCli, String prenomCli, String rueCli, String villeCli, int cpCli,

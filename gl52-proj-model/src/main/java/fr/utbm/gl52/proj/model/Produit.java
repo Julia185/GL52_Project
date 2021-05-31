@@ -1,12 +1,31 @@
 package fr.utbm.gl52.proj.model;
 
-public class Produit {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name="T_PRODUIT")
+public class Produit implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6261539949986980820L;
+	
+	@Id
+	@Column
 	public int refProd;
+	@Column
 	public String desProd;
+	@Column
 	public int qteProd;
+	@Column
 	public float prixHTProd;
+	@Column
 	public float PrixTTCProd;
+	@Column
 	public float TVAProd;
 
 	public Produit() {
