@@ -1,8 +1,24 @@
 package fr.utbm.gl52.proj.model.vente;
 
-public class LigneVente {
-	public int qteLigne; 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity(name="T_LIGNE_VENTE")
+public class LigneVente implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5624615416185646196L;
+	@Column
+	public int qteLigne;
+	@ManyToOne
+	@JoinColumn(name="refprod")
 	public int refProd;
+	@Column
 	public int numVte;
 
 	public LigneVente() {

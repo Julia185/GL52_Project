@@ -16,9 +16,9 @@ public class MainSceneController extends AbstractController {
 
 	@FXML
 	@Override
-	public void switchToMainSceneScene() throws IOException {
+	public void switchToMainScene() throws IOException {
 		// TODO Auto-generated method stub
-		super.switchToMainSceneScene();
+		super.switchToMainScene();
 	}
 
 	@FXML
@@ -48,6 +48,31 @@ public class MainSceneController extends AbstractController {
 	@FXML
 	public void cancelSell() {
 		/* clear all field */
+	}
+	
+	@FXML
+	public void changeMontantVenteValue() {
+		
+	}
+	
+	@FXML
+	public void changeClientVenteInfo() {
+		
+	}
+	
+	@FXML
+	public void getSearchClientVente() {
+		
+	}
+	
+	@FXML 
+	public void getSearchProductVente() {
+		
+	}
+	
+	@FXML
+	public void checkBoxFactureState() {
+		
 	}
 
 // SAV PANEL //
@@ -103,5 +128,7 @@ public class MainSceneController extends AbstractController {
 	public void switchToDeleteProduct() {
 		
 	}
+	
+	
 	
 }

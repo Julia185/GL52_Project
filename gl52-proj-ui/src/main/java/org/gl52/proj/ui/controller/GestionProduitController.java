@@ -8,8 +8,8 @@ public class GestionProduitController extends AbstractController {
 
 	@FXML
 	@Override
-	public void switchToMainSceneScene() throws IOException {
-		super.switchToMainSceneScene();
+	public void switchToMainScene() throws IOException {
+		super.switchToMainScene();
 	}
 
 }

@@ -1,9 +1,22 @@
 package fr.utbm.gl52.proj.model.stock;
 
-public class EntreeStock {
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity(name="T_ENTREE_STOCK")
+public class EntreeStock implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4525335752106527022L;
+	@Column
 	public int qteStock;
+	@Column
 	public String refProduct;
+	@Column
 	public String dateEntree;
 	
 	public EntreeStock() {

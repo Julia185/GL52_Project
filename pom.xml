@@ -45,7 +45,6 @@
 	<modules>
 		<module>gl52-proj-model</module>
 		<module>gl52-proj-service</module>
-		<module>gl52-proj-jpa</module>
 		<module>gl52-proj-controller</module>
 		<module>gl52-proj-ui</module>
 	</modules>

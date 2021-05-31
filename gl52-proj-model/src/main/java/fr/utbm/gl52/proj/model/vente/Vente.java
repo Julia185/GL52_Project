@@ -1,11 +1,33 @@
 package fr.utbm.gl52.proj.model.vente;
 
-public class Vente {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity(name="T_VENTE")
+public class Vente implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3735328494644124667L;
+	@Id
+	@Column
 	public int numVte;
+	@ManyToOne
+	@JoinColumn(name="numcli")
 	public int numCli;
+	@ManyToOne
+	@JoinColumn(name="numemp")
 	public int numEmp;
+	@Column
 	public String libVte;
+	@Column
 	public String date;
+	@Column
 	public int montantVte;
 
 	public Vente() {

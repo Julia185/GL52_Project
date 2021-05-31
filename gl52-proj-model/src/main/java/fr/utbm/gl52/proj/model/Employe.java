@@ -1,13 +1,32 @@
 package fr.utbm.gl52.proj.model;
 
-public class Employe {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name="T_EMPLOYE")
+public class Employe implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 566068823307389766L;
+	@Id
+	@Column
 	public int numEmp;
+	@Column
 	public String nomEmp;
+	@Column
 	public String prenomEmp;
+	@Column
 	public String rueEmp;
+	@Column
 	public String villeEmp;
+	@Column
 	public int cpEmp;
+	@Column
 	public String paysEmp;
 
 	public Employe() {

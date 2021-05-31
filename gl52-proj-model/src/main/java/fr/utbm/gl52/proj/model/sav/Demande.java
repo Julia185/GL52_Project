@@ -1,10 +1,31 @@
 package fr.utbm.gl52.proj.model.sav;
 
-public class Demande {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity(name="DEMANDE")
+public class Demande implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4028920286978053266L;
+	
+	@ManyToOne
+	@JoinColumn(name="numrep")
 	public int numRep;
+	@ManyToOne
+	@JoinColumn(name="numcli")
 	public int numCli;
+	@Column
 	public String natureRep;
+	@Column
 	public String descRep;
+	@ManyToOne
+	@JoinColumn(name="refprod")
 	public int refProd;
 
 	public Demande() {

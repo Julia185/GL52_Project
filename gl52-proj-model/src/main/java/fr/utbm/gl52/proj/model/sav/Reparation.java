@@ -1,7 +1,21 @@
 package fr.utbm.gl52.proj.model.sav;
 
-public class Reparation {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name="T_REPARATION")
+public class Reparation implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2951661481225212439L;
+	@Id
+	@Column
 	public int numRep;
+	@Column
 	public String etatRep;
 
 	public Reparation() {
