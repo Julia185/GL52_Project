@@ -122,16 +122,17 @@ public class MainSceneController extends AbstractController {
 // STOCK PANEL //
 
 	@FXML
-	public void switchToAjoutProduit() throws IOException {
-		App.setRoot("AjoutProduit");		
+	public void switchToAddProduct() throws IOException {
+		App.setRoot("GestionnaireProduit");
 	}
 	
 	@FXML
-	public void switchToModifyProduct() {
-		
+	public void switchToModifyProduct() throws IOException {
+		App.setRoot("GestionnaireProduit");
 	}
+	
 	@FXML
-	public void switchToDeleteProduct() {
-		
+	public void switchToDeleteProduct() throws IOException {
+		App.setRoot("GestionnaireProduit");
 	}
 }
