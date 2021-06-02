@@ -32,7 +32,7 @@ public class Client implements Serializable{
 	@Column
 	public String paysCli;
 	
-	public Client(int numCli, String nomCli, String prenomCli, Sring telCli, String mailCli, String rueCli, String villeCli, int cpCli,
+	public Client(int numCli, String nomCli, String prenomCli, String telCli, String mailCli, String rueCli, String villeCli, int cpCli,
 			String paysCli) {
 		super();
 		this.numCli = numCli;
@@ -51,8 +51,8 @@ public class Client implements Serializable{
 		this.numCli = 1;
 		this.nomCli = "Baker";
 		this.prenomCli = "Simon";
-		this.telCli = "0645892356"
-		this.mailCli = "baker.simon@gmail.com"
+		this.telCli = "0645892356";
+		this.mailCli = "baker.simon@gmail.com";
 		this.rueCli = "2 rue Michelet";
 		this.villeCli = "Belfort";
 		this.cpCli = 90000;
@@ -83,19 +83,19 @@ public class Client implements Serializable{
 		this.prenomCli = prenomCli;
 	}
 
-	public int getTelCli() {
+	public String getTelCli() {
 		return telCli;
 	}
 
-	public void setTelCli(int telCli) {
+	public void setTelCli(String telCli) {
 		this.telCli = telCli;
 	}
 
-	public int getMailCli() {
+	public String getMailCli() {
 		return mailCli;
 	}
 
-	public void setMailCli(int mailCli) {
+	public void setMailCli(String mailCli) {
 		this.mailCli = mailCli;
 	}
 

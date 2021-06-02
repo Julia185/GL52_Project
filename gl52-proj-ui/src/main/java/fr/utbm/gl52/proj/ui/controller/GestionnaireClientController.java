@@ -45,9 +45,9 @@ public class GestionnaireClientController extends AbstractController {
 		String ville = this.villeClientTxtField.getText();
 		String cp = this.cpClientTxtField.getText();
 		String pays = this.paysClientTxtField.getText();
-		Client client = new Client(0, lastName,firstName,rue,ville,cp,pays); 
+		Client client = new Client(0, lastName,firstName,rue,ville,cp,pays, 0, pays); 
 		
-		 this.clientController.insertNewClient(client);
+		this.clientController.insertNewClient(client);
 		super.switchToMainScene();
 	}
 
