@@ -20,6 +20,10 @@ public class Client implements Serializable{
 	@Column
 	public String prenomCli;
 	@Column
+	public String telCli;
+	@Column
+	public String mailCli;
+	@Column
 	public String rueCli;
 	@Column
 	public String villeCli;
@@ -28,12 +32,14 @@ public class Client implements Serializable{
 	@Column
 	public String paysCli;
 	
-	public Client(int numCli, String nomCli, String prenomCli, String rueCli, String villeCli, int cpCli,
+	public Client(int numCli, String nomCli, String prenomCli, Sring telCli, String mailCli, String rueCli, String villeCli, int cpCli,
 			String paysCli) {
 		super();
 		this.numCli = numCli;
 		this.nomCli = nomCli;
 		this.prenomCli = prenomCli;
+		this.telCli = telCli;
+		this.mailCli = mailCli;
 		this.rueCli = rueCli;
 		this.villeCli = villeCli;
 		this.cpCli = cpCli;
@@ -45,6 +51,8 @@ public class Client implements Serializable{
 		this.numCli = 1;
 		this.nomCli = "Baker";
 		this.prenomCli = "Simon";
+		this.telCli = "0645892356"
+		this.mailCli = "baker.simon@gmail.com"
 		this.rueCli = "2 rue Michelet";
 		this.villeCli = "Belfort";
 		this.cpCli = 90000;
@@ -73,6 +81,22 @@ public class Client implements Serializable{
 
 	public void setPrenomCli(String prenomCli) {
 		this.prenomCli = prenomCli;
+	}
+
+	public int getTelCli() {
+		return telCli;
+	}
+
+	public void setTelCli(int telCli) {
+		this.telCli = telCli;
+	}
+
+	public int getMailCli() {
+		return mailCli;
+	}
+
+	public void setMailCli(int mailCli) {
+		this.mailCli = mailCli;
 	}
 
 	public String getRueCli() {
@@ -109,7 +133,7 @@ public class Client implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Client [numCli=" + numCli + ", nomCli=" + nomCli + ", prenomCli=" + prenomCli + ", rueCli=" + rueCli
+		return "Client [numCli=" + numCli + ", nomCli=" + nomCli + ", prenomCli=" + prenomCli + ", telCli=" + telCli + ", mailCli=" + mailCli + ", rueCli=" + rueCli
 				+ ", villeCli=" + villeCli + ", cpCli=" + cpCli + ", paysCli=" + paysCli + "]";
 	}
 }
