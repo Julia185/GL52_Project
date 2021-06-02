@@ -1,4 +1,4 @@
-package fr.utbm.proj.controller.stock;
+package fr.utbm.gl52.proj.controller.stock;
 
 public class EntreeStockController {
 

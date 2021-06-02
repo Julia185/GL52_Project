@@ -9,7 +9,7 @@ public class ClientController {
 	}
 
 	public void insertNewClient(Client client) {
-		
+		System.out.println(client.toString());
 	}
 
 }

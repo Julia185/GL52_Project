@@ -2,14 +2,15 @@ package fr.utbm.gl52.proj.ui.controller;
 
 import java.io.IOException;
 
-//import fr.utbm.gl52.proj.controller.ClientController;
+import fr.utbm.gl52.proj.controller.ClientController;
+import fr.utbm.gl52.proj.model.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class GestionnaireClientController extends AbstractController {
 
-//	private ClientController clientController = new ClientController();
+	private ClientController clientController = new ClientController();
 
 	@FXML
 	private TextField firstNameClientTxtField;
@@ -19,8 +20,6 @@ public class GestionnaireClientController extends AbstractController {
 	private TextField phoneClientTxtField;
 	@FXML
 	private TextField emailClientTxtField;
-	@FXML
-	private TextField numClientTxtField;
 	@FXML
 	private TextField rueClientTxtField;
 	@FXML
@@ -38,25 +37,20 @@ public class GestionnaireClientController extends AbstractController {
 
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		this.insertNewClient();
-		super.switchToMainScene();
-	}
-
-	private void insertNewClient() {
 		String firstName = this.firstNameClientTxtField.getText();
 		String lastName = this.lastNameClientTxtField.getText();
 		String phone = this.phoneClientTxtField.getText();
 		String mail = this.emailClientTxtField.getText();
-		String num = this.numClientTxtField.getText();
 		String rue = this.rueClientTxtField.getText();
 		String ville = this.villeClientTxtField.getText();
-		int cp =	Integer.parseInt(this.cpClientTxtField.getText());
+		String cp = this.cpClientTxtField.getText();
 		String pays = this.paysClientTxtField.getText();
+		Client client = new Client(0, lastName,firstName,rue,ville,cp,pays); 
 		
-//		Client client = new Client(0, lastName,firstName,rue,ville,cp,pays); 
-//		 this.clientController.insertNewClient(client);
-
+		 this.clientController.insertNewClient(client);
+		super.switchToMainScene();
 	}
+
 
 	public void modifyClient(/* Client client */) {
 		//this.firstNameClientTxtField.setText(client.getNomCli());

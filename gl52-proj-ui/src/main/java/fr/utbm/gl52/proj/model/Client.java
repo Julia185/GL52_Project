@@ -24,11 +24,11 @@ public class Client implements Serializable{
 	@Column
 	public String villeCli;
 	@Column
-	public int cpCli;
+	public String cpCli;
 	@Column
 	public String paysCli;
 	
-	public Client(int numCli, String nomCli, String prenomCli, String rueCli, String villeCli, int cpCli,
+	public Client(int numCli, String nomCli, String prenomCli, String rueCli, String villeCli, String cpCli,
 			String paysCli) {
 		super();
 		this.numCli = numCli;
@@ -47,7 +47,6 @@ public class Client implements Serializable{
 		this.prenomCli = "Simon";
 		this.rueCli = "2 rue Michelet";
 		this.villeCli = "Belfort";
-		this.cpCli = 90000;
 		this.paysCli = "France";
 	}
 	
@@ -91,11 +90,11 @@ public class Client implements Serializable{
 		this.villeCli = villeCli;
 	}
 
-	public int getCpCli() {
+	public String getCpCli() {
 		return cpCli;
 	}
 
-	public void setCpCli(int cpCli) {
+	public void setCpCli(String cpCli) {
 		this.cpCli = cpCli;
 	}
 

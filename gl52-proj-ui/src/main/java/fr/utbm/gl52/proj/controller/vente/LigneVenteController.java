@@ -1,4 +1,4 @@
-package fr.utbm.proj.controller.vente;
+package fr.utbm.gl52.proj.controller.vente;
 
 public class LigneVenteController {
 
