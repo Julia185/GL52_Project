@@ -8,31 +8,37 @@
 		<groupId>fr.utbm.gl52.proj</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>fr.utbm.gl52.proj</groupId>
 	<artifactId>gl52-proj-ui</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
 			<version>3.8.1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
-			<version>11</version>
+			<version>13</version>
 		</dependency>
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-fxml</artifactId>
-			<version>11</version>
+			<version>13</version>
+		</dependency>
+		<dependency>
+			<artifactId>gl52-proj-model</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<artifactId>gl52-proj-controller</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -55,7 +61,7 @@
 						<!-- Usage: mvn clean javafx:run -->
 						<id>default-cli</id>
 						<configuration>
-							<mainClass>src.main.resources.org.gl52.proj.ui.App</mainClass>
+							<mainClass>fr.utbm.gl52.proj.ui.App</mainClass>
 						</configuration>
 					</execution>
 				</executions>

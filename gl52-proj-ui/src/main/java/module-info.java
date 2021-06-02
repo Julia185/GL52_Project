@@ -1,9 +1,9 @@
-module org.gl52.proj.ui {
+module fr.utbm.gl52.proj.ui {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens org.gl52.proj.ui to javafx.fxml;
-    opens org.gl52.proj.ui.controller to javafx.fxml;
-    exports org.gl52.proj.ui;
-    exports org.gl52.proj.ui.controller;
+    opens fr.utbm.gl52.proj.ui to javafx.fxml;
+    opens fr.utbm.gl52.proj.ui.controller to javafx.fxml;
+    exports fr.utbm.gl52.proj.ui;
+    exports fr.utbm.gl52.proj.ui.controller;
 }

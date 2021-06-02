@@ -1,8 +1,8 @@
-package org.gl52.proj.ui.controller;
+package fr.utbm.gl52.proj.ui.controller;
 
 import java.io.IOException;
 
-import org.gl52.proj.ui.App;
+import fr.utbm.gl52.proj.ui.App;
 
 public abstract class AbstractController {
 

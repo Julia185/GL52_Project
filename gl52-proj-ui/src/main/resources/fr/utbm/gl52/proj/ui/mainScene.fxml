@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1009.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gl52.proj.ui.controller.MainSceneController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1009.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.utbm.gl52.proj.ui.controller.MainSceneController">
    <children>
       <TabPane prefHeight="683.0" prefWidth="1009.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -31,7 +31,7 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </ToolBar>
-                              <TextField prefHeight="25.0" prefWidth="380.0" text="Recherche client" />
+                              <TextField fx:id="searchClientTxtField" prefHeight="25.0" prefWidth="380.0" text="Recherche client" />
                               <HBox minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <ListView prefHeight="300.0" prefWidth="460.0" />
@@ -46,7 +46,7 @@
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
                               </Separator>
-                              <TextField text="Recherche produit" />
+                              <TextField fx:id="searchProductTxtField" text="Recherche produit" />
                               <HBox layoutX="10.0" layoutY="76.0" minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <ListView prefHeight="300.0" prefWidth="460.0" />
@@ -59,14 +59,14 @@
                         <Button layoutX="936.0" layoutY="592.0" mnemonicParsing="false" text="Carte" />
                         <Button layoutX="850.0" layoutY="592.0" mnemonicParsing="false" text="Liquide" />
                         <Label layoutX="759.0" layoutY="600.0" text="Règlement :" />
-                        <Label layoutX="482.0" layoutY="14.0" prefHeight="36.0" prefWidth="176.0" text="Récaptitulatif :">
+                        <Label  layoutX="482.0" layoutY="14.0" prefHeight="36.0" prefWidth="176.0" text="Récaptitulatif :">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label layoutX="759.0" layoutY="126.0" prefHeight="17.0" prefWidth="103.0" text="Montant total (€):" />
-                        <Label layoutX="666.0" layoutY="24.0" prefHeight="17.0" prefWidth="148.0" text="Info client" />
-                        <Label layoutX="905.0" layoutY="126.0" prefHeight="17.0" prefWidth="88.0" text="123.00" />
+                        <Label  layoutX="759.0" layoutY="126.0" prefHeight="17.0" prefWidth="103.0" text="Montant total (€):" />
+                        <Label fx:id="clientInfosLabel" layoutX="666.0" layoutY="24.0" prefHeight="17.0" prefWidth="148.0" text="" />
+                        <Label fx:id="montantTtlLabel" layoutX="905.0" layoutY="126.0" prefHeight="17.0" prefWidth="88.0" text="" />
                         <Button layoutX="478.0" layoutY="596.0" mnemonicParsing="false" text="Annuler vente" />
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
                         <CheckBox layoutX="593.0" layoutY="600.0" mnemonicParsing="false" text="Facture" />
