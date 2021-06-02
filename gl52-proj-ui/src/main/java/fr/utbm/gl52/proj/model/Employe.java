@@ -29,7 +29,7 @@ public class Employe implements Serializable{
 	@Column
 	public String villeEmp;
 	@Column
-	public int cpEmp;
+	public String cpEmp;
 	@Column
 	public String paysEmp;
 
@@ -41,11 +41,11 @@ public class Employe implements Serializable{
 		this.mailEmp = "jane.patrick@gmail.com";
 		this.rueEmp = "14 rue de l'Eau Vive";
 		this.villeEmp = "Torcy";
-		this.cpEmp = 25300;
+		this.cpEmp = "25300";
 		this.paysEmp = "France";
 	}	
 
-	public Employe(int numEmp, String nomEmp, String prenomEmp, String telEmp, String mailEmp, String rueEmp, String villeEmp, int cpEmp,
+	public Employe(int numEmp, String nomEmp, String prenomEmp, String telEmp, String mailEmp, String rueEmp, String villeEmp, String cpEmp,
 			String paysEmp) {
 		super();
 		this.numEmp = numEmp;
@@ -115,11 +115,11 @@ public class Employe implements Serializable{
 		this.villeEmp = villeEmp;
 	}
 
-	public int getCpEmp() {
+	public String getCpEmp() {
 		return cpEmp;
 	}
 
-	public void setCpEmp(int cpEmp) {
+	public void setCpEmp(String cpEmp) {
 		this.cpEmp = cpEmp;
 	}
 

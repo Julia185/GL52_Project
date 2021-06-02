@@ -12,4 +12,10 @@ public class ClientController {
 		System.out.println(client.toString());
 	}
 
+	public void modifyClient(Client client) {
+	}
+
+	public void eraseClient(String num) {
+	}
+
 }

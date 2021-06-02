@@ -16,28 +16,23 @@ public class Produit implements Serializable {
 	
 	@Id
 	@Column
-	public int refProd;
+	public String refProd;
 	@Column
 	public String desProd;
 	@Column
-	public int qteProd;
+	public String qteProd;
 	@Column
-	public float prixHTProd;
+	public String prixHTProd;
 	@Column
-	public float PrixTTCProd;
+	public String PrixTTCProd;
 	@Column
-	public float TVAProd;
+	public String TVAProd;
 
 	public Produit() {
-		this.refProd = 1;
-		this.desProd = "Machine à laver";
-		this.qteProd = 50;
-		this.prixHTProd = 300;
-		this.PrixTTCProd = 300;
-		this.TVAProd = 0;
+		super();
 	}
 
-	public Produit(int refProd, String desProd, int qteProd, float prixHTProd, float prixTTCProd, float tVAProd) {
+	public Produit(String refProd, String desProd, String qteProd, String prixHTProd, String prixTTCProd, String tVAProd) {
 		super();
 		this.refProd = refProd;
 		this.desProd = desProd;
@@ -47,11 +42,11 @@ public class Produit implements Serializable {
 		TVAProd = tVAProd;
 	}
 
-	public int getRefProd() {
+	public String getRefProd() {
 		return refProd;
 	}
 
-	public void setRefProd(int refProd) {
+	public void setRefProd(String refProd) {
 		this.refProd = refProd;
 	}
 
@@ -63,35 +58,35 @@ public class Produit implements Serializable {
 		this.desProd = desProd;
 	}
 
-	public int getQteProd() {
+	public String getQteProd() {
 		return qteProd;
 	}
 
-	public void setQteProd(int qteProd) {
+	public void setQteProd(String qteProd) {
 		this.qteProd = qteProd;
 	}
 
-	public float getPrixHTProd() {
+	public String getPrixHTProd() {
 		return prixHTProd;
 	}
 
-	public void setPrixHTProd(float prixHTProd) {
+	public void setPrixHTProd(String prixHTProd) {
 		this.prixHTProd = prixHTProd;
 	}
 
-	public float getPrixTTCProd() {
+	public String getPrixTTCProd() {
 		return PrixTTCProd;
 	}
 
-	public void setPrixTTCProd(float prixTTCProd) {
+	public void setPrixTTCProd(String prixTTCProd) {
 		PrixTTCProd = prixTTCProd;
 	}
 
-	public float getTVAProd() {
+	public String getTVAProd() {
 		return TVAProd;
 	}
 
-	public void setTVAProd(float tVAProd) {
+	public void setTVAProd(String tVAProd) {
 		TVAProd = tVAProd;
 	}
 }

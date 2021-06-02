@@ -14,7 +14,7 @@ public class Client implements Serializable{
 	private static final long serialVersionUID = -8871689719055509735L;
 	@Id
 	@Column
-	public int numCli;
+	public String numCli;
 	@Column
 	public String nomCli;
 	@Column
@@ -28,11 +28,11 @@ public class Client implements Serializable{
 	@Column
 	public String villeCli;
 	@Column
-	public int cpCli;
+	public String cpCli;
 	@Column
 	public String paysCli;
 	
-	public Client(int numCli, String nomCli, String prenomCli, String telCli, String mailCli, String rueCli, String villeCli, int cpCli,
+	public Client(String numCli, String nomCli, String prenomCli, String telCli, String mailCli, String rueCli, String villeCli, String cpCli,
 			String paysCli) {
 		super();
 		this.numCli = numCli;
@@ -48,22 +48,13 @@ public class Client implements Serializable{
 
 	public Client() {
 		super();
-		this.numCli = 1;
-		this.nomCli = "Baker";
-		this.prenomCli = "Simon";
-		this.telCli = "0645892356";
-		this.mailCli = "baker.simon@gmail.com";
-		this.rueCli = "2 rue Michelet";
-		this.villeCli = "Belfort";
-		this.cpCli = 90000;
-		this.paysCli = "France";
 	}
 	
-	public int getNumCli() {
+	public String getNumCli() {
 		return numCli;
 	}
 
-	public void setNumCli(int numCli) {
+	public void setNumCli(String numCli) {
 		this.numCli = numCli;
 	}
 
@@ -115,11 +106,11 @@ public class Client implements Serializable{
 		this.villeCli = villeCli;
 	}
 
-	public int getCpCli() {
+	public String getCpCli() {
 		return cpCli;
 	}
 
-	public void setCpCli(int cpCli) {
+	public void setCpCli(String cpCli) {
 		this.cpCli = cpCli;
 	}
 

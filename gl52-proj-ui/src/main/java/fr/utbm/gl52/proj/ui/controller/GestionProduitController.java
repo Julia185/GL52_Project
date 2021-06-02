@@ -2,6 +2,7 @@ package fr.utbm.gl52.proj.ui.controller;
 
 import java.io.IOException;
 
+import fr.utbm.gl52.proj.controller.ProduitController;
 import fr.utbm.gl52.proj.model.Produit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +10,7 @@ import javafx.scene.control.TextField;
 
 public class GestionProduitController extends AbstractController {
 	
-	private GestionProduitController produitController = new GestionProduitController();
+	private ProduitController produitController = new ProduitController();
 
 	@FXML
 	private TextField RefProdTxtField;
@@ -32,38 +33,37 @@ public class GestionProduitController extends AbstractController {
 	
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		this.insertNewProduct();
+		//this.produitController.insertNewProduct();
 		super.switchToMainScene();
 	}
 
-	private void insertNewProduct() throws IOException {
-		String ReferenceProd = this.RefProdTxtField.getText();
-		String DescriptionProduct = this.DesProdTxtField.getText();
-		//int quantity = Integer.parseInt(this.QteProdTxtField.getText());
-		//float prixHTT = Float.parseFloat(this.PrixHTTxtField.getText());
-		//float prixTTC = Float.parseFloat(this.PrixTTCTxtField.getText());
-		//float TVA = Float.parseFloat(this.TVAProdTxtField.getText());
-		
-		Produit produit = new Produit();
-		this.produitController.insertNewProduct();
+	private void newProduct() throws IOException {
+		Produit produit = this.setProduit();
+		this.produitController.insertNewProduct(produit);
 		super.switchToMainScene();
 	}
 	
 	private void modifyProduct() throws IOException {
-		String ReferenceProd = this.RefProdTxtField.getText();
-		String DescriptionProduct = this.DesProdTxtField.getText();
-		//int quantity = Integer.parseInt(this.QteProdTxtField.getText());
-		//float prixHTT = Float.parseFloat(this.PrixHTTxtField.getText());
-		//float prixTTC = Float.parseFloat(this.PrixTTCTxtField.getText());
-		//float TVA = Float.parseFloat(this.TVAProdTxtField.getText());
-		
+		Produit produit = this.setProduit();
 		// Trouver quoi mettre pour modifier un produit déjà existant.
-		this.produitController.modifyProduct();
+		this.produitController.modifyProduct(produit);
 		super.switchToMainScene();
 	}
 	
-	private void removeProduct() {
-		// TO DO.
+	private void removeProduct() throws IOException {
+		String referenceProd = this.RefProdTxtField.getText();
+		this.produitController.eraseProduct(referenceProd);
+	}
+
+	private Produit setProduit() throws IOException {
+		String referenceProd = this.RefProdTxtField.getText();
+		String descriptionProduct = this.DesProdTxtField.getText();
+		String quantity = this.QteProdTxtField.getText();
+		String prixHTT = this.PrixHTTxtField.getText();
+		String prixTTC = this.PrixTTCTxtField.getText();
+		String TVA = this.TVAProdTxtField.getText();
+		Produit produit = new Produit(referenceProd,descriptionProduct,quantity,prixHTT,prixTTC,TVA);
+		return produit;
 	}
 	
 	@FXML

@@ -13,6 +13,8 @@ public class GestionnaireClientController extends AbstractController {
 	private ClientController clientController = new ClientController();
 
 	@FXML
+	private TextField numClientTxtField;
+	@FXML
 	private TextField firstNameClientTxtField;
 	@FXML
 	private TextField lastNameClientTxtField;
@@ -37,6 +39,31 @@ public class GestionnaireClientController extends AbstractController {
 
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
+		Client client = setClient();		
+		this.clientController.insertNewClient(client);
+		super.switchToMainScene();
+	}
+
+	private void newClient() throws IOException {
+		Client client = this.setClient();
+		this.clientController.insertNewClient(client);
+		super.switchToMainScene();
+	}
+	
+	private void modifyClient() throws IOException {
+		Client client = this.setClient();
+		// Trouver quoi mettre pour modifier un produit déjà existant.
+		this.clientController.modifyClient(client);
+		super.switchToMainScene();
+	}
+
+	private void removeClient() throws IOException {
+		String num = this.numClientTxtField.getText();
+		this.clientController.eraseClient(num);
+	}
+
+	private Client setClient() {
+		String num = this.numClientTxtField.getText();
 		String firstName = this.firstNameClientTxtField.getText();
 		String lastName = this.lastNameClientTxtField.getText();
 		String phone = this.phoneClientTxtField.getText();
@@ -45,20 +72,8 @@ public class GestionnaireClientController extends AbstractController {
 		String ville = this.villeClientTxtField.getText();
 		String cp = this.cpClientTxtField.getText();
 		String pays = this.paysClientTxtField.getText();
-		Client client = new Client(0, lastName,firstName,rue,ville,cp,pays, 0, pays); 
-		
-		this.clientController.insertNewClient(client);
-		super.switchToMainScene();
-	}
-
-
-	public void modifyClient(/* Client client */) {
-		//this.firstNameClientTxtField.setText(client.getNomCli());
-//		this.lastNameClientTxtField.setText(client.getPrenomCli());
-//		this.adresseClientTxtField.setText(client.get);
-//		this.phoneClientTxtField.setText(client.get);
-//		this.emailClientTxtField.setText();
-
+		Client client = new Client(num, lastName,firstName,phone,mail,rue,ville,cp,pays); 
+		return client;
 	}
 
 	@FXML
