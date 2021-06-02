@@ -21,6 +21,10 @@ public class Employe implements Serializable{
 	@Column
 	public String prenomEmp;
 	@Column
+	public String telEmp;
+	@Column
+	public String mailEmp;
+	@Column
 	public String rueEmp;
 	@Column
 	public String villeEmp;
@@ -33,18 +37,22 @@ public class Employe implements Serializable{
 		this.numEmp = 1;
 		this.nomEmp = "Jane";
 		this.prenomEmp = "Patrick";
+		this.telEmp = "0645892356";
+		this.mailEmp = "jane.patrick@gmail.com";
 		this.rueEmp = "14 rue de l'Eau Vive";
 		this.villeEmp = "Torcy";
 		this.cpEmp = 25300;
 		this.paysEmp = "France";
 	}	
 
-	public Employe(int numEmp, String nomEmp, String prenomEmp, String rueEmp, String villeEmp, int cpEmp,
+	public Employe(int numEmp, String nomEmp, String prenomEmp, String telEmp, String mailEmp, String rueEmp, String villeEmp, int cpEmp,
 			String paysEmp) {
 		super();
 		this.numEmp = numEmp;
 		this.nomEmp = nomEmp;
 		this.prenomEmp = prenomEmp;
+		this.telEmp = telEmp;
+		this.mailEmp = mailEmp;
 		this.rueEmp = rueEmp;
 		this.villeEmp = villeEmp;
 		this.cpEmp = cpEmp;
@@ -73,6 +81,22 @@ public class Employe implements Serializable{
 
 	public void setPrenomEmp(String prenomEmp) {
 		this.prenomEmp = prenomEmp;
+	}
+
+	public String getTelEmp() {
+		return telEmp;
+	}
+
+	public void setTelEmp(String telEmp) {
+		this.telEmp = telEmp;
+	}
+
+	public String getMailEmp() {
+		return mailEmp;
+	}
+
+	public void setMailEmp(String mailEmp) {
+		this.mailEmp = mailEmp;
 	}
 
 	public String getRueEmp() {
