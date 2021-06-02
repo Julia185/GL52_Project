@@ -122,8 +122,8 @@ public class MainSceneController extends AbstractController {
 // STOCK PANEL //
 
 	@FXML
-	public void switchToCreateProduct() {
-		
+	public void switchToAjoutProduit() throws IOException {
+		App.setRoot("AjoutProduit");		
 	}
 	
 	@FXML
@@ -134,7 +134,4 @@ public class MainSceneController extends AbstractController {
 	public void switchToDeleteProduct() {
 		
 	}
-	
-	
-	
 }
