@@ -1,12 +1,12 @@
 -- -----------------------------------------------------------------------------
---             Génération d'une base de données pour
+--             Gï¿½nï¿½ration d'une base de donnï¿½es pour
 --                      Oracle Version 10g
 --                        (2/6/2021 14:44:53)
 -- -----------------------------------------------------------------------------
 --      Nom de la base : MLR Projet GL52
 --      Projet : Projet GL52
 --      Auteur : etudiant etudiant
---      Date de dernière modification : 2/6/2021 14:44:34
+--      Date de derniï¿½re modification : 2/6/2021 14:44:34
 -- -----------------------------------------------------------------------------
 
 DROP TABLE T_ENTREE_STOCK CASCADE CONSTRAINTS;
@@ -41,7 +41,10 @@ CREATE TABLE T_ENTREE_STOCK
     REFPROD NUMBER(4)  NOT NULL,
     QTEENTSTK NUMBER(6)  NULL,
     DATEENTR DATE  NULL
-,   CONSTRAINT PK_T_ENTREE_STOCK PRIMARY KEY (IDENTR)  
+,   CONSTRAINT PK_T_ENTREE_STOCK PRIMARY KEY (IDENTR),
+     CONSTRAINT FK_T_ENTREE_STOCK_T_PRODUIT
+               FOREIGN KEY (REFPROD)
+                    REFERENCES T_PRODUIT (REFPROD)  
    ) ;
 
 -- -----------------------------------------------------------------------------
@@ -72,10 +75,15 @@ CREATE TABLE T_VENTE
     NUMVTE NUMBER(4)  NOT NULL,
     NUMCLI NUMBER(4)  NOT NULL,
     NUMEMP NUMBER(4)  NOT NULL,
-    LIBVTE VARCHAR2(128)  NULL,
     DATEVTE DATE  NULL,
     MONTANTVTE NUMBER(13,2)  NULL
-,   CONSTRAINT PK_T_VENTE PRIMARY KEY (NUMVTE)  
+,   CONSTRAINT PK_T_VENTE PRIMARY KEY (NUMVTE),
+     CONSTRAINT FK_T_VENTE_T_CLIENT
+          FOREIGN KEY (NUMCLI)
+               REFERENCES T_CLIENT (NUMCLI),
+     CONSTRAINT FK_T_VENTE_T_EMPLOYE
+          FOREIGN KEY (NUMEMP)
+               REFERENCES T_EMPLOYE (NUMEMP)
    ) ;
 
 -- -----------------------------------------------------------------------------
@@ -136,7 +144,13 @@ CREATE TABLE T_LIGNE_VENTE
     REFPROD NUMBER(4)  NOT NULL,
     NUMVTE NUMBER(4)  NOT NULL,
     QTELIGN NUMBER(4)  NULL
-,   CONSTRAINT PK_T_LIGNE_VENTE PRIMARY KEY (IDLIGNEVENTE)  
+,   CONSTRAINT PK_T_LIGNE_VENTE PRIMARY KEY (IDLIGNEVENTE),
+     CONSTRAINT FK_T_LIGNE_VENTE_T_PRODUIT
+          FOREIGN KEY (REFPROD)
+               REFERENCES T_PRODUIT (REFPROD),
+     CONSTRAINT FK_T_LIGNE_VENTE_T_VENTE
+          FOREIGN KEY (NUMVTE)
+               REFERENCES T_VENTE (NUMVTE)
    ) ;
 
 -- -----------------------------------------------------------------------------
@@ -177,7 +191,16 @@ CREATE TABLE T_DEMANDE
     REFPROD NUMBER(4)  NOT NULL,
     NATUREREP VARCHAR2(75)  NULL,
     DESREP VARCHAR2(75)  NULL
-,   CONSTRAINT PK_T_DEMANDE PRIMARY KEY (NUMREP, NUMCLI, REFPROD)  
+,   CONSTRAINT PK_T_DEMANDE PRIMARY KEY (NUMREP, NUMCLI, REFPROD),
+     CONSTRAINT FK_T_DEMANDE_T_REPARATION
+          FOREIGN KEY (NUMREP)
+               REFERENCES T_REPARATION (NUMREP),
+     CONSTRAINT FK_T_DEMANDE_T_CLIENT
+          FOREIGN KEY (NUMCLI)
+               REFERENCES T_CLIENT (NUMCLI),
+     CONSTRAINT FK_T_DEMANDE_T_PRODUIT
+          FOREIGN KEY (REFPROD)
+               REFERENCES T_PRODUIT (REFPROD)  
    ) ;
 
 -- -----------------------------------------------------------------------------
@@ -195,52 +218,6 @@ CREATE  INDEX I_FK_T_DEMANDE_T_CLIENT
 CREATE  INDEX I_FK_T_DEMANDE_T_PRODUIT
      ON T_DEMANDE (REFPROD ASC)
     ;
-
-
--- -----------------------------------------------------------------------------
---       CREATION DES REFERENCES DE TABLE
--- -----------------------------------------------------------------------------
-
-
-ALTER TABLE T_ENTREE_STOCK ADD (
-     CONSTRAINT FK_T_ENTREE_STOCK_T_PRODUIT
-          FOREIGN KEY (REFPROD)
-               REFERENCES T_PRODUIT (REFPROD))   ;
-
-ALTER TABLE T_VENTE ADD (
-     CONSTRAINT FK_T_VENTE_T_CLIENT
-          FOREIGN KEY (NUMCLI)
-               REFERENCES T_CLIENT (NUMCLI))   ;
-
-ALTER TABLE T_VENTE ADD (
-     CONSTRAINT FK_T_VENTE_T_EMPLOYE
-          FOREIGN KEY (NUMEMP)
-               REFERENCES T_EMPLOYE (NUMEMP))   ;
-
-ALTER TABLE T_LIGNE_VENTE ADD (
-     CONSTRAINT FK_T_LIGNE_VENTE_T_PRODUIT
-          FOREIGN KEY (REFPROD)
-               REFERENCES T_PRODUIT (REFPROD))   ;
-
-ALTER TABLE T_LIGNE_VENTE ADD (
-     CONSTRAINT FK_T_LIGNE_VENTE_T_VENTE
-          FOREIGN KEY (NUMVTE)
-               REFERENCES T_VENTE (NUMVTE))   ;
-
-ALTER TABLE T_DEMANDE ADD (
-     CONSTRAINT FK_T_DEMANDE_T_REPARATION
-          FOREIGN KEY (NUMREP)
-               REFERENCES T_REPARATION (NUMREP))   ;
-
-ALTER TABLE T_DEMANDE ADD (
-     CONSTRAINT FK_T_DEMANDE_T_CLIENT
-          FOREIGN KEY (NUMCLI)
-               REFERENCES T_CLIENT (NUMCLI))   ;
-
-ALTER TABLE T_DEMANDE ADD (
-     CONSTRAINT FK_T_DEMANDE_T_PRODUIT
-          FOREIGN KEY (REFPROD)
-               REFERENCES T_PRODUIT (REFPROD))   ;
 
 
 -- -----------------------------------------------------------------------------
