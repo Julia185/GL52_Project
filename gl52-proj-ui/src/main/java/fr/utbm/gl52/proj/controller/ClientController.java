@@ -1,11 +1,14 @@
 package fr.utbm.gl52.proj.controller;
 
 import fr.utbm.gl52.proj.model.Client;
+import fr.utbm.gl52.proj.service.ClientService;
 
 public class ClientController {
+	
+	private ClientService service = new ClientService();
 
 	public ClientController() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public void insertNewClient(Client client) {

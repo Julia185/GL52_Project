@@ -1,7 +1,11 @@
 package fr.utbm.gl52.proj.controller;
 
-public class EmployeeController {
+import fr.utbm.gl52.proj.service.EmployeeService;
 
+public class EmployeeController {
+	
+	private EmployeeService service = new EmployeeService();
+	
 	public EmployeeController() {
 		// TODO Auto-generated constructor stub
 	}

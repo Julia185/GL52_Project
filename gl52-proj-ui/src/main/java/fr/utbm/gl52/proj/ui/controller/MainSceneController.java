@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 
 public class MainSceneController extends AbstractController {
 
-	GestionnaireClientController gcc = new GestionnaireClientController();
 	@FXML private TextField searchClientTxtField;
 	@FXML private TextField searchProductTxtField;
 	@FXML private Label clientInfosLabel;
