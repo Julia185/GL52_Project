@@ -39,8 +39,7 @@ public class GestionnaireClientController extends AbstractController {
 
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		Client client = setClient();		
-		this.clientController.insertNewClient(client);
+		this.newClient();
 		super.switchToMainScene();
 	}
 

@@ -17,7 +17,7 @@ public class ClientController {
 	}
 
 	public void insertNewClient(Client client) {
-		System.out.println(client.toString());
+		this.service.inserClient(client);
 	}
 
 	public void modifyClient(Client client) {
