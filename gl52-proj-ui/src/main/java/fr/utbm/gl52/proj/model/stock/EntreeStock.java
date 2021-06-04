@@ -2,30 +2,19 @@ package fr.utbm.gl52.proj.model.stock;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
 
-@Entity(name="T_ENTREE_STOCK")
 public class EntreeStock implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4525335752106527022L;
-	@Column
 	public int idEntr;
-	@Column
 	public int qteEnStock;
-	@Column
 	public String refProduct;
-	@Column
 	public String dateEntree;
 	
 	public EntreeStock() {
-		this.idEntr = 1;
-		this.qteEnStock = 100;
-		this.refProduct = "P10";
-		this.dateEntree = "27/05/2021";
 	}
 
 	public EntreeStock(int idEntr, int qteEnStock, String refProduct, String dateEntree) {

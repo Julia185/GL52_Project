@@ -2,43 +2,22 @@ package fr.utbm.gl52.proj.model.vente;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
-@Entity(name="T_VENTE")
 public class Vente implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3735328494644124667L;
-	@Id
-	@Column
 	public int numVte;
-	@ManyToOne
-	@JoinColumn(name="numcli")
 	public int numCli;
-	@ManyToOne
-	@JoinColumn(name="numemp")
 	public int numEmp;
-	@Column
 	public String libVte;
-	@Column
 	public String date;
-	@Column
 	public int montantVte;
 
 	public Vente() {
-		this.numVte = 1;
-		this.numCli = 1;
-		this.numEmp = 1;
-		this.libVte = "Vente machine à laver";
-		this.date = "27/05/2021";
-		this.montantVte = 300;
 	}
-
+	
 	public Vente(int numVte, int numCli, int numEmp, String libVte, String date, int montantVte) {
 		super();
 		this.numVte = numVte;

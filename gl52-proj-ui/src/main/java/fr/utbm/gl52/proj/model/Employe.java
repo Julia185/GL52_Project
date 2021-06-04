@@ -2,47 +2,24 @@ package fr.utbm.gl52.proj.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
-@Entity(name="T_EMPLOYE")
 public class Employe implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 566068823307389766L;
-	@Id
-	@Column
 	public int numEmp;
-	@Column
 	public String nomEmp;
-	@Column
 	public String prenomEmp;
-	@Column
 	public String telEmp;
-	@Column
 	public String mailEmp;
-	@Column
 	public String rueEmp;
-	@Column
 	public String villeEmp;
-	@Column
 	public String cpEmp;
-	@Column
 	public String paysEmp;
 
 	public Employe() {
-		this.numEmp = 1;
-		this.nomEmp = "Jane";
-		this.prenomEmp = "Patrick";
-		this.telEmp = "0645892356";
-		this.mailEmp = "jane.patrick@gmail.com";
-		this.rueEmp = "14 rue de l'Eau Vive";
-		this.villeEmp = "Torcy";
-		this.cpEmp = "25300";
-		this.paysEmp = "France";
 	}	
 
 	public Employe(int numEmp, String nomEmp, String prenomEmp, String telEmp, String mailEmp, String rueEmp, String villeEmp, String cpEmp,

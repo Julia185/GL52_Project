@@ -7,6 +7,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import fr.utbm.gl52.proj.model.Client;
 import fr.utbm.gl52.proj.service.ClientService;
@@ -44,11 +47,31 @@ public class App extends Application {
     public static void main(String[] args) {
 //        launch();
 
-    	
-    	ClientService service  = new ClientService();
-        for (Client c : service.getAllClient() ) {
-			System.out.println(c.toString());
+    	connect();
+//    	ClientService service  = new ClientService();
+//        for (Client c : service.getAllClient() ) {
+//			System.out.println(c.toString());
+//		}
+    }
+    
+    private static void connect() {
+    	Connection con = null;
+    	try {
+    		String url = "jdbc:sqlite:src/main/resources/GL52.db";
+			con = DriverManager.getConnection(url);
+			System.out.println("Connection to SQLite has been stablished");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if (con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
+    	
     }
 
 }

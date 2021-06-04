@@ -2,11 +2,6 @@ package fr.utbm.gl52.proj.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity(name="T_PRODUIT")
 public class Produit implements Serializable {
 	
 	/**
@@ -14,18 +9,11 @@ public class Produit implements Serializable {
 	 */
 	private static final long serialVersionUID = -6261539949986980820L;
 	
-	@Id
-	@Column
 	public String refProd;
-	@Column
 	public String desProd;
-	@Column
 	public String qteProd;
-	@Column
 	public String prixHTProd;
-	@Column
 	public String PrixTTCProd;
-	@Column
 	public String TVAProd;
 
 	public Produit() {
