@@ -34,7 +34,7 @@
                               <TextField fx:id="searchClientTxtField" prefHeight="25.0" prefWidth="380.0" text="Recherche client" />
                               <HBox minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <ListView fx:id="clientList" prefHeight="300.0" prefWidth="474.0" />
+                                    <ListView fx:id="clientList" prefHeight="300.0" prefWidth="474.0" onMouseReleased="#selectClientVenteInfo" />
                                  </children>
                               </HBox>
                               <Separator prefWidth="200.0">
@@ -48,10 +48,17 @@
                               <TextField fx:id="searchProductTxtField" text="Recherche produit" />
                               <HBox layoutX="10.0" layoutY="76.0" minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <ListView prefHeight="300.0" prefWidth="474.0" />
+                                    <ListView fx:id="productList" prefHeight="300.0" prefWidth="474.0" />
                                  </children>
                               </HBox>
                               <Button mnemonicParsing="false" text="Scanner" />
+                              
+                       		 <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutY="14.0" text="Quantité acheté:" />
+                                    <TextField fx:id="qttAchatTxtField" layoutX="104.0" layoutY="10.0" prefHeight="25.0" prefWidth="70.0" />
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </VBox>
                         <Button layoutX="936.0" layoutY="592.0" mnemonicParsing="false" text="Carte" />
@@ -63,7 +70,7 @@
                            </font>
                         </Label>
                         <Label  layoutX="759.0" layoutY="126.0" prefHeight="17.0" prefWidth="103.0" text="Montant total (€):" />
-                        <Label fx:id="clientInfosLabel" layoutX="666.0" layoutY="24.0" prefHeight="17.0" prefWidth="148.0" text="" />
+                        <Label fx:id="clientInfosLabel" layoutX="482.0" layoutY="24.0" prefHeight="100.0" prefWidth="550.0" text="" />
                         <Label fx:id="montantTtlLabel" layoutX="905.0" layoutY="126.0" prefHeight="17.0" prefWidth="88.0" text="" />
                         <Button layoutX="478.0" layoutY="596.0" mnemonicParsing="false" text="Annuler vente" />
                         <Separator orientation="VERTICAL" prefHeight="200.0" />

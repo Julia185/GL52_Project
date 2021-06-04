@@ -112,7 +112,7 @@ public class Client implements Serializable{
 		this.paysCli = paysCli;
 	}
 	
-	private String getAdresse() {
+	public String getAdresse() {
 		return rueCli +" " + cpCli + " " + villeCli + " "+paysCli; 
 	}
 

@@ -1,5 +1,7 @@
 package fr.utbm.gl52.proj.controller;
 
+import java.util.List;
+
 import fr.utbm.gl52.proj.model.Produit;
 import fr.utbm.gl52.proj.service.ProduitService;
 
@@ -8,8 +10,12 @@ public class ProduitController {
 	private ProduitService service = new ProduitService();
 
 	public ProduitController() {
-		// TODO Auto-generated constructor stub
 	}
+	
+	public List<Produit> getAllProduit() {
+		return this.service.getAllProduit();
+	}
+
 
     public void modifyProduct(Produit produit) {
     }

@@ -77,4 +77,12 @@ public class Produit implements Serializable {
 	public void setTVAProd(String tVAProd) {
 		TVAProd = tVAProd;
 	}
+
+	@Override
+	public String toString() {
+		return  refProd + " | " + desProd + " Qtt : " + qteProd + " HT : "
+				+ prixHTProd + "€ / TTC : " + PrixTTCProd + "€ | TVA" + TVAProd ;
+	}
+	
+	
 }

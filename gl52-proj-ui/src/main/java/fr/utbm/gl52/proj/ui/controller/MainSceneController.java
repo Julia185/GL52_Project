@@ -5,7 +5,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import fr.utbm.gl52.proj.controller.ClientController;
+import fr.utbm.gl52.proj.controller.ProduitController;
 import fr.utbm.gl52.proj.model.Client;
+import fr.utbm.gl52.proj.model.Produit;
 import fr.utbm.gl52.proj.ui.App;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,19 +30,24 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	@FXML
 	private ListView<Client> clientList;
+	@FXML
+	private ListView<Produit> productList;
 
 	private ClientController clientController = new ClientController();
+	private ProduitController produitController = new ProduitController();
 
 	public MainSceneController() {
 		super();
 
-		
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		ObservableList<Client> items = FXCollections.observableArrayList(this.clientController.getAllClient());
-		this.clientList.setItems(items);
+		ObservableList<Client> clientItems = FXCollections.observableArrayList(this.clientController.getAllClient());
+		ObservableList<Produit> productItems = FXCollections
+				.observableArrayList(this.produitController.getAllProduit());
+		this.clientList.setItems(clientItems);
+		this.productList.setItems(productItems);
 
 	}
 
@@ -91,8 +98,10 @@ public class MainSceneController extends AbstractController implements Initializ
 	}
 
 	@FXML
-	public void changeClientVenteInfo() {
-
+	public void selectClientVenteInfo() {
+		Client client = clientList.getSelectionModel().getSelectedItem();
+		String str = "%s %s\n %s";
+		this.clientInfosLabel.setText(String.format(str, client.getNomCli(), client.getPrenomCli(),client.getAdresse()));
 	}
 
 	@FXML
