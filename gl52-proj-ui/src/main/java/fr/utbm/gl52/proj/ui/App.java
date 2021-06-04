@@ -45,33 +45,14 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-//        launch();
 
-    	connect();
-//    	ClientService service  = new ClientService();
-//        for (Client c : service.getAllClient() ) {
-//			System.out.println(c.toString());
-//		}
+    	ClientService service  = new ClientService();
+        for (Client c : service.getAllClient() ) {
+			System.out.println(c.toString());
+		}
+        launch();
     }
     
-    private static void connect() {
-    	Connection con = null;
-    	try {
-    		String url = "jdbc:sqlite:src/main/resources/GL52.db";
-			con = DriverManager.getConnection(url);
-			System.out.println("Connection to SQLite has been stablished");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			if (con!=null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-    	
-    }
+   
 
 }

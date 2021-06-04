@@ -111,10 +111,13 @@ public class Client implements Serializable{
 	public void setPaysCli(String paysCli) {
 		this.paysCli = paysCli;
 	}
+	
+	private String getAdresse() {
+		return rueCli +" " + cpCli + " " + villeCli + " "+paysCli; 
+	}
 
 	@Override
 	public String toString() {
-		return "Client [numCli=" + numCli + ", nomCli=" + nomCli + ", prenomCli=" + prenomCli + ", telCli=" + telCli + ", mailCli=" + mailCli + ", rueCli=" + rueCli
-				+ ", villeCli=" + villeCli + ", cpCli=" + cpCli + ", paysCli=" + paysCli + "]";
+		return " "+ nomCli + " " + prenomCli.substring(0,1) + prenomCli.substring(1).toLowerCase() + " | " + this.getAdresse() + " | " + telCli + " | " + mailCli;
 	}
 }
