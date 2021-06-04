@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import fr.utbm.gl52.proj.model.Client;
+import fr.utbm.gl52.proj.service.ClientService;
+
 /**
  * JavaFX App
  */
@@ -39,7 +42,13 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+//        launch();
+
+    	
+    	ClientService service  = new ClientService();
+        for (Client c : service.getAllClient() ) {
+			System.out.println(c.toString());
+		}
     }
 
 }

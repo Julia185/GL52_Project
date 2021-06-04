@@ -5,32 +5,40 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
-@Entity(name="T_CLIENT")
+@Entity
+@Table(name="T_CLIENT")
+@NamedQueries(
+		@NamedQuery(name="t_Client.getAll",query="select c from t_client c")
+)
 public class Client implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8871689719055509735L;
 	@Id
-	@Column
-	public String numCli;
-	@Column
-	public String nomCli;
-	@Column
-	public String prenomCli;
-	@Column
-	public String telCli;
-	@Column
-	public String mailCli;
-	@Column
-	public String rueCli;
-	@Column
-	public String villeCli;
-	@Column
-	public String cpCli;
-	@Column
-	public String paysCli;
+	@Column(name="NUMCLI")
+	private String numCli;
+	@Column(name="NOMCLI")
+	private String nomCli;
+	@Column(name="PRENOMCLI")
+	private String prenomCli;
+	@Column(name="TELCLI")
+	private String telCli;
+	@Column(name="MAILCLI")
+	private String mailCli;
+	@Column(name="RUECLI")
+	private String rueCli;
+	@Column(name="VILLECLI")
+	private String villeCli;
+	@Column(name="CPLCI")
+	private String cpCli;
+	@Column(name="PAYSCLI")
+	private String paysCli;
+
 	
 	public Client(String numCli, String nomCli, String prenomCli, String telCli, String mailCli, String rueCli, String villeCli, String cpCli,
 			String paysCli) {
@@ -50,7 +58,9 @@ public class Client implements Serializable{
 		super();
 	}
 	
+
 	public String getNumCli() {
+
 		return numCli;
 	}
 
