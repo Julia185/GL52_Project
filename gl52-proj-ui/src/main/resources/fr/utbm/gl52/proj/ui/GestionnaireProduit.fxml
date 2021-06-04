@@ -22,6 +22,7 @@
             <Label fx:id="TVAProdLabel" layoutX="14.0" layoutY="326.0" text="TVA Produit :" />
             <TextField fx:id="TVAProdTxtField" layoutX="131.0" layoutY="322.0" prefHeight="25.0" prefWidth="149.0" />
             <Button fx:id="ValiderButton" layoutX="511.0" layoutY="322.0" mnemonicParsing="false" text="Valider" onAction="#switchToMainSceneValidate"/>
+         	<Button fx:id="AnnulerButton" layoutX="444.0" layoutY="322.0" mnemonicParsing="false" text="Annuler" onAction="#switchToMainScene"/>
          </children></AnchorPane>
   </content>
 </TitledPane>

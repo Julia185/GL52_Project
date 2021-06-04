@@ -34,7 +34,7 @@ public class GestionProduitController extends AbstractController {
 	
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		//this.produitController.insertNewProduct();
+		this.newProduct();
 		super.switchToMainScene();
 	}
 
