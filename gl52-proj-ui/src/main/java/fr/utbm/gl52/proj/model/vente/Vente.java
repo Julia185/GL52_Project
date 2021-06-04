@@ -8,12 +8,12 @@ public class Vente implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 3735328494644124667L;
-	public int numVte;
-	public int numCli;
-	public int numEmp;
-	public String libVte;
-	public String date;
-	public int montantVte;
+	private int numVte;
+	private int numCli;
+	private int numEmp;
+	private String libVte;
+	private String date;
+	private int montantVte;
 
 	public Vente() {
 	}

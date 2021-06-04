@@ -8,9 +8,9 @@ public class LigneVente implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -5624615416185646196L;
-	public int qteLigne;
-	public int refProd;
-	public int numVte;
+	private int qteLigne;
+	private int refProd;
+	private int numVte;
 
 	public LigneVente() {
 	}

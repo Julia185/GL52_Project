@@ -10,14 +10,14 @@ public class Employe implements Serializable{
 	 */
 	private static final long serialVersionUID = 566068823307389766L;
 	public int numEmp;
-	public String nomEmp;
-	public String prenomEmp;
-	public String telEmp;
-	public String mailEmp;
-	public String rueEmp;
-	public String villeEmp;
-	public String cpEmp;
-	public String paysEmp;
+	private String nomEmp;
+	private String prenomEmp;
+	private String telEmp;
+	private String mailEmp;
+	private String rueEmp;
+	private String villeEmp;
+	private String cpEmp;
+	private String paysEmp;
 
 	public Employe() {
 	}	

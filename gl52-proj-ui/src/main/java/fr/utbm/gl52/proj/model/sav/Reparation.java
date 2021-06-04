@@ -8,8 +8,8 @@ public class Reparation implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -2951661481225212439L;
-	public int numRep;
-	public String etatRep;
+	private int numRep;
+	private String etatRep;
 
 	public Reparation() {
 	}

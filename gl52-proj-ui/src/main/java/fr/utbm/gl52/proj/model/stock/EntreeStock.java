@@ -9,10 +9,10 @@ public class EntreeStock implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -4525335752106527022L;
-	public int idEntr;
-	public int qteEnStock;
-	public String refProduct;
-	public String dateEntree;
+	private int idEntr;
+	private int qteEnStock;
+	private String refProduct;
+	private String dateEntree;
 	
 	public EntreeStock() {
 	}

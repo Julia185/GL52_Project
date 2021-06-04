@@ -9,12 +9,12 @@ public class Produit implements Serializable {
 	 */
 	private static final long serialVersionUID = -6261539949986980820L;
 	
-	public String refProd;
-	public String desProd;
-	public String qteProd;
-	public String prixHTProd;
-	public String PrixTTCProd;
-	public String TVAProd;
+	private String refProd;
+	private String desProd;
+	private String qteProd;
+	private String prixHTProd;
+	private String PrixTTCProd;
+	private String TVAProd;
 
 	public Produit() {
 		super();

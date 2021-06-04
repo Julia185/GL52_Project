@@ -9,11 +9,11 @@ public class Demande implements Serializable {
 	 */
 	private static final long serialVersionUID = 4028920286978053266L;
 	
-	public int numRep;
-	public int numCli;
-	public String natureRep;
-	public String descRep;
-	public int refProd;
+	private int numRep;
+	private int numCli;
+	private String natureRep;
+	private String descRep;
+	private int refProd;
 
 	public Demande() {
 	}
