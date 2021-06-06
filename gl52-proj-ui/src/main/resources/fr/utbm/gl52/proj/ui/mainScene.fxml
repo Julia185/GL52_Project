@@ -24,7 +24,7 @@
                               <ToolBar prefHeight="40.0" prefWidth="200.0">
                                 <items>
                                   <Button mnemonicParsing="false" text="Nouveau client" onAction="#switchToGestionnaireClient"/>
-                                    <Button mnemonicParsing="false" text="Modifier client" onAction="#switchToGestionnaireClient" />
+                                    <Button mnemonicParsing="false" text="Modifier client" onAction="#modifyClient" />
                                     <Button mnemonicParsing="false" text="Supprimer client"  />
                                 </items>
                                  <VBox.margin>

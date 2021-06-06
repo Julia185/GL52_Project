@@ -46,10 +46,6 @@ public class App extends Application {
 
     public static void main(String[] args) {
 
-    	ClientService service  = new ClientService();
-        for (Client c : service.getAllClient() ) {
-			System.out.println(c.toString());
-		}
         launch();
     }
     

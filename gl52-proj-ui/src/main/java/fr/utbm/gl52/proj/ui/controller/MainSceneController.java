@@ -71,7 +71,8 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	@FXML
 	public void modifyClient() throws IOException {
-
+		GestionnaireClientController gcc = new GestionnaireClientController();
+		gcc.setDateForUpdate( clientList.getSelectionModel().getSelectedItem());
 		App.setRoot("GestionnaireClient");
 		/* get selected element from list client */
 	}
