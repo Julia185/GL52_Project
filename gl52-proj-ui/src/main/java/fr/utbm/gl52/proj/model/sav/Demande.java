@@ -9,16 +9,16 @@ public class Demande implements Serializable {
 	 */
 	private static final long serialVersionUID = 4028920286978053266L;
 	
-	private int numRep;
-	private int numCli;
+	private String numRep;
+	private String numCli;
 	private String natureRep;
 	private String descRep;
-	private int refProd;
+	private String refProd;
 
 	public Demande() {
 	}
 
-	public Demande(int numRep, int numCli, String natureRep, String descRep, int refProd) {
+	public Demande(String numRep, String numCli, String natureRep, String descRep, String refProd) {
 		super();
 		this.numRep = numRep;
 		this.numCli = numCli;
@@ -27,19 +27,19 @@ public class Demande implements Serializable {
 		this.refProd = refProd;
 	}
 
-	public int getNumRep() {
+	public String getNumRep() {
 		return numRep;
 	}
 
-	public void setNumRep(int numRep) {
+	public void setNumRep(String numRep) {
 		this.numRep = numRep;
 	}
 
-	public int getNumCli() {
+	public String getNumCli() {
 		return numCli;
 	}
 
-	public void setNumCli(int numCli) {
+	public void setNumCli(String numCli) {
 		this.numCli = numCli;
 	}
 
@@ -59,11 +59,11 @@ public class Demande implements Serializable {
 		this.descRep = descRep;
 	}
 
-	public int getRefProd() {
+	public String getRefProd() {
 		return refProd;
 	}
 
-	public void setRefProd(int refProd) {
+	public void setRefProd(String refProd) {
 		this.refProd = refProd;
 	}
 }
