@@ -9,15 +9,15 @@ public class EntreeStock implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -4525335752106527022L;
-	private int idEntr;
-	private int qteEnStock;
+	private String idEntr;
+	private String qteEnStock;
 	private String refProduct;
 	private String dateEntree;
 	
 	public EntreeStock() {
 	}
 
-	public EntreeStock(int idEntr, int qteEnStock, String refProduct, String dateEntree) {
+	public EntreeStock(String idEntr, String qteEnStock, String refProduct, String dateEntree) {
 		super();
 		this.idEntr = idEntr;
 		this.qteEnStock = qteEnStock;
@@ -25,19 +25,19 @@ public class EntreeStock implements Serializable {
 		this.dateEntree = dateEntree;
 	}
 
-	public int getIdEntr() {
+	public String getIdEntr() {
 		return idEntr;
 	}
 
-	public void setIdEntr(int idEntr) {
+	public void setIdEntr(String idEntr) {
 		this.idEntr = idEntr;
 	}
 
-	public int getQteEnStock() {
+	public String getQteEnStock() {
 		return qteEnStock;
 	}
 
-	public void setQteEnStock(int qteStock) {
+	public void setQteEnStock(String qteStock) {
 		this.qteEnStock = qteStock;
 	}
 

@@ -9,7 +9,7 @@ public class Employe implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 566068823307389766L;
-	public int numEmp;
+	public String numEmp;
 	private String nomEmp;
 	private String prenomEmp;
 	private String telEmp;
@@ -22,7 +22,7 @@ public class Employe implements Serializable{
 	public Employe() {
 	}	
 
-	public Employe(int numEmp, String nomEmp, String prenomEmp, String telEmp, String mailEmp, String rueEmp, String villeEmp, String cpEmp,
+	public Employe(String numEmp, String nomEmp, String prenomEmp, String telEmp, String mailEmp, String rueEmp, String villeEmp, String cpEmp,
 			String paysEmp) {
 		super();
 		this.numEmp = numEmp;
@@ -36,11 +36,11 @@ public class Employe implements Serializable{
 		this.paysEmp = paysEmp;
 	}
 
-	public int getNumEmp() {
+	public String getNumEmp() {
 		return numEmp;
 	}
 
-	public void setNumEmp(int numEmp) {
+	public void setNumEmp(String numEmp) {
 		this.numEmp = numEmp;
 	}
 

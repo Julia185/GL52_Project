@@ -8,17 +8,17 @@ public class Vente implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 3735328494644124667L;
-	private int numVte;
-	private int numCli;
-	private int numEmp;
+	private String numVte;
+	private String numCli;
+	private String numEmp;
 	private String libVte;
 	private String date;
-	private int montantVte;
+	private String montantVte;
 
 	public Vente() {
 	}
 	
-	public Vente(int numVte, int numCli, int numEmp, String libVte, String date, int montantVte) {
+	public Vente(String numVte, String numCli, String numEmp, String libVte, String date, String montantVte) {
 		super();
 		this.numVte = numVte;
 		this.numCli = numCli;
@@ -28,27 +28,27 @@ public class Vente implements Serializable {
 		this.montantVte = montantVte;
 	}
 
-	public int getNumVte() {
+	public String getNumVte() {
 		return numVte;
 	}
 
-	public void setNumVte(int numVte) {
+	public void setNumVte(String numVte) {
 		this.numVte = numVte;
 	}
 
-	public int getNumCli() {
+	public String getNumCli() {
 		return numCli;
 	}
 
-	public void setNumCli(int numCli) {
+	public void setNumCli(String numCli) {
 		this.numCli = numCli;
 	}
 
-	public int getNumEmp() {
+	public String getNumEmp() {
 		return numEmp;
 	}
 
-	public void setNumEmp(int numEmp) {
+	public void setNumEmp(String numEmp) {
 		this.numEmp = numEmp;
 	}
 
@@ -68,11 +68,11 @@ public class Vente implements Serializable {
 		this.date = date;
 	}
 
-	public int getMontantVte() {
+	public String getMontantVte() {
 		return montantVte;
 	}
 
-	public void setMontantVte(int montantVte) {
+	public void setMontantVte(String montantVte) {
 		this.montantVte = montantVte;
 	}
 }
