@@ -195,8 +195,6 @@
                         <Button layoutX="304.0" layoutY="25.0" mnemonicParsing="false" text="Ajouter produit" onAction="#switchToAddProduct"/>
                         <Button layoutX="427.0" layoutY="25.0" mnemonicParsing="false" text="Modifier produit" onAction="#switchToModifyProduct"/>
                         <Button layoutX="557.0" layoutY="25.0" mnemonicParsing="false" text="Supprimer produit" onAction="#switchToDeleteProduct"/>
-                        <ScrollBar layoutX="988.0" layoutY="62.0" orientation="VERTICAL" prefHeight="573.0" prefWidth="14.0" />
-                        <ScrollBar layoutX="14.0" layoutY="633.0" prefHeight="14.0" prefWidth="972.0" />
                      </children>
                   </AnchorPane>
               </content>

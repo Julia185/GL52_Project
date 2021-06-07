@@ -51,6 +51,21 @@ public class MainSceneController extends AbstractController implements Initializ
 	private ListView<Client> clientList;
 	@FXML
 	private ListView<Produit> productList;
+	@FXML
+	private TableView<Produit> stockProduitTableView;
+	@FXML
+	private TableColumn<Produit, String> numProdCol;
+	@FXML
+	private TableColumn<Produit, String> desCol;
+	@FXML
+	private TableColumn<Produit, String> qttCol;
+	@FXML
+	private TableColumn<Produit, String> prixHTCol;
+	@FXML
+	private TableColumn<Produit, String> prixTTCCol;
+	@FXML
+	private TableColumn<Produit, String> tVACol;
+	
 
 	private ClientController clientController = new ClientController();
 	private ProduitController produitController = new ProduitController();
@@ -88,9 +103,12 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	@FXML
 	public void modifyClient() throws IOException {
-		GestionnaireClientController gcc = new GestionnaireClientController();
-		gcc.setDateForUpdate( clientList.getSelectionModel().getSelectedItem());
+		 
 		App.setRoot("GestionnaireClient");
+		GestionnaireClientController gcc = App.getFxmlLoader().getController();
+		gcc.setDateForUpdate( clientList.getSelectionModel().getSelectedItem());
+			
+		
 		/* get selected element from list client */
 	}
 
@@ -225,7 +243,6 @@ public class MainSceneController extends AbstractController implements Initializ
 	public void showTVAProd() {
 		tVAColumn.setCellValueFactory(Produit -> Produit.getValue().tvaProdProperty());
 	}
-	
 
 	@FXML
 	public void switchToAddProduct() throws IOException {

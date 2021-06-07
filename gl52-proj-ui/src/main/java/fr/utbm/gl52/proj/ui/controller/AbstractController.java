@@ -11,4 +11,6 @@ public abstract class AbstractController {
 	public void switchToMainScene() throws IOException{
 			App.setRoot(mainSceneScene);
 	}
+
+	
 }

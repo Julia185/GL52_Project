@@ -7,12 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-import fr.utbm.gl52.proj.model.Client;
-import fr.utbm.gl52.proj.service.ClientService;
 
 /**
  * JavaFX App
@@ -20,6 +14,8 @@ import fr.utbm.gl52.proj.service.ClientService;
 public class App extends Application {
 
     private static Scene scene;
+    private static FXMLLoader fxmlLoader;
+    
 
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
@@ -40,7 +36,7 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+    	fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
@@ -48,7 +44,12 @@ public class App extends Application {
 
         launch();
     }
-    
-   
+
+
+	@SuppressWarnings("exports")
+	public static FXMLLoader getFxmlLoader() {
+		return fxmlLoader;
+	}
+  
 
 }

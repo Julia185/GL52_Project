@@ -15,10 +15,40 @@ public class ClientService extends IConnectDbService {
 	public ClientService() {
 	}
 
-//	public String getNextValId() {
-//		List<Client> nextId = new ArrayList<Client>();
-//		return  nextId.get(0).getNumCli()+1;
-//	}
+	public String getNextValId() {
+		String rqt = "SELECT c FROM T_CLIENT c WHERE c.numCli=(SELECT max(c.numCli) FROM T_CLIENT c )";
+
+		List<Client> clientList = new ArrayList<Client>();
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				clientList.add(new Client(rs.getString("numCli"), rs.getString("nomCli"), rs.getString("prenomCli"),
+						rs.getString("telCli"), rs.getString("mailCli"), rs.getString("rueCli"),
+						rs.getString("villeCli"), rs.getString("cpCli"), rs.getString("paysCli")));
+			}
+			clientList.sort(new Comparator<Client>() {
+				@Override
+				public int compare(Client c1, Client c2) {
+					return c1.getNomCli().compareToIgnoreCase(c2.getNomCli());
+				}
+			});
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return clientList.get(0).getNumCli();
+	}
 
 	public List<Client> getAllClient() {
 		String rqt = "Select * from T_CLIENT";
@@ -83,6 +113,36 @@ public class ClientService extends IConnectDbService {
 			}
 		}
 
+	}
+
+	public void updateClient(Client client) {
+		String rqt = "UPDATE T_CLIENT SET numcli=?,nomcli=?,prenomcli=?,telcli=?,mailcli=?,ruecli=?,villecli=?,cpcli=?,payscli=?  where  numcli = ?";
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, client.getNumCli());
+			stmt.setString(2, client.getNomCli());
+			stmt.setString(3, client.getPrenomCli());
+			stmt.setString(4, client.getTelCli());
+			stmt.setString(5, client.getMailCli());
+			stmt.setString(6, client.getRueCli());
+			stmt.setString(7, client.getVilleCli());
+			stmt.setString(8, client.getCpCli());
+			stmt.setString(9, client.getPaysCli());
+			stmt.setString(10, client.getNumCli());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 	
 

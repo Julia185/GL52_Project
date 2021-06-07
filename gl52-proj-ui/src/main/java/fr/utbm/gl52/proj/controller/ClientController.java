@@ -12,6 +12,10 @@ public class ClientController {
 	public ClientController() {
 	}
 	
+	public String getNextValId() {
+		return this.service.getNextValId();		
+	}
+	
 	public List<Client> getAllClient() {
 		return this.service.getAllClient();
 	}
@@ -21,6 +25,7 @@ public class ClientController {
 	}
 
 	public void modifyClient(Client client) {
+		this.service.updateClient(client);
 	}
 
 	public void eraseClient(String num) {

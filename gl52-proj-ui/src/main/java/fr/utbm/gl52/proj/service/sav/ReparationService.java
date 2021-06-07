@@ -9,6 +9,8 @@ import java.util.Comparator;
 import java.util.List;
 
 import fr.utbm.gl52.proj.model.sav.Reparation;
+import fr.utbm.gl52.proj.service.IConnectDbService;
+
 
 public class ReparationService extends IConnectDbService {
 
