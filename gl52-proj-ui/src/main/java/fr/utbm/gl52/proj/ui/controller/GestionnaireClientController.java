@@ -56,7 +56,7 @@ public class GestionnaireClientController extends AbstractController implements 
 
 	private void modifyClient() throws IOException {
 		Client client = this.setClient();
-		// Trouver quoi mettre pour modifier un produit déjà existant.
+		// Trouver quoi mettre pour modifier un client déjà existant.
 		this.clientController.modifyClient(client);
 		super.switchToMainScene();
 	}
@@ -136,9 +136,4 @@ public class GestionnaireClientController extends AbstractController implements 
 	@FXML
 	private void handleClientEmail(ActionEvent event) {
 	}
-
-	
-
-	
-
 }

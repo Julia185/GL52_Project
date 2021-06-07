@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import fr.utbm.gl52.proj.controller.ProduitController;
 import fr.utbm.gl52.proj.model.Produit;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -26,6 +25,8 @@ public class GestionProduitController extends AbstractController {
 	@FXML
 	private TextField TVAProdTxtField;
 	
+	private Produit produit = new Produit();
+	
 	@FXML
 	@Override
 	public void switchToMainScene() throws IOException {
@@ -42,7 +43,6 @@ public class GestionProduitController extends AbstractController {
 	private void newProduct() throws IOException {
 		Produit produit = this.setProduit();
 		this.produitController.insertNewProduct(produit);
-
 		super.switchToMainScene();
 	}
 	

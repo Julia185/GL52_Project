@@ -9,13 +9,17 @@ import fr.utbm.gl52.proj.controller.ProduitController;
 import fr.utbm.gl52.proj.model.Client;
 import fr.utbm.gl52.proj.model.Produit;
 import fr.utbm.gl52.proj.ui.App;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class MainSceneController extends AbstractController implements Initializable {
 
@@ -27,6 +31,21 @@ public class MainSceneController extends AbstractController implements Initializ
 	private Label clientInfosLabel;
 	@FXML
 	private Label montantTtlLabel;
+	// STOCK
+	@FXML 
+	private TableView<Produit> stockTable;
+    @FXML 
+    private TableColumn<Produit, String> numProdColumn;
+    @FXML 
+    private TableColumn<Produit, String> desProdColumn;
+    @FXML 
+    private TableColumn<Produit, String> qTEProdColumn;
+    @FXML 
+    private TableColumn<Produit, String> prixHTColumn;
+    @FXML 
+    private TableColumn<Produit, String> prixTTCColumn;
+    @FXML 
+    private TableColumn<Produit, String> tVAColumn;
 
 	@FXML
 	private ListView<Client> clientList;
@@ -44,11 +63,9 @@ public class MainSceneController extends AbstractController implements Initializ
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<Client> clientItems = FXCollections.observableArrayList(this.clientController.getAllClient());
-		ObservableList<Produit> productItems = FXCollections
-				.observableArrayList(this.produitController.getAllProduit());
+		ObservableList<Produit> productItems = FXCollections.observableArrayList(this.produitController.getAllProduit());
 		this.clientList.setItems(clientItems);
 		this.productList.setItems(productItems);
-
 	}
 
 	// VENTE PANEL //
@@ -121,7 +138,7 @@ public class MainSceneController extends AbstractController implements Initializ
 	}
 
 // SAV PANEL //
-
+    
 	@FXML
 	public void createReparation() {
 
@@ -166,7 +183,49 @@ public class MainSceneController extends AbstractController implements Initializ
 	public void deleteFactureLine() {
 
 	}
+	
 // STOCK PANEL //
+	
+	@FXML
+	public void showNumProd() {
+//		Produit produit = productList.getSelectionModel().getSelectedItem();
+//		NumProdColumn.setCellValueFactory(Produit -> {
+//			SimpleObjectProperty<String> property = new SimpleObjectProperty<String>();
+//			property.setValue(Produit.getValue().getRefProd());
+//			return property;
+//			});
+		
+//		numProdColumn.setCellValueFactory(Produit -> Produit.getValue().getRefProd());
+		
+		PropertyValueFactory<Produit, String> refProd = new PropertyValueFactory<>("refProd");
+		numProdColumn.setCellValueFactory(refProd);
+	}
+	
+	@FXML
+	public void showDesProd() {
+		desProdColumn.setCellValueFactory(Produit -> Produit.getValue().desProdProperty());
+	}
+	
+	@FXML
+	public void showQteProd() {
+		qTEProdColumn.setCellValueFactory(Produit -> Produit.getValue().qteProdProperty());
+	}
+	
+	@FXML
+	public void showPrixHTProd() {
+		prixHTColumn.setCellValueFactory(Produit -> Produit.getValue().prixHTProdProperty());
+	}
+	
+	@FXML
+	public void showPrixTTCProd() {
+		prixTTCColumn.setCellValueFactory(Produit -> Produit.getValue().prixTTCProdProperty());
+	}
+	
+	@FXML
+	public void showTVAProd() {
+		tVAColumn.setCellValueFactory(Produit -> Produit.getValue().tvaProdProperty());
+	}
+	
 
 	@FXML
 	public void switchToAddProduct() throws IOException {

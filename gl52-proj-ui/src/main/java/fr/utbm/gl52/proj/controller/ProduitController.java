@@ -16,7 +16,6 @@ public class ProduitController {
 		return this.service.getAllProduit();
 	}
 
-
     public void modifyProduct(Produit produit) {
     }
 

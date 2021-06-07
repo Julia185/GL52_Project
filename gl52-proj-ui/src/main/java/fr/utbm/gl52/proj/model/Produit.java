@@ -1,6 +1,8 @@
 package fr.utbm.gl52.proj.model;
 
 import java.io.Serializable;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Produit implements Serializable {
 	
@@ -16,18 +18,20 @@ public class Produit implements Serializable {
 	private String PrixTTCProd;
 	private String TVAProd;
 
+	private StringProperty refProdProperty = new SimpleStringProperty(refProd);
+	
 	public Produit() {
 		super();
 	}
 
-	public Produit(String refProd, String desProd, String qteProd, String prixHTProd, String prixTTCProd, String tVAProd) {
+	public Produit(String referenceProd, String descriptionProduct, String quantity, String prixHTT, String prixTTC, String tVA) {
 		super();
-		this.refProd = refProd;
-		this.desProd = desProd;
-		this.qteProd = qteProd;
-		this.prixHTProd = prixHTProd;
-		PrixTTCProd = prixTTCProd;
-		TVAProd = tVAProd;
+		this.refProd = referenceProd;
+		this.desProd = descriptionProduct;
+		this.qteProd = quantity;
+		this.prixHTProd = prixHTT;
+		PrixTTCProd = prixTTC;
+		TVAProd = tVA;
 	}
 
 	public String getRefProd() {
@@ -37,6 +41,18 @@ public class Produit implements Serializable {
 	public void setRefProd(String refProd) {
 		this.refProd = refProd;
 	}
+	
+	public StringProperty refProdProperty() {
+		return refProdProperty;
+	}
+	
+	public final String getrefProdProperty() {
+		   return refProdProperty.get();
+		}
+
+		public final void setProject(String refProd) {
+		    refProdProperty.set(refProd);
+		}
 
 	public String getDesProd() {
 		return desProd;
@@ -44,6 +60,10 @@ public class Produit implements Serializable {
 
 	public void setDesProd(String desProd) {
 		this.desProd = desProd;
+	}
+	
+	public StringProperty desProdProperty() {
+		return new SimpleStringProperty(desProd);
 	}
 
 	public String getQteProd() {
@@ -53,6 +73,10 @@ public class Produit implements Serializable {
 	public void setQteProd(String qteProd) {
 		this.qteProd = qteProd;
 	}
+	
+	public StringProperty qteProdProperty() {
+		return new SimpleStringProperty(qteProd);
+	}
 
 	public String getPrixHTProd() {
 		return prixHTProd;
@@ -60,6 +84,10 @@ public class Produit implements Serializable {
 
 	public void setPrixHTProd(String prixHTProd) {
 		this.prixHTProd = prixHTProd;
+	}
+	
+	public StringProperty prixHTProdProperty() {
+		return new SimpleStringProperty(prixHTProd);
 	}
 
 	public String getPrixTTCProd() {
@@ -69,6 +97,10 @@ public class Produit implements Serializable {
 	public void setPrixTTCProd(String prixTTCProd) {
 		PrixTTCProd = prixTTCProd;
 	}
+	
+	public StringProperty prixTTCProdProperty() {
+		return new SimpleStringProperty(PrixTTCProd);
+	}
 
 	public String getTVAProd() {
 		return TVAProd;
@@ -76,6 +108,10 @@ public class Produit implements Serializable {
 
 	public void setTVAProd(String tVAProd) {
 		TVAProd = tVAProd;
+	}
+	
+	public StringProperty tvaProdProperty() {
+		return new SimpleStringProperty(TVAProd);
 	}
 
 	@Override

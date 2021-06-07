@@ -6,6 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1009.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.utbm.gl52.proj.ui.controller.MainSceneController">
    <children>
@@ -176,14 +177,18 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="634.0">
                      <children>
-                        <TableView layoutX="3.0" layoutY="65.0" prefHeight="564.0" prefWidth="975.0">
+                        <TableView fx:id="stockTable" layoutX="3.0" layoutY="65.0" prefHeight="564.0" prefWidth="975.0">
                           <columns>
-                            <TableColumn prefWidth="270.0" text="Numéro Produit" />
-                            <TableColumn prefWidth="305.0" text="Désignation" />
-                              <TableColumn prefWidth="66.0" text="Quantité" />
-                              <TableColumn prefWidth="81.0" text="Prix HT" />
-                              <TableColumn prefWidth="88.0" text="Prix TTC" />
-                              <TableColumn prefWidth="91.0" text="TVA" />
+                            <TableColumn fx:id="numProdColumn" prefWidth="270.0" text="Numéro Produit">
+                            	<cellValueFactory>
+                            		<PropertyValueFactory property="refProdProperty"/>
+                            	</cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="desProdColumn" prefWidth="305.0" text="Désignation"/>
+                            <TableColumn fx:id="qTEProdColumn" prefWidth="66.0" text="Quantité"/>
+                            <TableColumn fx:id="prixHTColumn" prefWidth="81.0" text="Prix HT"/>
+                            <TableColumn fx:id="prixTTCColumn" prefWidth="88.0" text="Prix TTC"/>
+                            <TableColumn fx:id="tVAColumn" prefWidth="91.0" text="TVA"/>
                           </columns>
                         </TableView>
                         <TextField layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="200.0" text="Recherche produit" />
