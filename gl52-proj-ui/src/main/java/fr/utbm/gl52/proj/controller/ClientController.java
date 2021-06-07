@@ -28,7 +28,10 @@ public class ClientController {
 		this.service.updateClient(client);
 	}
 
-	public void eraseClient(String num) {
+
+	public void deleteClient(Client client) {
+		this.service.deleteClient(client.getNumCli());
+		
 	}
 
 }

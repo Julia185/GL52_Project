@@ -26,7 +26,7 @@
                                 <items>
                                   <Button mnemonicParsing="false" text="Nouveau client" onAction="#switchToGestionnaireClient"/>
                                     <Button mnemonicParsing="false" text="Modifier client" onAction="#modifyClient" />
-                                    <Button mnemonicParsing="false" text="Supprimer client"  />
+                                    <Button mnemonicParsing="false" text="Supprimer client"  onAction="#deleteClient"/>
                                 </items>
                                  <VBox.margin>
                                     <Insets bottom="10.0" />

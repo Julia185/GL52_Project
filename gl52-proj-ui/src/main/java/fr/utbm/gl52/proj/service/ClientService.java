@@ -16,7 +16,7 @@ public class ClientService extends IConnectDbService {
 	}
 
 	public String getNextValId() {
-		String rqt = "SELECT c FROM T_CLIENT c WHERE c.numCli=(SELECT max(c.numCli) FROM T_CLIENT c )";
+		String rqt = "SELECT * FROM T_CLIENT c WHERE c.numCli=(SELECT max(c.numCli) FROM T_CLIENT c )";
 
 		List<Client> clientList = new ArrayList<Client>();
 		PreparedStatement stmt;
@@ -47,7 +47,9 @@ public class ClientService extends IConnectDbService {
 			}
 		}
 		
-		return clientList.get(0).getNumCli();
+		Integer temp = Integer.parseInt(clientList.get(0).getNumCli())+1;
+		
+		return temp.toString();
 	}
 
 	public List<Client> getAllClient() {
@@ -131,6 +133,27 @@ public class ClientService extends IConnectDbService {
 			stmt.setString(8, client.getCpCli());
 			stmt.setString(9, client.getPaysCli());
 			stmt.setString(10, client.getNumCli());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public void deleteClient(String numCli) {
+		String rqt = "DELETE FROM T_CLIENT where numcli = ?";
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, numCli);
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -106,16 +106,13 @@ public class MainSceneController extends AbstractController implements Initializ
 		 
 		App.setRoot("GestionnaireClient");
 		GestionnaireClientController gcc = App.getFxmlLoader().getController();
-		gcc.setDateForUpdate( clientList.getSelectionModel().getSelectedItem());
-			
-		
-		/* get selected element from list client */
+		gcc.setDateForUpdate( clientList.getSelectionModel().getSelectedItem());		
 	}
 
 	@FXML
 	public void deleteClient() throws IOException {
-		/* get selected element from list client */
-		/* call ClientController delete methode */
+		this.clientController.deleteClient(clientList.getSelectionModel().getSelectedItem());
+		this.initialize(null, null);
 	}
 
 	@FXML
