@@ -2,6 +2,7 @@ package fr.utbm.gl52.proj.ui.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import fr.utbm.gl52.proj.controller.ClientController;
@@ -28,6 +29,8 @@ public class MainSceneController extends AbstractController implements Initializ
 	@FXML
 	private TextField searchProductTxtField;
 	@FXML
+	private TextField qttSellTxtField;
+	@FXML
 	private Label clientInfosLabel;
 	@FXML
 	private Label montantTtlLabel;
@@ -52,27 +55,17 @@ public class MainSceneController extends AbstractController implements Initializ
 	@FXML
 	private ListView<Produit> productList;
 	@FXML
-	private TableView<Produit> stockProduitTableView;
-	@FXML
-	private TableColumn<Produit, String> numProdCol;
-	@FXML
-	private TableColumn<Produit, String> desCol;
-	@FXML
-	private TableColumn<Produit, String> qttCol;
-	@FXML
-	private TableColumn<Produit, String> prixHTCol;
-	@FXML
-	private TableColumn<Produit, String> prixTTCCol;
-	@FXML
-	private TableColumn<Produit, String> tVACol;
+	private ListView<Produit> sellList;
 	
 
 	private ClientController clientController = new ClientController();
 	private ProduitController produitController = new ProduitController();
+	
+	private ObservableList<Produit> productToSellList;
+	private float mttTotal;
 
 	public MainSceneController() {
 		super();
-
 	}
 
 	@Override
@@ -81,9 +74,9 @@ public class MainSceneController extends AbstractController implements Initializ
 		ObservableList<Produit> productItems = FXCollections.observableArrayList(this.produitController.getAllProduit());
 		this.clientList.setItems(clientItems);
 		this.productList.setItems(productItems);
+		this.productToSellList = FXCollections.observableArrayList();
 	}
 
-	// VENTE PANEL //
 	@FXML
 	private void switchToGestionnaireClient() throws IOException {
 		App.setRoot("GestionnaireClient");
@@ -95,6 +88,8 @@ public class MainSceneController extends AbstractController implements Initializ
 		// TODO Auto-generated method stub
 		super.switchToMainScene();
 	}
+	
+	// VENTE PANEL //
 
 	@FXML
 	public void createClient() throws IOException {
@@ -116,20 +111,27 @@ public class MainSceneController extends AbstractController implements Initializ
 	}
 
 	@FXML
-	public void scanner() {
-		/* simulate scan ? */
-	}
-
-	@FXML
 	public void cancelSell() {
-		/* clear all field */
+		this.productToSellList.clear();
+		this.clientInfosLabel.setText("");
+		this.montantTtlLabel.setText("");
+		this.sellList.setItems(productToSellList);
+		this.initialize(null, null);
 	}
 
 	@FXML
 	public void changeMontantVenteValue() {
-
+		String qtt = qttSellTxtField.getText();
+		Produit tempProduct = productList.getSelectionModel().getSelectedItem();
+		tempProduct.setQteProd(qtt);
+		this.productToSellList.add(tempProduct);
+		mttTotal = mttTotal + Float.parseFloat(tempProduct.getPrixTTCProd())*Integer.parseInt(qtt);
+		
+		this.sellList.setItems(productToSellList);
+		this.montantTtlLabel.setText(mttTotal+"");
+		this.qttSellTxtField.clear();
 	}
-
+	
 	@FXML
 	public void selectClientVenteInfo() {
 		Client client = clientList.getSelectionModel().getSelectedItem();
@@ -150,6 +152,21 @@ public class MainSceneController extends AbstractController implements Initializ
 	@FXML
 	public void checkBoxFactureState() {
 
+	}
+	
+	@FXML
+	public void sell() {
+		List<Produit> list = this.produitController.getAllProduit();
+		for (Produit produit : productToSellList) {
+			if(list.contains(produit)) {
+				Integer temp = Integer.parseInt(list.get(list.indexOf(produit)).getQteProd()) - Integer.parseInt(produit.getQteProd());
+				System.out.println(list.get(list.indexOf(produit)).getQteProd() + " - " + produit.getQteProd());
+				System.out.println(temp);
+//				produit.setQteProd(temp+"");
+			}
+		}
+		this.produitController.modifyProducList(productToSellList);
+//		this.cancelSell();
 	}
 
 // SAV PANEL //

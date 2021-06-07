@@ -16,13 +16,21 @@ public class ProduitController {
 		return this.service.getAllProduit();
 	}
 
+	public void insertNewProduct(Produit produit) {
+	}
+	
     public void modifyProduct(Produit produit) {
+    	this.service.updateproduit(produit);
+    }
+    
+    public void modifyProducList(List<Produit> producList) {
+    	for (Produit produit : producList) {
+			this.service.updateproduit(produit);
+		}
     }
 
 	public void eraseProduct(String referenceProd) {
 	}
 
-	public void insertNewProduct(Produit produit) {
-	}
 
 }

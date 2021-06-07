@@ -16,7 +16,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ListView editable="true" layoutX="482.0" layoutY="152.0" prefHeight="402.0" prefWidth="526.0" />
+                        <ListView fx:id="sellList" editable="true" focusTraversable="false" layoutX="482.0" layoutY="152.0" prefHeight="402.0" prefWidth="526.0" />
                         <VBox layoutX="4.0" layoutY="2.0" prefHeight="650.0" prefWidth="474.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="531.0" AnchorPane.topAnchor="2.0">
                            <padding>
                               <Insets right="1.0" top="1.0" />
@@ -52,18 +52,18 @@
                                     <ListView fx:id="productList" prefHeight="300.0" prefWidth="474.0" />
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" text="Scanner" />
                               
                        		 <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <Label layoutY="14.0" text="Quantité acheté:" />
-                                    <TextField fx:id="qttAchatTxtField" layoutX="104.0" layoutY="10.0" prefHeight="25.0" prefWidth="70.0" />
+                                    <TextField fx:id="qttSellTxtField" layoutX="104.0" layoutY="10.0" prefHeight="25.0" prefWidth="70.0" />
+                                    <Button mnemonicParsing="false"  layoutX="220.0" layoutY="10.0" text="Ajouter" onAction="#changeMontantVenteValue" />
                                  </children>
                               </AnchorPane>
                            </children>
                         </VBox>
-                        <Button layoutX="936.0" layoutY="592.0" mnemonicParsing="false" text="Carte" />
-                        <Button layoutX="850.0" layoutY="592.0" mnemonicParsing="false" text="Liquide" />
+                        <Button layoutX="936.0" layoutY="592.0" mnemonicParsing="false" text="Carte" onAction="#sell"/>
+                        <Button layoutX="850.0" layoutY="592.0" mnemonicParsing="false" text="Liquide" onAction="#sell"/>
                         <Label layoutX="759.0" layoutY="600.0" text="Règlement :" />
                         <Label  layoutX="482.0" layoutY="14.0" prefHeight="36.0" prefWidth="176.0" text="Récaptitulatif :">
                            <font>
@@ -73,7 +73,7 @@
                         <Label  layoutX="759.0" layoutY="126.0" prefHeight="17.0" prefWidth="103.0" text="Montant total (€):" />
                         <Label fx:id="clientInfosLabel" layoutX="482.0" layoutY="24.0" prefHeight="100.0" prefWidth="550.0" text="" />
                         <Label fx:id="montantTtlLabel" layoutX="905.0" layoutY="126.0" prefHeight="17.0" prefWidth="88.0" text="" />
-                        <Button layoutX="478.0" layoutY="596.0" mnemonicParsing="false" text="Annuler vente" />
+                        <Button layoutX="478.0" layoutY="596.0" mnemonicParsing="false" text="Annuler vente" onAction="#cancelSell" />
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
                         <CheckBox layoutX="593.0" layoutY="600.0" mnemonicParsing="false" text="Facture" />
                      </children>
