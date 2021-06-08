@@ -29,6 +29,12 @@ public class ProduitService extends IConnectDbService {
 				produitList.add(new Produit(rs.getString("refProd"), rs.getString("desProd"), rs.getString("qteProd"),
 						rs.getString("prixHtProd"), rs.getString("prixTTCProd"), rs.getString("tVAProd")));
 			}
+			produitList.sort(new Comparator<Produit>() {
+				@Override
+				public int compare(Produit c1, Produit c2) {
+					return c1.getRefProd().compareToIgnoreCase(c2.getRefProd());
+				}
+			});
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

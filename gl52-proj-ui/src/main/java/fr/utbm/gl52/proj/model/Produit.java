@@ -3,6 +3,7 @@ package fr.utbm.gl52.proj.model;
 import java.io.Serializable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.FXML;
 
 public class Produit implements Serializable {
 	
@@ -15,10 +16,21 @@ public class Produit implements Serializable {
 	private String desProd;
 	private String qteProd;
 	private String prixHTProd;
-	private String PrixTTCProd;
-	private String TVAProd;
+	private String prixTTCProd;
+	private String tVAProd;
 
-	private StringProperty refProdProperty = new SimpleStringProperty(refProd);
+	@FXML
+	private SimpleStringProperty refProdProperty;
+	@FXML
+	private SimpleStringProperty desProdProperty;
+	@FXML
+	private SimpleStringProperty qteProdProperty;
+	@FXML
+	private SimpleStringProperty prixHTProdProperty;
+	@FXML
+	private SimpleStringProperty prixTTCProdProperty;
+	@FXML
+	private SimpleStringProperty tVAProdProperty;
 	
 	public Produit() {
 		super();
@@ -30,8 +42,15 @@ public class Produit implements Serializable {
 		this.desProd = descriptionProduct;
 		this.qteProd = quantity;
 		this.prixHTProd = prixHTT;
-		PrixTTCProd = prixTTC;
-		TVAProd = tVA;
+		this.prixTTCProd = prixTTC;
+		this.tVAProd = tVA;
+		
+		this.refProdProperty = new SimpleStringProperty(refProd);
+		this.desProdProperty = new SimpleStringProperty(desProd);
+		this.qteProdProperty = new SimpleStringProperty(qteProd);
+		this.prixHTProdProperty = new SimpleStringProperty(prixHTProd);
+		this.prixTTCProdProperty = new SimpleStringProperty(prixTTCProd);
+		this.tVAProdProperty = new SimpleStringProperty(tVAProd);
 	}
 
 	public String getRefProd() {
@@ -42,17 +61,6 @@ public class Produit implements Serializable {
 		this.refProd = refProd;
 	}
 	
-	public StringProperty refProdProperty() {
-		return refProdProperty;
-	}
-	
-	public final String getrefProdProperty() {
-		   return refProdProperty.get();
-		}
-
-		public final void setProject(String refProd) {
-		    refProdProperty.set(refProd);
-		}
 
 	public String getDesProd() {
 		return desProd;
@@ -62,9 +70,6 @@ public class Produit implements Serializable {
 		this.desProd = desProd;
 	}
 	
-	public StringProperty desProdProperty() {
-		return new SimpleStringProperty(desProd);
-	}
 
 	public String getQteProd() {
 		return qteProd;
@@ -74,9 +79,6 @@ public class Produit implements Serializable {
 		this.qteProd = qteProd;
 	}
 	
-	public StringProperty qteProdProperty() {
-		return new SimpleStringProperty(qteProd);
-	}
 
 	public String getPrixHTProd() {
 		return prixHTProd;
@@ -86,46 +88,55 @@ public class Produit implements Serializable {
 		this.prixHTProd = prixHTProd;
 	}
 	
-	public StringProperty prixHTProdProperty() {
-		return new SimpleStringProperty(prixHTProd);
-	}
 
 	public String getPrixTTCProd() {
-		return PrixTTCProd;
+		return prixTTCProd;
 	}
 
 	public void setPrixTTCProd(String prixTTCProd) {
-		PrixTTCProd = prixTTCProd;
+		this.prixTTCProd = prixTTCProd;
 	}
 	
-	public StringProperty prixTTCProdProperty() {
-		return new SimpleStringProperty(PrixTTCProd);
-	}
-
 	public String getTVAProd() {
-		return TVAProd;
+		return tVAProd;
 	}
 
 	public void setTVAProd(String tVAProd) {
-		TVAProd = tVAProd;
+		this.tVAProd = tVAProd;
 	}
 	
-	public StringProperty tvaProdProperty() {
-		return new SimpleStringProperty(TVAProd);
+	
+	public final String getRefProdProperty() {
+		   return refProdProperty.get();
+	}
+	public final String getDesProdProperty() {
+		return desProdProperty.get();
+	}
+	public final String getQteProdProperty() {
+		return qteProdProperty.get();
+	}
+	public final String getPrixHTProdProperty() {
+		return prixHTProdProperty.get();
+	}
+	public final String getPrixTTCProdProperty() {
+		return prixTTCProdProperty.get();
+	}
+	public final String getTVAProdProperty() {
+		return tVAProdProperty.get();
 	}
 
 	@Override
 	public String toString() {
 		return  refProd + " | " + desProd + " Qtt : " + qteProd + " HT : "
-				+ prixHTProd + "€ / TTC : " + PrixTTCProd + "€ | TVA" + TVAProd ;
+				+ prixHTProd + "€ / TTC : " + prixTTCProd + "€ | TVA" + tVAProd ;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((PrixTTCProd == null) ? 0 : PrixTTCProd.hashCode());
-		result = prime * result + ((TVAProd == null) ? 0 : TVAProd.hashCode());
+		result = prime * result + ((prixTTCProd == null) ? 0 : prixTTCProd.hashCode());
+		result = prime * result + ((tVAProd == null) ? 0 : tVAProd.hashCode());
 		result = prime * result + ((desProd == null) ? 0 : desProd.hashCode());
 		result = prime * result + ((prixHTProd == null) ? 0 : prixHTProd.hashCode());
 		result = prime * result + ((refProd == null) ? 0 : refProd.hashCode());
@@ -141,15 +152,15 @@ public class Produit implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Produit other = (Produit) obj;
-		if (PrixTTCProd == null) {
-			if (other.PrixTTCProd != null)
+		if (prixTTCProd == null) {
+			if (other.prixTTCProd != null)
 				return false;
-		} else if (!PrixTTCProd.equals(other.PrixTTCProd))
+		} else if (!prixTTCProd.equals(other.prixTTCProd))
 			return false;
-		if (TVAProd == null) {
-			if (other.TVAProd != null)
+		if (tVAProd == null) {
+			if (other.tVAProd != null)
 				return false;
-		} else if (!TVAProd.equals(other.TVAProd))
+		} else if (!tVAProd.equals(other.tVAProd))
 			return false;
 		if (desProd == null) {
 			if (other.desProd != null)

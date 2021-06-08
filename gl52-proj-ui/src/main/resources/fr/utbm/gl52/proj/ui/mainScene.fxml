@@ -179,23 +179,43 @@
           </Tab>
             <Tab text="Stock">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="634.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="650.0">
                      <children>
                         <TableView fx:id="stockTable" layoutX="3.0" layoutY="65.0" prefHeight="564.0" prefWidth="975.0">
                           <columns>
-                            <TableColumn fx:id="numProdColumn" prefWidth="270.0" text="Numéro Produit">
+                            <TableColumn fx:id="numProdColumn" prefWidth="150.0" text="Numéro Produit">
                             	<cellValueFactory>
                             		<PropertyValueFactory property="refProdProperty"/>
                             	</cellValueFactory>
                             </TableColumn>
-                            <TableColumn fx:id="desProdColumn" prefWidth="305.0" text="Désignation"/>
-                            <TableColumn fx:id="qTEProdColumn" prefWidth="66.0" text="Quantité"/>
-                            <TableColumn fx:id="prixHTColumn" prefWidth="81.0" text="Prix HT"/>
-                            <TableColumn fx:id="prixTTCColumn" prefWidth="88.0" text="Prix TTC"/>
-                            <TableColumn fx:id="tVAColumn" prefWidth="91.0" text="TVA"/>
+                            <TableColumn fx:id="desProdColumn" prefWidth="350.0" text="Désignation">
+                            	<cellValueFactory>
+                            		<PropertyValueFactory property="desProdProperty"/>
+                            	</cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="qTEProdColumn" prefWidth="66.0" text="Quantité">
+                            	<cellValueFactory>
+                            		<PropertyValueFactory property="qteProdProperty"/>
+                            	</cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="prixHTColumn" prefWidth="81.0" text="Prix HT (€)">
+                            	<cellValueFactory>
+                            		<PropertyValueFactory property="prixHTProdProperty"/>
+                            	</cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="prixTTCColumn" prefWidth="88.0" text="Prix TTC (€)">
+                            	<cellValueFactory>
+                            		<PropertyValueFactory property="prixTTCProdProperty"/>
+                            	</cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="tVAColumn" prefWidth="91.0" text="TVA (%)">
+                            	<cellValueFactory>
+                            		<PropertyValueFactory property="tVAProdProperty"/>
+                            	</cellValueFactory>
+                            </TableColumn>
                           </columns>
                         </TableView>
-                        <TextField layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="200.0" text="Recherche produit" />
+                        <TextField fx:id="searchProductStockTxtField" layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="200.0" text="Recherche produit" onAction="#getSearchProductStock"/>
                         <Button layoutX="304.0" layoutY="25.0" mnemonicParsing="false" text="Ajouter produit" onAction="#createProduit"/>
                         <Button layoutX="427.0" layoutY="25.0" mnemonicParsing="false" text="Modifier produit" onAction="#modifyProduit"/>
                         <Button layoutX="557.0" layoutY="25.0" mnemonicParsing="false" text="Supprimer produit" onAction="#deleteProduit"/>
