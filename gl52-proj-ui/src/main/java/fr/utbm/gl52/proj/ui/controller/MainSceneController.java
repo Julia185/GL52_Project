@@ -101,7 +101,7 @@ public class MainSceneController extends AbstractController implements Initializ
 		 
 		App.setRoot("GestionnaireClient");
 		GestionnaireClientController gcc = App.getFxmlLoader().getController();
-		gcc.setDateForUpdate( clientList.getSelectionModel().getSelectedItem());		
+		gcc.setDataForUpdate( clientList.getSelectionModel().getSelectedItem());		
 	}
 
 	@FXML
@@ -165,7 +165,7 @@ public class MainSceneController extends AbstractController implements Initializ
 //				produit.setQteProd(temp+"");
 			}
 		}
-		this.produitController.modifyProducList(productToSellList);
+		this.produitController.modifyProduitList(productToSellList);
 //		this.cancelSell();
 	}
 
@@ -257,19 +257,24 @@ public class MainSceneController extends AbstractController implements Initializ
 	public void showTVAProd() {
 		tVAColumn.setCellValueFactory(Produit -> Produit.getValue().tvaProdProperty());
 	}
-
+	
+	
 	@FXML
-	public void switchToAddProduct() throws IOException {
+	public void createProduit() throws IOException {
 		App.setRoot("GestionnaireProduit");
 	}
 
 	@FXML
-	public void switchToModifyProduct() throws IOException {
+	public void modifyProduit() throws IOException {
+		 
 		App.setRoot("GestionnaireProduit");
+		GestionProduitController gpc = App.getFxmlLoader().getController();
+		gpc.setDataForUpdate(this.stockTable.getSelectionModel().getSelectedItem() );		
 	}
 
 	@FXML
-	public void switchToDeleteProduct() throws IOException {
-		App.setRoot("GestionnaireProduit");
+	public void deleteProduit() throws IOException {
+		this.produitController.deleteProduit(this.stockTable.getSelectionModel().getSelectedItem().getRefProd());
+		this.initialize(null, null);
 	}
 }

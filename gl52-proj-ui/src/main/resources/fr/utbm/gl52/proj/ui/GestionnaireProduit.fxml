@@ -9,18 +9,18 @@
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
-            <Label fx:id="RefProduitLabel" layoutX="14.0" layoutY="14.0" text="Référence Produit :" />
-            <TextField fx:id="RefProdTxtField" layoutX="131.0" layoutY="10.0" />
-            <Label fx:id="DesProdLabel" layoutX="14.0" layoutY="78.0" text="Description Produit :" />
-            <TextField fx:id="DesProdTxtField" layoutX="131.0" layoutY="74.0" prefHeight="25.0" prefWidth="450.0" />
-            <TextField fx:id="QteProdTxtField" layoutX="131.0" layoutY="144.0" prefHeight="25.0" prefWidth="149.0" />
-            <Label fx:id="QteProdLabel" layoutX="14.0" layoutY="148.0" text="Quantité :" />
-            <Label fx:id="PrixHTLabel" layoutX="14.0" layoutY="203.0" text="Prix HT :" />
-            <TextField fx:id="PrixHTTxtField" layoutX="131.0" layoutY="199.0" prefHeight="25.0" prefWidth="149.0" />
-            <Label fx:id="PrixTTCLabel" layoutX="14.0" layoutY="268.0" text="Prix TTC : " />
-            <TextField fx:id="PrixTTCTxtField" layoutX="131.0" layoutY="264.0" prefHeight="25.0" prefWidth="149.0" />
-            <Label fx:id="TVAProdLabel" layoutX="14.0" layoutY="326.0" text="TVA Produit :" />
-            <TextField fx:id="TVAProdTxtField" layoutX="131.0" layoutY="322.0" prefHeight="25.0" prefWidth="149.0" />
+            <Label fx:id="refProduitLabel" layoutX="14.0" layoutY="14.0" text="Référence Produit :" />
+            <TextField fx:id="refProdTxtField" layoutX="131.0" layoutY="10.0" onAction="#handleProductReference" />
+            <Label fx:id="desProdLabel" layoutX="14.0" layoutY="78.0" text="Description Produit :" />
+            <TextField fx:id="desProdTxtField" layoutX="131.0" layoutY="74.0" prefHeight="25.0" prefWidth="450.0"  onAction="#handleProductDescription" />
+            <TextField fx:id="qteProdTxtField" layoutX="131.0" layoutY="144.0" prefHeight="25.0" prefWidth="149.0" onAction="#handleProductQuantity" />
+            <Label fx:id="qteProdLabel" layoutX="14.0" layoutY="148.0" text="Quantité :" />
+            <Label fx:id="prixHTLabel" layoutX="14.0" layoutY="203.0" text="Prix HT :" />
+            <TextField fx:id="prixHTTxtField" layoutX="131.0" layoutY="199.0" prefHeight="25.0" prefWidth="149.0"  onAction="#handleProductHTPrice" />
+            <Label fx:id="prixTTCLabel" layoutX="14.0" layoutY="268.0" text="Prix TTC : " />
+            <TextField fx:id="prixTTCTxtField" layoutX="131.0" layoutY="264.0" prefHeight="25.0" prefWidth="149.0"  onAction="#handleProductTTCPrice" />
+            <Label fx:id="tVAProdLabel" layoutX="14.0" layoutY="326.0" text="TVA Produit :" />
+            <TextField fx:id="tVAProdTxtField" layoutX="131.0" layoutY="322.0" prefHeight="25.0" prefWidth="149.0"  onAction="#handleProductTVA"/>
             <Button fx:id="ValiderButton" layoutX="511.0" layoutY="322.0" mnemonicParsing="false" text="Valider" onAction="#switchToMainSceneValidate"/>
          	<Button fx:id="AnnulerButton" layoutX="444.0" layoutY="322.0" mnemonicParsing="false" text="Annuler" onAction="#switchToMainScene"/>
          </children></AnchorPane>

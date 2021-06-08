@@ -192,9 +192,9 @@
                           </columns>
                         </TableView>
                         <TextField layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="200.0" text="Recherche produit" />
-                        <Button layoutX="304.0" layoutY="25.0" mnemonicParsing="false" text="Ajouter produit" onAction="#switchToAddProduct"/>
-                        <Button layoutX="427.0" layoutY="25.0" mnemonicParsing="false" text="Modifier produit" onAction="#switchToModifyProduct"/>
-                        <Button layoutX="557.0" layoutY="25.0" mnemonicParsing="false" text="Supprimer produit" onAction="#switchToDeleteProduct"/>
+                        <Button layoutX="304.0" layoutY="25.0" mnemonicParsing="false" text="Ajouter produit" onAction="#createProduit"/>
+                        <Button layoutX="427.0" layoutY="25.0" mnemonicParsing="false" text="Modifier produit" onAction="#modifyProduit"/>
+                        <Button layoutX="557.0" layoutY="25.0" mnemonicParsing="false" text="Supprimer produit" onAction="#deleteProduit"/>
                      </children>
                   </AnchorPane>
               </content>

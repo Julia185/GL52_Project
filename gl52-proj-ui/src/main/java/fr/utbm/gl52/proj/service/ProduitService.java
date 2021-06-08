@@ -42,7 +42,7 @@ public class ProduitService extends IConnectDbService {
 		return produitList;
 	}
 	
-	public void updateproduit(Produit produit) {
+	public void updateProduit(Produit produit) {
 		String rqt = "UPDATE T_PRODUIT SET refprod=?,desprod=?,qteprod=?,prixhtprod=?,prixttcprod=?,tvaprod=? where  refprod= ?";
 		PreparedStatement stmt;
 		Connection con = this.connect();
@@ -55,6 +55,27 @@ public class ProduitService extends IConnectDbService {
 			stmt.setString(5, produit.getPrixTTCProd());
 			stmt.setString(6, produit.getTVAProd());
 			stmt.setString(7, produit.getRefProd());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public void deleteProduit(String refProd) {
+		String rqt = "DELETE FROM T_PRODUIT where refprod = ?";
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, refProd);
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

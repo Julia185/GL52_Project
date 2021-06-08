@@ -1,31 +1,39 @@
 package fr.utbm.gl52.proj.ui.controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import fr.utbm.gl52.proj.controller.ProduitController;
 import fr.utbm.gl52.proj.model.Produit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
-public class GestionProduitController extends AbstractController {
+public class GestionProduitController extends AbstractController implements Initializable {
 	
 	private ProduitController produitController = new ProduitController();
 
 	@FXML
-	private TextField RefProdTxtField;
+	private TextField refProdTxtField;
 	@FXML
-	private TextField DesProdTxtField;
+	private TextField desProdTxtField;
 	@FXML
-	private TextField QteProdTxtField;
+	private TextField qteProdTxtField;
 	@FXML
-	private TextField PrixHTTxtField;
+	private TextField prixHTTxtField;
 	@FXML
-	private TextField PrixTTCTxtField;
+	private TextField prixTTCTxtField;
 	@FXML
-	private TextField TVAProdTxtField;
+	private TextField tVAProdTxtField;
+		
+	private boolean isNew = true;
 	
-	private Produit produit = new Produit();
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+	}
+	
 	
 	@FXML
 	@Override
@@ -35,38 +43,50 @@ public class GestionProduitController extends AbstractController {
 	
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		this.newProduct();
+		this.isNew();
 		super.switchToMainScene();
 	}
 
+	private void isNew() throws IOException {
+		if (isNew) {
+			this.newProduit();
+		} else {
+			this.modifyProduit();
+		}
+	}
 
-	private void newProduct() throws IOException {
+	private void newProduit() throws IOException {
 		Produit produit = this.setProduit();
-		this.produitController.insertNewProduct(produit);
+		this.produitController.insertNewProduit(produit);
 		super.switchToMainScene();
 	}
 	
-	private void modifyProduct() throws IOException {
+	private void modifyProduit() throws IOException {
 		Produit produit = this.setProduit();
-		// Trouver quoi mettre pour modifier un produit déjà existant.
-		this.produitController.modifyProduct(produit);
+		this.produitController.modifyProduit(produit);
 		super.switchToMainScene();
 	}
 	
-	private void removeProduct() throws IOException {
-		String referenceProd = this.RefProdTxtField.getText();
-		this.produitController.eraseProduct(referenceProd);
-	}
-
 	private Produit setProduit() throws IOException {
-		String referenceProd = this.RefProdTxtField.getText();
-		String descriptionProduct = this.DesProdTxtField.getText();
-		String quantity = this.QteProdTxtField.getText();
-		String prixHTT = this.PrixHTTxtField.getText();
-		String prixTTC = this.PrixTTCTxtField.getText();
-		String TVA = this.TVAProdTxtField.getText();
+		String referenceProd = this.refProdTxtField.getText();
+		String descriptionProduct = this.desProdTxtField.getText();
+		String quantity = this.qteProdTxtField.getText();
+		String prixHTT = this.prixHTTxtField.getText();
+		String prixTTC = this.prixTTCTxtField.getText();
+		String TVA = this.tVAProdTxtField.getText();
 		Produit produit = new Produit(referenceProd,descriptionProduct,quantity,prixHTT,prixTTC,TVA);
 		return produit;
+	}
+	
+	public void setDataForUpdate(@SuppressWarnings("exports") Produit produit) {	
+		this.refProdTxtField.setText(produit.getRefProd());
+		this.desProdTxtField.setText(produit.getDesProd());
+		this.prixHTTxtField.setText(produit.getPrixHTProd());
+		this.prixTTCTxtField.setText(produit.getPrixTTCProd());
+		this.qteProdTxtField.setText(produit.getQteProd());
+		this.tVAProdTxtField.setText(produit.getTVAProd());
+		this.isNew = false;
+		
 	}
 	
 	@FXML
@@ -78,10 +98,18 @@ public class GestionProduitController extends AbstractController {
 	}
 	
 	@FXML
-	private void handleProductPrice(ActionEvent event) {
+	private void handleProductHTPrice(ActionEvent event) {
+	}
+	
+	@FXML
+	private void handleProductTTCPrice(ActionEvent event) {
 	}
 	
 	@FXML
 	private void handleProductQuantity(ActionEvent event) {
+	}
+	
+	@FXML void handleProductTVA(ActionEvent event ) {
+		
 	}
 }

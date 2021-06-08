@@ -42,6 +42,10 @@ public class GestionnaireClientController extends AbstractController implements 
 
 	private String id;
 
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+	}
+	
 	@FXML
 	@Override
 	public void switchToMainScene() throws IOException {
@@ -90,12 +94,8 @@ public class GestionnaireClientController extends AbstractController implements 
 		return client;
 	}
 	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-
-	}
 	
-	public void setDateForUpdate(@SuppressWarnings("exports") Client client) {	
+	public void setDataForUpdate(@SuppressWarnings("exports") Client client) {	
 		String numRue;
 		String rue;
 		if (client.getRueCli().matches("^[0-9].*$")) {
