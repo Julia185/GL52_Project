@@ -167,6 +167,43 @@ public class ClientService extends IConnectDbService {
 			}
 		}
 	}
+
+	public List<Client> searchByclientName(String searchName) {
+		String rqt = "Select * from T_CLIENT where upper(nomcli) like ? UNION select * from T_CLIENT where upper(prenomcli) like ?";
+
+		List<Client> clientList = new ArrayList<Client>();
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, "%" + searchName.toUpperCase() + "%"); 
+			stmt.setString(2, "%" + searchName.toUpperCase() + "%");
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				clientList.add(new Client(rs.getString("numCli"), rs.getString("nomCli"), rs.getString("prenomCli"),
+						rs.getString("telCli"), rs.getString("mailCli"), rs.getString("rueCli"),
+						rs.getString("villeCli"), rs.getString("cpCli"), rs.getString("paysCli")));
+			}
+			clientList.sort(new Comparator<Client>() {
+				@Override
+				public int compare(Client c1, Client c2) {
+					return c1.getNomCli().compareToIgnoreCase(c2.getNomCli());
+				}
+			});
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return clientList;
+	}
 	
 
 }

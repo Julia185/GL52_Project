@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
+import fr.utbm.gl52.proj.model.Client;
 import fr.utbm.gl52.proj.model.Produit;
 
 public class ProduitService extends IConnectDbService {
@@ -88,6 +90,36 @@ public class ProduitService extends IConnectDbService {
 				}
 			}
 		}
+	}
+
+	public List<Produit> searchByProductNameOrRef(String searchName) {
+		String rqt = "Select * from T_PRODUIT where upper(refprod) like ? UNION select * from T_PRODUIT where upper(desprod) like ?";
+
+		List<Produit> produitList = new ArrayList<Produit>();
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, "%" + searchName.toUpperCase() + "%");
+			stmt.setString(2, "%" + searchName.toUpperCase() + "%");
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				produitList.add(new Produit(rs.getString("refProd"), rs.getString("desProd"), rs.getString("qteProd"),
+						rs.getString("prixHtProd"), rs.getString("prixTTCProd"), rs.getString("tVAProd")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return produitList;
 	}
 
 }

@@ -32,7 +32,7 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </ToolBar>
-                              <TextField fx:id="searchClientTxtField" prefHeight="25.0" prefWidth="380.0" text="Recherche client" />
+                              <TextField fx:id="searchClientTxtField" prefHeight="25.0" prefWidth="380.0" text="Recherche nom ou prenom client" onAction="#getSearchClientVente" />
                               <HBox minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <ListView fx:id="clientList" prefHeight="300.0" prefWidth="474.0" onMouseReleased="#selectClientVenteInfo" />
@@ -46,7 +46,7 @@
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
                               </Separator>
-                              <TextField fx:id="searchProductTxtField" text="Recherche produit" />
+                              <TextField fx:id="searchProductTxtField" text="Recherche produit" onAction="#getSearchProductVente" />
                               <HBox layoutX="10.0" layoutY="76.0" minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <ListView fx:id="productList" prefHeight="300.0" prefWidth="474.0" />

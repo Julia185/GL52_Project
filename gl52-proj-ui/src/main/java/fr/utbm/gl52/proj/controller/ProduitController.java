@@ -33,5 +33,9 @@ public class ProduitController {
 		this.service.deleteProduit(referenceProd);
 	}
 
+	public List<Produit> searchByProductNameOrRef(String searchName) {
+		return this.service.searchByProductNameOrRef(searchName);
+	}
+
 
 }

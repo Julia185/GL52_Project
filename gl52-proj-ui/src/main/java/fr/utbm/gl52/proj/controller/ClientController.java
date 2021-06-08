@@ -33,5 +33,8 @@ public class ClientController {
 		this.service.deleteClient(client.getNumCli());
 		
 	}
-
+	
+	public List<Client> searchByClientName(String searchName) {
+		return this.service.searchByclientName(searchName);
+	}
 }

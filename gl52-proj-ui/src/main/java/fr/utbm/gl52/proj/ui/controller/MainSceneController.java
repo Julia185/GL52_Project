@@ -148,12 +148,20 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	@FXML
 	public void getSearchClientVente() {
-
+		if ( !this.searchClientTxtField.getText().equals("")) {
+			this.clientList.setItems(FXCollections.observableArrayList( this.clientController.searchByClientName(this.searchClientTxtField.getText())));
+		} else {
+			this.clientList.setItems(FXCollections.observableArrayList(this.clientController.getAllClient()));
+		}
 	}
 
 	@FXML
 	public void getSearchProductVente() {
-
+		if ( !this.searchProductTxtField.getText().equals("")) {
+			this.productList.setItems(FXCollections.observableArrayList( this.produitController.searchByProductNameOrRef(this.searchProductTxtField.getText())));
+		} else {
+			this.productList.setItems(FXCollections.observableArrayList(this.produitController.getAllProduit()));
+		}
 	}
 
 	@FXML
