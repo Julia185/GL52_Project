@@ -11,19 +11,17 @@ public class Vente implements Serializable {
 	private String numVte;
 	private String numCli;
 	private String numEmp;
-	private String libVte;
 	private String date;
 	private String montantVte;
 
 	public Vente() {
 	}
 	
-	public Vente(String numVte, String numCli, String numEmp, String libVte, String date, String montantVte) {
+	public Vente(String numVte, String numCli, String numEmp, String date, String montantVte) {
 		super();
 		this.numVte = numVte;
 		this.numCli = numCli;
 		this.numEmp = numEmp;
-		this.libVte = libVte;
 		this.date = date;
 		this.montantVte = montantVte;
 	}
@@ -50,14 +48,6 @@ public class Vente implements Serializable {
 
 	public void setNumEmp(String numEmp) {
 		this.numEmp = numEmp;
-	}
-
-	public String getLibVte() {
-		return libVte;
-	}
-
-	public void setLibVte(String libVte) {
-		this.libVte = libVte;
 	}
 
 	public String getDate() {

@@ -119,6 +119,57 @@ public class Produit implements Serializable {
 		return  refProd + " | " + desProd + " Qtt : " + qteProd + " HT : "
 				+ prixHTProd + "€ / TTC : " + PrixTTCProd + "€ | TVA" + TVAProd ;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((PrixTTCProd == null) ? 0 : PrixTTCProd.hashCode());
+		result = prime * result + ((TVAProd == null) ? 0 : TVAProd.hashCode());
+		result = prime * result + ((desProd == null) ? 0 : desProd.hashCode());
+		result = prime * result + ((prixHTProd == null) ? 0 : prixHTProd.hashCode());
+		result = prime * result + ((refProd == null) ? 0 : refProd.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produit other = (Produit) obj;
+		if (PrixTTCProd == null) {
+			if (other.PrixTTCProd != null)
+				return false;
+		} else if (!PrixTTCProd.equals(other.PrixTTCProd))
+			return false;
+		if (TVAProd == null) {
+			if (other.TVAProd != null)
+				return false;
+		} else if (!TVAProd.equals(other.TVAProd))
+			return false;
+		if (desProd == null) {
+			if (other.desProd != null)
+				return false;
+		} else if (!desProd.equals(other.desProd))
+			return false;
+		if (prixHTProd == null) {
+			if (other.prixHTProd != null)
+				return false;
+		} else if (!prixHTProd.equals(other.prixHTProd))
+			return false;
+		if (refProd == null) {
+			if (other.refProd != null)
+				return false;
+		} else if (!refProd.equals(other.refProd))
+			return false;
+		return true;
+	}
+	
+	
 	
 	
 }

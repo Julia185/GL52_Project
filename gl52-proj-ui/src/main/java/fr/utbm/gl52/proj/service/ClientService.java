@@ -29,12 +29,6 @@ public class ClientService extends IConnectDbService {
 						rs.getString("telCli"), rs.getString("mailCli"), rs.getString("rueCli"),
 						rs.getString("villeCli"), rs.getString("cpCli"), rs.getString("paysCli")));
 			}
-			clientList.sort(new Comparator<Client>() {
-				@Override
-				public int compare(Client c1, Client c2) {
-					return c1.getNomCli().compareToIgnoreCase(c2.getNomCli());
-				}
-			});
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
