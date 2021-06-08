@@ -7,8 +7,10 @@ import java.util.ResourceBundle;
 
 import fr.utbm.gl52.proj.controller.ClientController;
 import fr.utbm.gl52.proj.controller.ProduitController;
+import fr.utbm.gl52.proj.controller.sav.DemandeController;
 import fr.utbm.gl52.proj.model.Client;
 import fr.utbm.gl52.proj.model.Produit;
+import fr.utbm.gl52.proj.model.sav.Demande;
 import fr.utbm.gl52.proj.ui.App;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -56,10 +58,13 @@ public class MainSceneController extends AbstractController implements Initializ
 	private ListView<Produit> productList;
 	@FXML
 	private ListView<Produit> sellList;
+	@FXML
+	private ListView<Demande> savList;
 	
 
 	private ClientController clientController = new ClientController();
 	private ProduitController produitController = new ProduitController();
+	private DemandeController demandeController = new DemandeController();
 	
 	private ObservableList<Produit> productToSellList;
 	private float mttTotal;
@@ -72,8 +77,10 @@ public class MainSceneController extends AbstractController implements Initializ
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<Client> clientItems = FXCollections.observableArrayList(this.clientController.getAllClient());
 		ObservableList<Produit> productItems = FXCollections.observableArrayList(this.produitController.getAllProduit());
+		ObservableList<Demande> demandeItems = FXCollections.observableArrayList(this.demandeController.getAllDemande());
 		this.clientList.setItems(clientItems);
 		this.productList.setItems(productItems);
+		this.savList.setItems(demandeItems);
 		this.productToSellList = FXCollections.observableArrayList();
 	}
 
@@ -177,7 +184,7 @@ public class MainSceneController extends AbstractController implements Initializ
 	}
 
 	@FXML
-	public void modifiyReparation() {
+	public void modifyReparation() {
 
 	}
 

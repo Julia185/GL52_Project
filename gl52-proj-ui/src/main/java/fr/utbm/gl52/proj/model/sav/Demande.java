@@ -66,4 +66,11 @@ public class Demande implements Serializable {
 	public void setRefProd(String refProd) {
 		this.refProd = refProd;
 	}
+
+	@Override
+	public String toString() {
+		return numRep + " | "+ numCli + " | " + natureRep + " | " + refProd ;
+	}
+	
+	
 }

@@ -20,7 +20,7 @@ public class DemandeService  extends IConnectDbService {
 	}
 	
 	public List<Demande> getAllDemande() {
-		String rqt = "Select * from DEMANDE";
+		String rqt = "Select * from T_DEMANDE";
 
 		List<Demande> demandeList = new ArrayList<Demande>();
 		PreparedStatement stmt;
@@ -30,7 +30,7 @@ public class DemandeService  extends IConnectDbService {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				demandeList.add(new Demande(rs.getString("numRep"), rs.getString("numCli"), rs.getString("natureRep"),
-						rs.getString("descRep"), rs.getString("refProd")));
+						rs.getString("desRep"), rs.getString("refProd")));
 			}
 			demandeList.sort(new Comparator<Demande>() {
 				@Override
@@ -53,8 +53,8 @@ public class DemandeService  extends IConnectDbService {
 		return demandeList;
 	}
 
-	public void inserClient(Demande demande) {
-		String rqt = "INSERT INTO DEMANDE (numRep,numCli,natureRep,descRep,refProd) VALUES (?,?,?,?,?) ";
+	public void insertDemande(Demande demande) {
+		String rqt = "INSERT INTO T_DEMANDE (numRep,numCli,natureRep,desRep,refProd) VALUES (?,?,?,?,?) ";
 		PreparedStatement stmt;
 		Connection con = this.connect();
 		try {
@@ -78,5 +78,37 @@ public class DemandeService  extends IConnectDbService {
 		}
 
 	}
+
+	public void updateDemande(Demande demande) {
+		String rqt = "INSERT INTO T_DEMANDE (numcli,numRep,natureRep,desRep,refProd) VALUES (?,?,?,?,?) ";
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, demande.getNumCli());
+			stmt.setString(2, demande.getNumRep());
+			stmt.setString(3, demande.getNatureRep());
+			stmt.setString(4, demande.getDescRep());
+			stmt.setString(5, demande.getRefProd());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}		
+	}
+
+	public void deleteDemande(Demande demande) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }

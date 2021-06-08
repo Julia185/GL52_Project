@@ -113,14 +113,12 @@
                                                   <MenuItem mnemonicParsing="false" text="Delete" />
                                                 </items>
                                               </Menu>
-                                              <Menu mnemonicParsing="false" text="Créer" />
                                             </menus>
                                           </MenuBar>
                                           <Separator prefWidth="200.0" />
                                           <HBox prefHeight="589.0" prefWidth="299.0">
                                              <children>
-                                                <ListView prefHeight="589.0" prefWidth="286.0" />
-                                                <ScrollBar orientation="VERTICAL" prefHeight="589.0" prefWidth="14.0" />
+                                                <ListView fx:id="savList" prefHeight="589.0" prefWidth="300.0" />
                                              </children>
                                           </HBox>
                                           <ScrollBar />
@@ -132,8 +130,9 @@
                                  <children>
                                     <ToolBar layoutX="7.0" layoutY="-6.0" prefHeight="40.0" prefWidth="689.0">
                                       <items>
-                                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Modifier" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Suppprimer" />
+                                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Créer" onAction="#createReparation"/>
+                                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Modifier" onAction="#modifyReparation" />
+                                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Suppprimer"  onAction="#deleteReparation"/>
                                       </items>
                                     </ToolBar>
                                     <Label layoutX="14.0" layoutY="53.0" text="Nom :" />
@@ -164,7 +163,6 @@
                                     <Button ellipsisString="" layoutX="11.0" layoutY="430.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Supprimer ligne facture" textAlignment="CENTER" wrapText="true" />
                                     <ScrollBar layoutX="638.0" layoutY="311.0" orientation="VERTICAL" prefHeight="199.0" prefWidth="9.0" />
                                     <ScrollBar layoutX="143.0" layoutY="514.0" prefHeight="0.0" prefWidth="451.0" />
-                                    <Button layoutX="619.0" layoutY="595.0" mnemonicParsing="false" text="Valider" />
                                     <Button layoutX="496.0" layoutY="595.0" mnemonicParsing="false" text="Notifier client" />
                                  </children>
                               </AnchorPane>
