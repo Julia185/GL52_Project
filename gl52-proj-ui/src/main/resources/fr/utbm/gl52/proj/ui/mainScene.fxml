@@ -164,11 +164,9 @@
                                     <Label layoutX="15.0" layoutY="177.0" text="Description panne :" />
                                     <TextArea layoutX="142.0" layoutY="177.0" prefHeight="122.0" prefWidth="491.0" />
                                     <ListView layoutX="143.0" layoutY="314.0" prefHeight="200.0" prefWidth="495.0" />
-                                    <Button ellipsisString="" layoutX="11.0" layoutY="314.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Ajouter ligne facture" textAlignment="CENTER" wrapText="true" />
-                                    <Button ellipsisString="" layoutX="11.0" layoutY="373.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Modifier ligne facture" textAlignment="CENTER" wrapText="true" />
+                                    <Button ellipsisString="" layoutX="11.0" layoutY="314.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Ajouter ligne facture" textAlignment="CENTER" wrapText="true" onAction="#addFactureLine" />
+                                    <Button ellipsisString="" layoutX="11.0" layoutY="373.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Modifier ligne facture" textAlignment="CENTER" wrapText="true" onAction="#modifyFactureLine"/>
                                     <Button ellipsisString="" layoutX="11.0" layoutY="430.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Supprimer ligne facture" textAlignment="CENTER" wrapText="true" />
-                                    <ScrollBar layoutX="638.0" layoutY="311.0" orientation="VERTICAL" prefHeight="199.0" prefWidth="9.0" />
-                                    <ScrollBar layoutX="143.0" layoutY="514.0" prefHeight="0.0" prefWidth="451.0" />
                                     <Button layoutX="496.0" layoutY="595.0" mnemonicParsing="false" text="Notifier client" />
                                  </children>
                               </AnchorPane>
