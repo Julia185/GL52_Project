@@ -190,7 +190,8 @@ CREATE TABLE T_DEMANDE
     NUMCLI NUMBER(4)  NOT NULL,
     REFPROD NUMBER(4)  NOT NULL,
     NATUREREP VARCHAR2(75)  NULL,
-    DESREP VARCHAR2(75)  NULL
+    DESREP VARCHAR2(75)  NULL,
+    NUMFCT NUMBER(4) NOT NULL
 ,   CONSTRAINT PK_T_DEMANDE PRIMARY KEY (NUMREP, NUMCLI, REFPROD),
      CONSTRAINT FK_T_DEMANDE_T_REPARATION
           FOREIGN KEY (NUMREP)
@@ -200,8 +201,59 @@ CREATE TABLE T_DEMANDE
                REFERENCES T_CLIENT (NUMCLI),
      CONSTRAINT FK_T_DEMANDE_T_PRODUIT
           FOREIGN KEY (REFPROD)
-               REFERENCES T_PRODUIT (REFPROD)  
+               REFERENCES T_PRODUIT (REFPROD),
+     CONSTRAINT FK_T_DEMANDE_T_FACTURE
+          FOREIGN KEY (NUMFCT)
+               REFERENCES T_FACTURE (NUMFCT)  
    ) ;
+
+
+-- -----------------------------------------------------------------------------
+--       TABLE : T_FACTURE
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE T_FACTURE
+     (
+          NUMFCT NUMBER(4) NOT NULL,
+          DATEFCT DATE NULL,
+          NUMEMP NUMBER(4)  NOT NULL,
+          CONSTRAINT PK_T_FACTURE PRIMARY KEY (NUMFCT),
+     CONSTRAINT FK_T_FACTURE_T_EMPLOYE
+          FOREIGN KEY (NUMEMP)
+               REFERENCES T_EMPLOYE (NUMEMP)
+     ) ;
+
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE T_FACTURE
+-- -----------------------------------------------------------------------------
+
+CREATE INDEX I_FK_T_FACTURE_T_EMPLOYE
+     ON T_FACTURE (NUMEMP ASC)
+     ;
+
+-- -----------------------------------------------------------------------------
+--       TABLE : T_LIGNE_FACTURE
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE T_LIGNE_FACTURE
+     (
+          IDLIGNEFCT NUMBER(4) NOT NULL,
+          NUMFCT NUMBER(4) NOT NULL,
+          MONTANTLIGNFCT NUMBER(13,2) NULL,
+          DESCLIGNEFCT VARCHAR2(75) NULL,
+          CONSTRAINT PK_T_LIGNE_FACTURE PRIMARY KEY (IDLIGNEFCT),
+     CONSTRAINT FK_T_LIGNE_FACTURE_T_FACTURE
+          FOREIGN KEY (NUMFCT)
+             REFERENCES T_FACTURE (NUMFCT)
+     ) ;
+
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE T_LIGNE_FACTURE
+-- -----------------------------------------------------------------------------
+
+CREATE INDEX I_FK_T_LIGNE_FACTURE_T_FACTURE
+     ON T_FACTURE (NUMFCT ASC)
+     ;
 
 -- -----------------------------------------------------------------------------
 --       INDEX DE LA TABLE T_DEMANDE
@@ -218,6 +270,8 @@ CREATE  INDEX I_FK_T_DEMANDE_T_CLIENT
 CREATE  INDEX I_FK_T_DEMANDE_T_PRODUIT
      ON T_DEMANDE (REFPROD ASC)
     ;
+
+
 
 
 -- -----------------------------------------------------------------------------
