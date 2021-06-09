@@ -256,13 +256,13 @@ public class MainSceneController extends AbstractController implements Initializ
 	}
 
 	@FXML
-	public void addFactureLine() {
-
+	public void addFactureLine() throws IOException {
+		App.setRoot("GestionnaireFacture");
 	}
 
 	@FXML
-	public void modifyFactureLine() {
-
+	public void modifyFactureLine() throws IOException {
+		App.setRoot("GestionnaireFacture");
 	}
 
 	@FXML

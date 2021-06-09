@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import fr.utbm.gl52.proj.controller.ProduitController;
+import fr.utbm.gl52.proj.controller.stock.EntreeStockController;
 import fr.utbm.gl52.proj.model.Produit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.control.TextField;
 public class GestionProduitController extends AbstractController implements Initializable {
 	
 	private ProduitController produitController = new ProduitController();
+	private EntreeStockController entreeStockController = new EntreeStockController();
 
 	@FXML
 	private TextField refProdTxtField;
@@ -58,12 +60,14 @@ public class GestionProduitController extends AbstractController implements Init
 	private void newProduit() throws IOException {
 		Produit produit = this.setProduit();
 		this.produitController.insertNewProduit(produit);
+		this.entreeStockController.insertNewEntree(produit);
 		super.switchToMainScene();
 	}
 	
 	private void modifyProduit() throws IOException {
 		Produit produit = this.setProduit();
 		this.produitController.modifyProduit(produit);
+		this.entreeStockController.insertNewEntree(produit);
 		super.switchToMainScene();
 	}
 	

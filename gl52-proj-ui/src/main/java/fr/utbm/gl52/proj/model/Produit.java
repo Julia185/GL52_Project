@@ -2,7 +2,6 @@ package fr.utbm.gl52.proj.model;
 
 import java.io.Serializable;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 
 public class Produit implements Serializable {
