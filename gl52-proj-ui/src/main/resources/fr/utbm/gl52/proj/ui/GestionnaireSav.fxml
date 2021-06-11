@@ -16,6 +16,10 @@
             <ListView fx:id="clientListView" layoutX="13.0" layoutY="43.0" prefHeight="166.0" prefWidth="500.0" onMouseReleased="#setClientProduct" />
             <Label layoutX="13.0" layoutY="220.0" text="Référence Produit : " />
             <ListView fx:id="productClientListView" layoutX="13.0" layoutY="244.0" prefHeight="166.0" prefWidth="500.0" />
+            <Label layoutX="545.0" layoutY="18.0" text="Nature panne :" />
+            <TextArea fx:id="natureReparationTxtArea" layoutX="545.0" layoutY="42.0" prefHeight="69.0" prefWidth="216.0" />
+            <Label  layoutX="596.0" layoutY="430.0" text="Code employé:" />
+            <TextField  fx:id="numEmployeTxtField"  layoutX="684.0"  layoutY="430.0"  prefHeight="25.0" prefWidth="70.0" />
          </children></AnchorPane>
   </content>
 </TitledPane>

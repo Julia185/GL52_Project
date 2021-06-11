@@ -90,7 +90,6 @@ public class GestionnaireClientController extends AbstractController implements 
 		String cp = this.cpClientTxtField.getText();
 		String pays = this.paysClientTxtField.getText();
 		Client client = new Client(id, lastName, firstName, phone, mail, numRue + " " + rue, ville, cp, pays);
-		System.out.println(client.getNumCli() + " "+client);
 		return client;
 	}
 	

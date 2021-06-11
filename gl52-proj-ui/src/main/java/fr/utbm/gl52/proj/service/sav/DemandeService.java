@@ -54,7 +54,7 @@ public class DemandeService  extends IConnectDbService {
 	}
 
 	public void insertDemande(Demande demande) {
-		String rqt = "INSERT INTO T_DEMANDE (numRep,numCli,natureRep,desRep,refProd) VALUES (?,?,?,?,?) ";
+		String rqt = "INSERT INTO T_DEMANDE (numRep,numCli,natureRep,desRep,refProd,numFct) VALUES (?,?,?,?,?,?) ";
 		PreparedStatement stmt;
 		Connection con = this.connect();
 		try {
@@ -64,6 +64,7 @@ public class DemandeService  extends IConnectDbService {
 			stmt.setString(3, demande.getNatureRep());
 			stmt.setString(4, demande.getDescRep());
 			stmt.setString(5, demande.getRefProd());
+			stmt.setString(6, demande.getNumFct());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

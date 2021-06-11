@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class GestionnaireSavController extends AbstractController implements Initializable {
 
@@ -28,9 +29,13 @@ public class GestionnaireSavController extends AbstractController implements Ini
 	@FXML
 	private TextArea reparationDescriptionTxtArea;
 	@FXML
+	private TextArea natureReparationTxtArea;
+	@FXML
 	private ListView<Client> clientListView;
 	@FXML
 	private ListView<Produit> productClientListView;
+	@FXML
+	private TextField numEmployeTxtField;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -59,8 +64,16 @@ public class GestionnaireSavController extends AbstractController implements Ini
 	}
 
 	private void newSAV() throws IOException {
-		SAV produit = this.setSAV();
-		super.switchToMainScene();
+		this.setSAV();
+		if (this.clientListView.getSelectionModel().getSelectedItem() != null
+				&& this.productClientListView.getSelectionModel().getSelectedItem() != null
+				&& !this.numEmployeTxtField.getText().equals("")) {
+			this.savController.createSAV(this.clientListView.getSelectionModel().getSelectedItem(),
+					this.productClientListView.getSelectionModel().getSelectedItem(),
+					this.reparationDescriptionTxtArea.getText(), this.natureReparationTxtArea.getText(),
+					this.numEmployeTxtField.getText());
+		}
+
 	}
 
 	private void modifySAV() throws IOException {
@@ -78,7 +91,6 @@ public class GestionnaireSavController extends AbstractController implements Ini
 
 	@FXML
 	public void setClientProduct() {
-		System.out.println("Before call");
 		this.productClientListView.setItems(FXCollections.observableArrayList(this.savController
 				.getProductbyClient(this.clientListView.getSelectionModel().getSelectedItem().getNumCli())));
 	}

@@ -15,9 +15,37 @@ import fr.utbm.gl52.proj.service.IConnectDbService;
 public class ReparationService extends IConnectDbService {
 
 	public ReparationService() {
-		// TODO Auto-generated constructor stub
 	}
 
+	public String getNextValid() {
+		String rqt = "SELECT * FROM T_REPARATION c WHERE c.numRep=(SELECT max(c.numRep) FROM T_REPARATION c )";
+
+		List<Reparation> reparationList = new ArrayList<Reparation>();
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				reparationList.add(new Reparation(rs.getString("numRep"), rs.getString("etatRep")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		Integer temp = Integer.parseInt(reparationList.get(0).getNumRep())+1;
+		
+		return temp.toString();
+	}
+	
 
 	public List<Reparation> getAllReparation() {
 		String rqt = "Select * from T_REPARATION";
@@ -74,5 +102,8 @@ public class ReparationService extends IConnectDbService {
 		}
 
 	}
+
+
+	
 	
 }

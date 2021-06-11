@@ -88,12 +88,12 @@ public class MainSceneController extends AbstractController implements Initializ
 		ObservableList<Client> clientItems = FXCollections.observableArrayList(this.clientController.getAllClient());
 		ObservableList<Produit> productItems = FXCollections
 				.observableArrayList(this.produitController.getAllProduit());
-		ObservableList<SAV> demandeItems = FXCollections
+		ObservableList<SAV> savItems = FXCollections
 				.observableArrayList(this.savController.getAllSav());
 		this.stockTable.setItems(productItems);
 		this.clientList.setItems(clientItems);
 		this.productList.setItems(productItems);
-		this.savList.setItems(demandeItems);
+		this.savList.setItems(savItems);
 		this.productToSellList = FXCollections.observableArrayList();
 	}
 
