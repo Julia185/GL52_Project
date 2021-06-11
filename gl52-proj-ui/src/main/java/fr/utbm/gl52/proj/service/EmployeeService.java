@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.utbm.gl52.proj.model.Employe;
-import fr.utbm.gl52.proj.model.Employe;
 
 public class EmployeeService extends IConnectDbService {
 

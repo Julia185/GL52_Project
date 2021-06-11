@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import fr.utbm.gl52.proj.model.Client;
 import fr.utbm.gl52.proj.model.Produit;
 
 public class ProduitService extends IConnectDbService {

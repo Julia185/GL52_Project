@@ -14,17 +14,19 @@ public class Demande implements Serializable {
 	private String natureRep;
 	private String descRep;
 	private String refProd;
+	private String numFct;
 
 	public Demande() {
 	}
 
-	public Demande(String numRep, String numCli, String natureRep, String descRep, String refProd) {
+	public Demande(String numRep, String numCli, String natureRep, String descRep, String refProd, String numFct) {
 		super();
 		this.numRep = numRep;
 		this.numCli = numCli;
 		this.natureRep = natureRep;
 		this.descRep = descRep;
 		this.refProd = refProd;
+		this.numFct = numFct;
 	}
 
 	public String getNumRep() {
@@ -67,10 +69,18 @@ public class Demande implements Serializable {
 		this.refProd = refProd;
 	}
 
+
+	public String getNumFct() {
+		return numFct;
+	}
+
+	public void setNumFct(String numFct) {
+		this.numFct = numFct;
+	}
+	
 	@Override
 	public String toString() {
 		return numRep + " | "+ numCli + " | " + natureRep + " | " + refProd ;
 	}
-	
 	
 }

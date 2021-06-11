@@ -146,11 +146,11 @@
                                     <Label layoutX="14.0" layoutY="93.0" text="Adresse :" />
                                     <Label layoutX="15.0" layoutY="138.0" text="Téléphone :" />
                                     <Label layoutX="316.0" layoutY="136.0" text="E-Mail :" />
-                                    <TextField layoutX="84.0" layoutY="49.0" />
-                                    <TextField layoutX="85.0" layoutY="88.0" prefHeight="25.0" prefWidth="446.0" />
-                                    <TextField layoutX="84.0" layoutY="130.0" />
-                                    <TextField layoutX="382.0" layoutY="49.0" />
-                                    <TextField layoutX="382.0" layoutY="134.0" />
+                                    <TextField layoutX="84.0" layoutY="49.0" editable="false" />
+                                    <TextField layoutX="85.0" layoutY="88.0" prefHeight="25.0" prefWidth="446.0" editable="false" />
+                                    <TextField layoutX="84.0" layoutY="130.0" editable="false" />
+                                    <TextField layoutX="382.0" layoutY="49.0" editable="false" />
+                                    <TextField layoutX="382.0" layoutY="134.0" editable="false" />
                                     <SplitMenuButton layoutX="560.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="État réparation">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text="Non commencé" />

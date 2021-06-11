@@ -30,7 +30,7 @@ public class DemandeService  extends IConnectDbService {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				demandeList.add(new Demande(rs.getString("numRep"), rs.getString("numCli"), rs.getString("natureRep"),
-						rs.getString("desRep"), rs.getString("refProd")));
+						rs.getString("desRep"), rs.getString("refProd"),rs.getString("numFct")));
 			}
 			demandeList.sort(new Comparator<Demande>() {
 				@Override
