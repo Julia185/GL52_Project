@@ -37,4 +37,8 @@ public class ClientController {
 	public List<Client> searchByClientName(String searchName) {
 		return this.service.searchByclientName(searchName);
 	}
+
+	public Client getById(String numCli) {
+		return this.service.getById(numCli);
+	}
 }

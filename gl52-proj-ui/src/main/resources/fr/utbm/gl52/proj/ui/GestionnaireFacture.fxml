@@ -12,8 +12,6 @@
             <TextField fx:id="CodeProduitTxtField" layoutX="158.0" layoutY="23.0" />
             <Label fx:id="DesRepLabel" layoutX="14.0" layoutY="153.0" text="Description Réparation :" />
             <TextField fx:id="DesRepTxtField" layoutX="158.0" layoutY="149.0" prefHeight="25.0" prefWidth="423.0" />
-            <TextField fx:id="QteProdTxtField" layoutX="158.0" layoutY="87.0" prefHeight="25.0" prefWidth="149.0" />
-            <Label fx:id="QteLabel" layoutX="16.0" layoutY="91.0" text="Quantité :" />
             <Label fx:id="PrixRepLabel" layoutX="13.0" layoutY="216.0" text="Prix Réparation TTC :" />
             <TextField fx:id="PrixRepTxtField" layoutX="158.0" layoutY="212.0" prefHeight="25.0" prefWidth="149.0" />
             <Button layoutX="425.0" layoutY="322.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Annuler" />

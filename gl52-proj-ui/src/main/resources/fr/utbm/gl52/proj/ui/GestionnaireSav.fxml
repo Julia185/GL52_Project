@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane id="GestClientPane" fx:id="GestSavPane" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="775.0" text="Gestionnaire SAV" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.utbm.gl52.proj.ui.controller.GestionnaireSavController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="557.0" prefWidth="801.0">
+         <children>
+            <Button layoutX="684.0" layoutY="479.0" mnemonicParsing="false" onAction="#switchToMainSceneValidate" text="Valider" />
+            <Button layoutX="596.0" layoutY="479.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Annuler" />
+            <Label layoutX="13.0" layoutY="417.0" text="Description panne :"  />
+            <TextArea fx:id="reparationDescriptionTxtArea" layoutX="13.0" layoutY="449.0" prefHeight="43.0" prefWidth="497.0" />
+            <TextField layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="380.0" text="Recherche client" />
+            <ListView fx:id="clientListView" layoutX="13.0" layoutY="43.0" prefHeight="166.0" prefWidth="500.0" onMouseReleased="#setClientProduct" />
+            <Label layoutX="13.0" layoutY="220.0" text="Référence Produit : " />
+            <ListView fx:id="productClientListView" layoutX="13.0" layoutY="244.0" prefHeight="166.0" prefWidth="500.0" />
+         </children></AnchorPane>
+  </content>
+</TitledPane>

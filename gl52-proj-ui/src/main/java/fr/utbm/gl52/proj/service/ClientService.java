@@ -198,6 +198,35 @@ public class ClientService extends IConnectDbService {
 		
 		return clientList;
 	}
+
+	public Client getById(String numCli) {
+		String rqt = "SELECT * FROM T_CLIENT c WHERE c.numCli=?";
+
+		Client client = new Client();
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(0, numCli);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				client = new Client(rs.getString("numCli"), rs.getString("nomCli"), rs.getString("prenomCli"),
+						rs.getString("telCli"), rs.getString("mailCli"), rs.getString("rueCli"),
+						rs.getString("villeCli"), rs.getString("cpCli"), rs.getString("paysCli"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return client;
+	}
 	
 
 }

@@ -7,16 +7,14 @@ import java.util.ResourceBundle;
 
 import fr.utbm.gl52.proj.controller.ClientController;
 import fr.utbm.gl52.proj.controller.ProduitController;
-import fr.utbm.gl52.proj.controller.sav.DemandeController;
+import fr.utbm.gl52.proj.controller.sav.SAVController;
 import fr.utbm.gl52.proj.controller.vente.LigneVenteController;
 import fr.utbm.gl52.proj.controller.vente.VenteController;
 import fr.utbm.gl52.proj.model.Client;
 import fr.utbm.gl52.proj.model.Produit;
-import fr.utbm.gl52.proj.model.sav.Demande;
-import fr.utbm.gl52.proj.model.vente.LigneVente;
+import fr.utbm.gl52.proj.model.sav.SAV;
 import fr.utbm.gl52.proj.model.vente.Vente;
 import fr.utbm.gl52.proj.ui.App;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -26,7 +24,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class MainSceneController extends AbstractController implements Initializable {
 	//TEXTFIELD
@@ -71,11 +68,11 @@ public class MainSceneController extends AbstractController implements Initializ
 	@FXML
 	private ListView<Produit> sellList;
 	@FXML
-	private ListView<Demande> savList;
+	private ListView<SAV> savList;
 
 	private ClientController clientController = new ClientController();
 	private ProduitController produitController = new ProduitController();
-	private DemandeController demandeController = new DemandeController();
+	private SAVController savController = new SAVController();
 	private VenteController venteController = new VenteController();
 	private LigneVenteController ligneVenteController = new LigneVenteController();
 
@@ -91,8 +88,8 @@ public class MainSceneController extends AbstractController implements Initializ
 		ObservableList<Client> clientItems = FXCollections.observableArrayList(this.clientController.getAllClient());
 		ObservableList<Produit> productItems = FXCollections
 				.observableArrayList(this.produitController.getAllProduit());
-		ObservableList<Demande> demandeItems = FXCollections
-				.observableArrayList(this.demandeController.getAllDemande());
+		ObservableList<SAV> demandeItems = FXCollections
+				.observableArrayList(this.savController.getAllSav());
 		this.stockTable.setItems(productItems);
 		this.clientList.setItems(clientItems);
 		this.productList.setItems(productItems);
@@ -226,12 +223,13 @@ public class MainSceneController extends AbstractController implements Initializ
 // SAV PANEL //
 
 	@FXML
-	public void createReparation() {
-
+	public void createReparation() throws IOException {
+		App.setRoot("GestionnaireSav");
 	}
 
 	@FXML
-	public void modifyReparation() {
+	public void modifyReparation() throws IOException {
+		App.setRoot("GestionnaireSav");
 
 	}
 

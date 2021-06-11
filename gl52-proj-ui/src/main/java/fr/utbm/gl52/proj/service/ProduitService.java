@@ -127,4 +127,42 @@ public class ProduitService extends IConnectDbService {
 		return produitList;
 	}
 
+	public List<Produit> getProductbyClient(String numCli) {
+		String rqt = "select \r\n"
+				+ "	prod.*\r\n"
+				+ "from \r\n"
+				+ "	T_VENTE vte inner join T_LIGNE_VENTE lgnvte\r\n"
+				+ "		on vte.numvte = lgnvte.numvte\r\n"
+				+ "	inner join T_CLIENT cli\r\n"
+				+ "		on vte.numcli = cli.numcli\r\n"
+				+ "	inner join T_PRODUIT prod\r\n"
+				+ "		on prod.refprod = lgnvte.refprod\r\n"
+				+ "where\r\n"
+				+ "	cli.numcli = ?";
+
+		List<Produit> produitList = new ArrayList<Produit>();
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setInt(1, Integer.parseInt(numCli));
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				produitList.add(new Produit(rs.getString("refProd"), rs.getString("desProd"), rs.getString("qteProd"),
+						rs.getString("prixHtProd"), rs.getString("prixTTCProd"), rs.getString("tVAProd")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return produitList;	}
+
 }

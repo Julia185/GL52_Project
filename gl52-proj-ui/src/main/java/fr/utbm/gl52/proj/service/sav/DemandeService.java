@@ -49,7 +49,7 @@ public class DemandeService  extends IConnectDbService {
 				}
 			}
 		}
-		
+		System.out.println(demandeList.size());
 		return demandeList;
 	}
 

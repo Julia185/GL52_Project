@@ -37,5 +37,9 @@ public class ProduitController {
 		return this.service.searchByProductNameOrRef(searchName);
 	}
 
+	public List<Produit> getProductbyClient(String numCli) {
+		return this.service.getProductbyClient(numCli);
+	}
+
 
 }

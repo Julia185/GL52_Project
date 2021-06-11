@@ -81,7 +81,6 @@
                         <Label fx:id="montantTtlLabel" layoutX="905.0" layoutY="126.0" prefHeight="17.0" prefWidth="88.0" text="" />
                         <Button layoutX="478.0" layoutY="596.0" mnemonicParsing="false" text="Annuler vente" onAction="#cancelSell" />
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
-                        <CheckBox layoutX="593.0" layoutY="600.0" mnemonicParsing="false" text="Facture" />
                      </children>
                   </AnchorPane>
             </content>
@@ -164,9 +163,10 @@
                                     <Label layoutX="15.0" layoutY="177.0" text="Description panne :" />
                                     <TextArea layoutX="142.0" layoutY="177.0" prefHeight="122.0" prefWidth="491.0" />
                                     <ListView layoutX="143.0" layoutY="314.0" prefHeight="200.0" prefWidth="495.0" />
-                                    <Button ellipsisString="" layoutX="11.0" layoutY="314.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Ajouter ligne facture" textAlignment="CENTER" wrapText="true" onAction="#addFactureLine" />
-                                    <Button ellipsisString="" layoutX="11.0" layoutY="373.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Modifier ligne facture" textAlignment="CENTER" wrapText="true" onAction="#modifyFactureLine"/>
-                                    <Button ellipsisString="" layoutX="11.0" layoutY="430.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Supprimer ligne facture" textAlignment="CENTER" wrapText="true" />
+                                    <Button ellipsisString="" layoutX="11.0" layoutY="315.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Ajouter ligne facture" textAlignment="CENTER" wrapText="true" onAction="#addFactureLine" />
+                                    <Button ellipsisString="" layoutX="11.0" layoutY="375.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Modifier ligne facture" textAlignment="CENTER" wrapText="true" onAction="#modifyFactureLine"/>
+                                    <Button ellipsisString="" layoutX="11.0" layoutY="435.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Supprimer ligne facture" textAlignment="CENTER" wrapText="true" />
+                                    <CheckBox layoutX="11.0" layoutY="495.0" mnemonicParsing="false" text="Nouvelle Facture" />
                                     <Button layoutX="496.0" layoutY="595.0" mnemonicParsing="false" text="Notifier client" />
                                  </children>
                               </AnchorPane>
