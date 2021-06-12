@@ -12,6 +12,8 @@ import fr.utbm.gl52.proj.controller.vente.LigneVenteController;
 import fr.utbm.gl52.proj.controller.vente.VenteController;
 import fr.utbm.gl52.proj.model.Client;
 import fr.utbm.gl52.proj.model.Produit;
+import fr.utbm.gl52.proj.model.sav.Demande;
+import fr.utbm.gl52.proj.model.sav.Reparation;
 import fr.utbm.gl52.proj.model.sav.SAV;
 import fr.utbm.gl52.proj.model.vente.Vente;
 import fr.utbm.gl52.proj.ui.App;
@@ -30,8 +32,8 @@ import javafx.scene.control.TextField;
 public class MainSceneController extends AbstractController implements Initializable {
 	@FXML
 	private ChoiceBox<String> etatReparationMenuBtn;
-	
-	//TEXTFIELD
+
+	// TEXTFIELD
 	@FXML
 	private TextField searchClientTxtField;
 	@FXML
@@ -43,7 +45,7 @@ public class MainSceneController extends AbstractController implements Initializ
 	@FXML
 	private TextField numEmployeTxtField;
 	@FXML
-	private TextField nomSavTxtField; 
+	private TextField nomSavTxtField;
 	@FXML
 	private TextField prenomSavTxtField;
 	@FXML
@@ -56,13 +58,13 @@ public class MainSceneController extends AbstractController implements Initializ
 	private TextField naturePanneTxtField;
 	@FXML
 	private TextArea descSavTxtArea;
-	
-	//LABEL
+
+	// LABEL
 	@FXML
 	private Label clientInfosLabel;
 	@FXML
 	private Label montantTtlLabel;
-	
+
 	// TABLE
 	@FXML
 	private TableView<Produit> stockTable;
@@ -97,6 +99,7 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	private ObservableList<Produit> productToSellList;
 	private float mttTotal;
+	private SAV currentSAV;
 
 	public MainSceneController() {
 		super();
@@ -107,8 +110,7 @@ public class MainSceneController extends AbstractController implements Initializ
 		ObservableList<Client> clientItems = FXCollections.observableArrayList(this.clientController.getAllClient());
 		ObservableList<Produit> productItems = FXCollections
 				.observableArrayList(this.produitController.getAllProduit());
-		ObservableList<SAV> savItems = FXCollections
-				.observableArrayList(this.savController.getAllSav());
+		ObservableList<SAV> savItems = FXCollections.observableArrayList(this.savController.getAllSav());
 		this.stockTable.setItems(productItems);
 		this.clientList.setItems(clientItems);
 		this.productList.setItems(productItems);
@@ -248,16 +250,24 @@ public class MainSceneController extends AbstractController implements Initializ
 	@FXML
 	public void modifyReparation() throws IOException {
 
+		Reparation updatedReparation = new Reparation(this.currentSAV.getReparation().getNumRep(),
+				this.etatReparationMenuBtn.getSelectionModel().getSelectedItem());
+		Demande updatedDemande = new Demande(this.currentSAV.getDemande().getNumRep(),
+				this.currentSAV.getDemande().getNumCli(), this.naturePanneTxtField.getText(),
+				this.descSavTxtArea.getText(), this.currentSAV.getDemande().getRefProd(),
+				this.currentSAV.getDemande().getNumFct());
+		this.savController.modifySAV(updatedReparation, updatedDemande);
+		this.savList.setItems(FXCollections.observableArrayList(this.savController.getAllSav()));
 	}
 
 	@FXML
 	public void deleteReparation() {
 
 	}
-	
+
 	@FXML
 	public void changeSavTextFieldValues() {
-		SAV currentSAV = this.savList.getSelectionModel().getSelectedItem();
+		this.currentSAV = this.savList.getSelectionModel().getSelectedItem();
 		this.nomSavTxtField.setText(currentSAV.getClient().getNomCli());
 		this.prenomSavTxtField.setText(currentSAV.getClient().getPrenomCli());
 		this.adresseSavTxtField.setText(currentSAV.getClient().getAdresse());
@@ -267,9 +277,8 @@ public class MainSceneController extends AbstractController implements Initializ
 		this.descSavTxtArea.setText(currentSAV.getDemande().getDescRep());
 		System.out.println(currentSAV.getReparation().getEtatRep());
 		this.etatReparationMenuBtn.setValue(currentSAV.getReparation().getEtatRep());
-		
+
 	}
-	
 
 	@FXML
 	public void savFiltre() {

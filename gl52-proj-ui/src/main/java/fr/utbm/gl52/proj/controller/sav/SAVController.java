@@ -51,4 +51,10 @@ public class SAVController {
 		this.demandeController.insertNewDemande(dmd);
 	}
 
+
+	public void modifySAV(Reparation reparation, Demande demande) {
+		this.reparationController.modifyReparation(reparation);
+		this.demandeController.modifyDemande(demande);
+	}
+
 }

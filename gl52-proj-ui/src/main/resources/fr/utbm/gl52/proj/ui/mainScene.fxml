@@ -151,11 +151,11 @@
                                     <Label layoutX="14.0" layoutY="93.0" text="Adresse :" />
                                     <Label layoutX="15.0" layoutY="138.0" text="Téléphone :" />
                                     <Label layoutX="316.0" layoutY="136.0" text="E-Mail :" />
-                                    <TextField fx:id="nomSavTxtField" layoutX="84.0" layoutY="49.0" />
-                                    <TextField fx:id="adresseSavTxtField" layoutX="85.0" layoutY="88.0" prefHeight="25.0" prefWidth="446.0" />
-                                    <TextField fx:id="telSavTxtField" layoutX="84.0" layoutY="130.0" />
-                                    <TextField fx:id="prenomSavTxtField" layoutX="382.0" layoutY="49.0" />
-                                    <TextField fx:id="mailSavTxtField" layoutX="382.0" layoutY="134.0" />
+                                    <TextField fx:id="nomSavTxtField" editable="false" layoutX="84.0" layoutY="49.0" />
+                                    <TextField fx:id="adresseSavTxtField" editable="false" layoutX="85.0" layoutY="88.0" prefHeight="25.0" prefWidth="446.0" />
+                                    <TextField fx:id="telSavTxtField"  editable="false" layoutX="84.0" layoutY="130.0" />
+                                    <TextField fx:id="prenomSavTxtField" editable="false" layoutX="382.0" layoutY="49.0" />
+                                    <TextField fx:id="mailSavTxtField" editable="false" layoutX="382.0" layoutY="134.0" />
                                     <ChoiceBox fx:id="etatReparationMenuBtn" layoutX="463.0" layoutY="325.0"  prefHeight="25.0" prefWidth="113.0" value="Non commencé">
                                       <items>
                                       	<FXCollections fx:factory="observableArrayList">
@@ -164,7 +164,7 @@
 								            <String fx:value="Recherche de solution" />
 								            <String fx:value="En réparation" />
 								            <String fx:value="Attente pièce rechange" />
-								            <String fx:value="Réparation terminée" />
+								            <String fx:value="Reparation terminee" />
 								        </FXCollections>        
                                       </items>
                                     </ChoiceBox>

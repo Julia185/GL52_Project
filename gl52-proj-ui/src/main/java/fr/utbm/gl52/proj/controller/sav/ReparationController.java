@@ -22,6 +22,10 @@ public class ReparationController {
 		return this.service.getById(numRep);
 	}
 
+	public void modifyReparation(Reparation reparation) {
+		
+	}
+
 	
 
 }
