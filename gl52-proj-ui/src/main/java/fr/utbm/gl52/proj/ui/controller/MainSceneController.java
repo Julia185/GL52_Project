@@ -19,13 +19,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class MainSceneController extends AbstractController implements Initializable {
+	@FXML
+	private ChoiceBox<String> etatReparationMenuBtn;
+	
 	//TEXTFIELD
 	@FXML
 	private TextField searchClientTxtField;
@@ -37,6 +42,20 @@ public class MainSceneController extends AbstractController implements Initializ
 	private TextField qttSellTxtField;
 	@FXML
 	private TextField numEmployeTxtField;
+	@FXML
+	private TextField nomSavTxtField; 
+	@FXML
+	private TextField prenomSavTxtField;
+	@FXML
+	private TextField telSavTxtField;
+	@FXML
+	private TextField mailSavTxtField;
+	@FXML
+	private TextField adresseSavTxtField;
+	@FXML
+	private TextField naturePanneTxtField;
+	@FXML
+	private TextArea descSavTxtArea;
 	
 	//LABEL
 	@FXML
@@ -105,7 +124,6 @@ public class MainSceneController extends AbstractController implements Initializ
 	@FXML
 	@Override
 	public void switchToMainScene() throws IOException {
-		// TODO Auto-generated method stub
 		super.switchToMainScene();
 	}
 
@@ -229,7 +247,6 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	@FXML
 	public void modifyReparation() throws IOException {
-		App.setRoot("GestionnaireSav");
 
 	}
 
@@ -237,6 +254,22 @@ public class MainSceneController extends AbstractController implements Initializ
 	public void deleteReparation() {
 
 	}
+	
+	@FXML
+	public void changeSavTextFieldValues() {
+		SAV currentSAV = this.savList.getSelectionModel().getSelectedItem();
+		this.nomSavTxtField.setText(currentSAV.getClient().getNomCli());
+		this.prenomSavTxtField.setText(currentSAV.getClient().getPrenomCli());
+		this.adresseSavTxtField.setText(currentSAV.getClient().getAdresse());
+		this.telSavTxtField.setText(currentSAV.getClient().getTelCli());
+		this.mailSavTxtField.setText(currentSAV.getClient().getMailCli());
+		this.naturePanneTxtField.setText(currentSAV.getDemande().getNatureRep());
+		this.descSavTxtArea.setText(currentSAV.getDemande().getDescRep());
+		System.out.println(currentSAV.getReparation().getEtatRep());
+		this.etatReparationMenuBtn.setValue(currentSAV.getReparation().getEtatRep());
+		
+	}
+	
 
 	@FXML
 	public void savFiltre() {

@@ -7,6 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.collections.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="1009.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.utbm.gl52.proj.ui.controller.MainSceneController">
    <children>
@@ -101,12 +102,12 @@
                                                 <items>
                                                       <MenuItem mnemonicParsing="false" text="État Réparation">
                                                          <graphic>
-                                                            <CheckBox mnemonicParsing="false" />
+                                                            <CheckBox fx:id="etatCheckBox" mnemonicParsing="false" />
                                                          </graphic>
                                                       </MenuItem>
                                                       <MenuItem mnemonicParsing="false" text="Nom">
                                                          <graphic>
-                                                            <CheckBox mnemonicParsing="false" />
+                                                            <CheckBox  fx:id="nomCheckBox" mnemonicParsing="false" />
                                                          </graphic>
                                                       </MenuItem>
                                                       <SeparatorMenuItem mnemonicParsing="false" />
@@ -115,7 +116,13 @@
                                               </Menu>
                                               <Menu mnemonicParsing="false" text="Rechercher">
                                                 <items>
-                                                  <MenuItem mnemonicParsing="false" text="Delete" />
+                                                      <MenuItem mnemonicParsing="false">
+                                                         <graphic>
+                                                            <TextField fx:id="savSearchTextField"/>
+                                                         </graphic>
+                                                      </MenuItem>
+                                                      <SeparatorMenuItem mnemonicParsing="false" />
+                                                      <MenuItem mnemonicParsing="false" text="Close" />
                                                 </items>
                                               </Menu>
                                             </menus>
@@ -123,21 +130,20 @@
                                           <Separator prefWidth="200.0" />
                                           <HBox prefHeight="589.0" prefWidth="299.0">
                                              <children>
-                                                <ListView fx:id="savList" prefHeight="589.0" prefWidth="300.0" />
+                                                <ListView fx:id="savList" prefHeight="589.0" prefWidth="300.0" onMouseReleased="#changeSavTextFieldValues"/>
                                              </children>
                                           </HBox>
-                                          <ScrollBar />
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
                                     <ToolBar layoutX="7.0" layoutY="-6.0" prefHeight="40.0" prefWidth="689.0">
                                       <items>
-                                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Créer" onAction="#createReparation"/>
-                                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Modifier" onAction="#modifyReparation" />
-                                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Suppprimer"  onAction="#deleteReparation"/>
+									  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Créer" onAction="#createReparation"/>
+                                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Modifier" onAction="#modifyReparation"/>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Suppprimer" onAction="#deleteReparation"/>
                                       </items>
                                     </ToolBar>
                                     <Label layoutX="14.0" layoutY="53.0" text="Nom :" />
@@ -145,29 +151,32 @@
                                     <Label layoutX="14.0" layoutY="93.0" text="Adresse :" />
                                     <Label layoutX="15.0" layoutY="138.0" text="Téléphone :" />
                                     <Label layoutX="316.0" layoutY="136.0" text="E-Mail :" />
-                                    <TextField layoutX="84.0" layoutY="49.0" editable="false" />
-                                    <TextField layoutX="85.0" layoutY="88.0" prefHeight="25.0" prefWidth="446.0" editable="false" />
-                                    <TextField layoutX="84.0" layoutY="130.0" editable="false" />
-                                    <TextField layoutX="382.0" layoutY="49.0" editable="false" />
-                                    <TextField layoutX="382.0" layoutY="134.0" editable="false" />
-                                    <SplitMenuButton layoutX="560.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="État réparation">
+                                    <TextField fx:id="nomSavTxtField" layoutX="84.0" layoutY="49.0" />
+                                    <TextField fx:id="adresseSavTxtField" layoutX="85.0" layoutY="88.0" prefHeight="25.0" prefWidth="446.0" />
+                                    <TextField fx:id="telSavTxtField" layoutX="84.0" layoutY="130.0" />
+                                    <TextField fx:id="prenomSavTxtField" layoutX="382.0" layoutY="49.0" />
+                                    <TextField fx:id="mailSavTxtField" layoutX="382.0" layoutY="134.0" />
+                                    <ChoiceBox fx:id="etatReparationMenuBtn" layoutX="463.0" layoutY="325.0"  prefHeight="25.0" prefWidth="113.0" value="Non commencé">
                                       <items>
-                                        <MenuItem mnemonicParsing="false" text="Non commencé" />
-                                        <MenuItem mnemonicParsing="false" text="Recherche origine" />
-                                          <MenuItem mnemonicParsing="false" text="Recherche de solution" />
-                                          <MenuItem mnemonicParsing="false" text="En réparation" />
-                                          <MenuItem mnemonicParsing="false" text="Attente pièce rechange" />
-                                          <MenuItem mnemonicParsing="false" text="Réparation terminée" />
+                                      	<FXCollections fx:factory="observableArrayList">
+								            <String fx:value="Non commencé" />
+								            <String fx:value="Recherche origine" />
+								            <String fx:value="Recherche de solution" />
+								            <String fx:value="En réparation" />
+								            <String fx:value="Attente pièce rechange" />
+								            <String fx:value="Réparation terminée" />
+								        </FXCollections>        
                                       </items>
-                                    </SplitMenuButton>
+                                    </ChoiceBox>
                                     <Label layoutX="15.0" layoutY="177.0" text="Description panne :" />
-                                    <TextArea layoutX="142.0" layoutY="177.0" prefHeight="122.0" prefWidth="491.0" />
-                                    <ListView layoutX="143.0" layoutY="314.0" prefHeight="200.0" prefWidth="495.0" />
-                                    <Button ellipsisString="" layoutX="11.0" layoutY="315.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Ajouter ligne facture" textAlignment="CENTER" wrapText="true" onAction="#addFactureLine" />
-                                    <Button ellipsisString="" layoutX="11.0" layoutY="375.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Modifier ligne facture" textAlignment="CENTER" wrapText="true" onAction="#modifyFactureLine"/>
-                                    <Button ellipsisString="" layoutX="11.0" layoutY="435.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Supprimer ligne facture" textAlignment="CENTER" wrapText="true" />
-                                    <CheckBox layoutX="11.0" layoutY="495.0" mnemonicParsing="false" text="Nouvelle Facture" />
+                                    <TextArea fx:id="descSavTxtArea" layoutX="142.0" layoutY="177.0" prefHeight="122.0" prefWidth="491.0" />
+                                    <ListView layoutX="146.0" layoutY="378.0" prefHeight="200.0" prefWidth="495.0" />
+                                    <Button ellipsisString="" layoutX="14.0" layoutY="378.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Ajouter ligne facture" textAlignment="CENTER" wrapText="true" />
+                                    <Button ellipsisString="" layoutX="14.0" layoutY="437.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Modifier ligne facture" textAlignment="CENTER" wrapText="true" />
+                                    <Button ellipsisString="" layoutX="14.0" layoutY="494.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Supprimer ligne facture" textAlignment="CENTER" wrapText="true" />
                                     <Button layoutX="496.0" layoutY="595.0" mnemonicParsing="false" text="Notifier client" />
+                                    <TextField fx:id="naturePanneTxtField" layoutX="146.0" layoutY="325.0" prefHeight="25.0" prefWidth="264.0" />
+                                    <Label layoutX="17.0" layoutY="329.0" text="Nature réparation :" />
                                  </children>
                               </AnchorPane>
                           </items>

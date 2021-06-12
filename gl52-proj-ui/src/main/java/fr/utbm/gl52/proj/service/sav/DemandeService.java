@@ -81,7 +81,7 @@ public class DemandeService  extends IConnectDbService {
 	}
 
 	public void updateDemande(Demande demande) {
-		String rqt = "INSERT INTO T_DEMANDE (numcli,numRep,natureRep,desRep,refProd) VALUES (?,?,?,?,?) ";
+		String rqt = "UPDATE  T_DEMANDE SET numcli=?,numRep=?,natureRep=?,desRep=?,refProd=? where  numCli=? AND numRep=?";
 		PreparedStatement stmt;
 		Connection con = this.connect();
 		try {
@@ -91,6 +91,8 @@ public class DemandeService  extends IConnectDbService {
 			stmt.setString(3, demande.getNatureRep());
 			stmt.setString(4, demande.getDescRep());
 			stmt.setString(5, demande.getRefProd());
+			stmt.setString(6, demande.getNumCli());
+			stmt.setString(7, demande.getNumRep());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -106,7 +108,6 @@ public class DemandeService  extends IConnectDbService {
 	}
 
 	public void deleteDemande(Demande demande) {
-		// TODO Auto-generated method stub
 		
 	}
 

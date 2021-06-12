@@ -16,7 +16,7 @@ public class FactureController {
 	}
 
 	public void insertNewFacture(Facture facture) {
-		
+		this.service.insertNewFacture(facture);
 	}
 
 	public Facture getById(String numFct) {

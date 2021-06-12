@@ -47,6 +47,29 @@ public class FactureService extends IConnectDbService {
 		}
 		
 	}
+	
+	public void insertNewFacture(Facture facture) {
+		String rqt = "INSERT INTO T_FACTURE (numFct,dateFct,numEmp) VALUES (?,?,?) ";
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, facture.getNumFct());
+			stmt.setString(2, facture.getDateFct());
+			stmt.setString(3, facture.getNumEmp());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 
 	public Facture getById(String numFct) {
 		String rqt = "SELECT * FROM T_FACTURE c WHERE c.numFct=?";
@@ -74,5 +97,7 @@ public class FactureService extends IConnectDbService {
 		}
 		return facture;
 	}
+
+	
 
 }
