@@ -18,6 +18,10 @@ public class ReparationController {
 		this.service.inserReparation(reparation);
 	}
 
+	public Reparation getById(String numRep) {
+		return this.service.getById(numRep);
+	}
+
 	
 
 }

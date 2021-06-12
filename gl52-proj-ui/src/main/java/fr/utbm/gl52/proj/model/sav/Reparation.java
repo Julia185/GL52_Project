@@ -18,6 +18,9 @@ public class Reparation implements Serializable {
 		this.etatRep = etatRep;
 	}
 
+	public Reparation() {
+	}
+
 	public String getNumRep() {
 		return numRep;
 	}

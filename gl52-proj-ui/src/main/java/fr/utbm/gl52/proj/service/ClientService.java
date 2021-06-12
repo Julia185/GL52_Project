@@ -207,7 +207,7 @@ public class ClientService extends IConnectDbService {
 		Connection con = this.connect();
 		try {
 			stmt = con.prepareStatement(rqt);
-			stmt.setString(0, numCli);
+			stmt.setString(1, numCli);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				client = new Client(rs.getString("numCli"), rs.getString("nomCli"), rs.getString("prenomCli"),

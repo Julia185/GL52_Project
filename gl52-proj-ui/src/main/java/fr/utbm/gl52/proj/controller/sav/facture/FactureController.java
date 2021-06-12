@@ -19,6 +19,10 @@ public class FactureController {
 		
 	}
 
+	public Facture getById(String numFct) {
+		return this.service.getById(numFct);
+	}
+
 
 
 	

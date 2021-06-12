@@ -103,6 +103,33 @@ public class ReparationService extends IConnectDbService {
 
 	}
 
+	public Reparation getById(String numRep) {
+		String rqt = "SELECT * FROM T_REPARATION c WHERE c.numRep=?";
+
+		Reparation reparation = new Reparation();
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, numRep);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				reparation = new Reparation(rs.getString("numRep"), rs.getString("etatRep"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return reparation;
+	}
+
 
 	
 	

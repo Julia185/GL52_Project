@@ -29,7 +29,8 @@ public class SAVController {
 			SAV newSav = new SAV();
 			newSav.setDemande(dmd);
 			newSav.setClient(this.clientController.getById(dmd.getNumCli()));
-//			newSav.setReparation(this.reparationController.getById(dmd.getNumRep()));
+			newSav.setReparation(this.reparationController.getById(dmd.getNumRep()));
+			newSav.setFacture(this.factureConrtoller.getById(dmd.getNumFct()));
 			savList.add(newSav);
 		}
 		System.out.println(savList.size());

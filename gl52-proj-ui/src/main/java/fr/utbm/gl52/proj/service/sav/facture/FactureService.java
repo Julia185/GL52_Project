@@ -48,4 +48,31 @@ public class FactureService extends IConnectDbService {
 		
 	}
 
+	public Facture getById(String numFct) {
+		String rqt = "SELECT * FROM T_FACTURE c WHERE c.numFct=?";
+
+		Facture facture = new Facture();
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, numFct);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				facture = new Facture(rs.getString("numFct"), rs.getString("dateFct"), rs.getString("numEmp"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return facture;
+	}
+
 }

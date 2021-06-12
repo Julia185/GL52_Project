@@ -57,8 +57,8 @@ public class SAV {
 	@Override
 	public String toString() {
 		return " " + this.client.getNomCli() + " " + this.client.getPrenomCli().substring(0, 1)
-				+ this.client.getPrenomCli().substring(1).toLowerCase() + " | " + this.demande.getNatureRep()
-				+ " | " + this.demande.getRefProd() + " | " + this.facture.getDateFct();
+				+ this.client.getPrenomCli().substring(1).toLowerCase() + " | " + this.reparation.getEtatRep() + " | "
+				+ this.demande.getNatureRep() + " | " + this.demande.getRefProd() + " | " + this.facture.getDateFct();
 	}
 
 }
