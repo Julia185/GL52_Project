@@ -131,13 +131,14 @@ public class ReparationService extends IConnectDbService {
 	}
 
 	public void updateReparation(Reparation reparation) {
-		String rqt = "UPDATE  T_REPARATION SET numRep=?,etatRep=? where  numRep=?";
+		String rqt = "UPDATE T_REPARATION SET numRep=?,etatRep=? where numRep=?";
 		PreparedStatement stmt;
 		Connection con = this.connect();
 		try {
 			stmt = con.prepareStatement(rqt);
 			stmt.setString(1, reparation.getNumRep());
 			stmt.setString(2, reparation.getEtatRep());
+			stmt.setString(3, reparation.getNumRep());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

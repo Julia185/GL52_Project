@@ -253,6 +253,7 @@ public class MainSceneController extends AbstractController implements Initializ
 		if (this.currentSAV != null) {
 			Reparation updatedReparation = new Reparation(this.currentSAV.getReparation().getNumRep(),
 					this.etatReparationMenuBtn.getSelectionModel().getSelectedItem());
+			System.out.println(this.etatReparationMenuBtn.getSelectionModel().getSelectedItem());
 			Demande updatedDemande = new Demande(this.currentSAV.getDemande().getNumRep(),
 					this.currentSAV.getDemande().getNumCli(), this.naturePanneTxtField.getText(),
 					this.descSavTxtArea.getText(), this.currentSAV.getDemande().getRefProd(),
@@ -266,7 +267,7 @@ public class MainSceneController extends AbstractController implements Initializ
 	public void deleteReparation() {
 		if (this.currentSAV!= null) {
 			this.savController.deleteSAV(this.currentSAV.getDemande());
-			this.savList.setItems(FXCollections.observableArrayList(this.savController.getAllSav()));
+			this.initialize(null, null);
 		}
 	}
 
@@ -280,7 +281,6 @@ public class MainSceneController extends AbstractController implements Initializ
 		this.mailSavTxtField.setText(currentSAV.getClient().getMailCli());
 		this.naturePanneTxtField.setText(currentSAV.getDemande().getNatureRep());
 		this.descSavTxtArea.setText(currentSAV.getDemande().getDescRep());
-		System.out.println(currentSAV.getReparation().getEtatRep());
 		this.etatReparationMenuBtn.setValue(currentSAV.getReparation().getEtatRep());
 
 	}
@@ -295,10 +295,6 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	}
 
-	@FXML
-	public void validerReparation() {
-
-	}
 
 	@FXML
 	public void addFactureLine() throws IOException {

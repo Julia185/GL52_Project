@@ -22,7 +22,6 @@ import javafx.scene.control.TextField;
 public class GestionnaireSavController extends AbstractController implements Initializable {
 
 	private SAVController savController = new SAVController();
-	private ProduitController produitController = new ProduitController();
 	private ClientController clientController = new ClientController();
 	private boolean isNew = true;
 
@@ -51,20 +50,12 @@ public class GestionnaireSavController extends AbstractController implements Ini
 
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		this.isNew();
+		this.newSAV();
 		super.switchToMainScene();
 	}
 
-	private void isNew() throws IOException {
-		if (isNew) {
-			this.newSAV();
-		} else {
-			this.modifySAV();
-		}
-	}
 
 	private void newSAV() throws IOException {
-		this.setSAV();
 		if (this.clientListView.getSelectionModel().getSelectedItem() != null
 				&& this.productClientListView.getSelectionModel().getSelectedItem() != null
 				&& !this.numEmployeTxtField.getText().equals("")) {
@@ -76,18 +67,6 @@ public class GestionnaireSavController extends AbstractController implements Ini
 
 	}
 
-	private void modifySAV() throws IOException {
-		super.switchToMainScene();
-	}
-
-	private SAV setSAV() throws IOException {
-		return null;
-	}
-
-	public void setDataForUpdate(@SuppressWarnings("exports") Produit produit) {
-		this.isNew = false;
-
-	}
 
 	@FXML
 	public void setClientProduct() {

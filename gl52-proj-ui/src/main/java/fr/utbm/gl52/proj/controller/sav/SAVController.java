@@ -33,7 +33,6 @@ public class SAVController {
 			newSav.setFacture(this.factureController.getById(dmd.getNumFct()));
 			savList.add(newSav);
 		}
-		System.out.println(savList.size());
 		return savList ;
 	}
 	

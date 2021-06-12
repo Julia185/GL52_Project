@@ -16,7 +16,6 @@ import fr.utbm.gl52.proj.service.IConnectDbService;
 public class DemandeService  extends IConnectDbService {
 
 	public DemandeService() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public List<Demande> getAllDemande() {
@@ -49,7 +48,6 @@ public class DemandeService  extends IConnectDbService {
 				}
 			}
 		}
-		System.out.println(demandeList.size());
 		return demandeList;
 	}
 
