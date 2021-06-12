@@ -164,7 +164,7 @@
 								            <String fx:value="Recherche de solution" />
 								            <String fx:value="En réparation" />
 								            <String fx:value="Attente pièce rechange" />
-								            <String fx:value="Reparation terminee" />
+								            <String fx:value="Reparation termine	e" />
 								        </FXCollections>        
                                       </items>
                                     </ChoiceBox>

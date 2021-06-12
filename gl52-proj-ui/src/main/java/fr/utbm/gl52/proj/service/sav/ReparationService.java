@@ -80,7 +80,7 @@ public class ReparationService extends IConnectDbService {
 		return reparationList;
 	}
 
-	public void inserReparation(Reparation reparation) {
+	public void insertReparation(Reparation reparation) {
 		String rqt = "INSERT INTO T_REPARATION (numrep,etatrep) VALUES (?,?) ";
 		PreparedStatement stmt;
 		Connection con = this.connect();
@@ -128,6 +128,49 @@ public class ReparationService extends IConnectDbService {
 			}
 		}
 		return reparation;
+	}
+
+	public void updateReparation(Reparation reparation) {
+		String rqt = "UPDATE  T_REPARATION SET numRep=?,etatRep=? where  numRep=?";
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, reparation.getNumRep());
+			stmt.setString(2, reparation.getEtatRep());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}		
+	}
+
+	public void deleteReparation(String numRep) {
+		String rqt = "DELETE FROM T_REPARATION where numRep = ?";
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, numRep);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 

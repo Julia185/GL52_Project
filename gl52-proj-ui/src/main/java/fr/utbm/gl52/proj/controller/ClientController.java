@@ -21,7 +21,7 @@ public class ClientController {
 	}
 
 	public void insertNewClient(Client client) {
-		this.service.inserClient(client);
+		this.service.insertClient(client);
 	}
 
 	public void modifyClient(Client client) {

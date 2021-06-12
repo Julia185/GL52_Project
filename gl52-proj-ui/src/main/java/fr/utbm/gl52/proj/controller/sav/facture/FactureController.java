@@ -23,6 +23,10 @@ public class FactureController {
 		return this.service.getById(numFct);
 	}
 
+	public void deleteFacture(String numFct) {
+		this.service.deleteFacture(numFct);
+	}
+
 
 
 	

@@ -98,6 +98,27 @@ public class FactureService extends IConnectDbService {
 		return facture;
 	}
 
+	public void deleteFacture(String numFct) {
+		String rqt = "DELETE FROM T_FACTURE where numFct = ?";
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, numFct);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
 	
 
 }

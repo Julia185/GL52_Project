@@ -19,7 +19,7 @@ public class SAVController {
 
 	private ClientController clientController = new ClientController();
 	private DemandeController demandeController = new DemandeController();
-	private FactureController factureConrtoller = new FactureController();
+	private FactureController factureController = new FactureController();
 	private ReparationController reparationController = new ReparationController();
 	private ProduitController produitController  = new ProduitController();
 	
@@ -30,7 +30,7 @@ public class SAVController {
 			newSav.setDemande(dmd);
 			newSav.setClient(this.clientController.getById(dmd.getNumCli()));
 			newSav.setReparation(this.reparationController.getById(dmd.getNumRep()));
-			newSav.setFacture(this.factureConrtoller.getById(dmd.getNumFct()));
+			newSav.setFacture(this.factureController.getById(dmd.getNumFct()));
 			savList.add(newSav);
 		}
 		System.out.println(savList.size());
@@ -45,8 +45,8 @@ public class SAVController {
 	public void createSAV(Client client, Produit produit , String descRep, String natureRep, String numEmp) {
 		Reparation reparation = new Reparation(this.reparationController.getNextValId(), "Non Commencé");
 		this.reparationController.insertNewReparation(reparation);
-		Facture facture = new Facture(this.factureConrtoller.getNextValId(), LocalDate.now().toString(), numEmp); 
-		this.factureConrtoller.insertNewFacture(facture);
+		Facture facture = new Facture(this.factureController.getNextValId(), LocalDate.now().toString(), numEmp); 
+		this.factureController.insertNewFacture(facture);
 		Demande dmd = new Demande(reparation.getNumRep(), client.getNumCli(), natureRep, descRep, produit.getRefProd(),facture.getNumFct());
 		this.demandeController.insertNewDemande(dmd);
 	}
@@ -55,6 +55,14 @@ public class SAVController {
 	public void modifySAV(Reparation reparation, Demande demande) {
 		this.reparationController.modifyReparation(reparation);
 		this.demandeController.modifyDemande(demande);
+	}
+
+
+	public void deleteSAV(Demande demande) {
+		this.demandeController.deleteDemande(demande);
+		this.factureController.deleteFacture(demande.getNumFct());
+		this.reparationController.deleteReparation(demande.getNumRep());
+		
 	}
 
 }

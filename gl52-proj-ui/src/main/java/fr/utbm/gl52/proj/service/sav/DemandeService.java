@@ -108,7 +108,26 @@ public class DemandeService  extends IConnectDbService {
 	}
 
 	public void deleteDemande(Demande demande) {
-		
+		String rqt = "DELETE FROM T_DEMANDE where numcli = ? AND numRep = ? AND refProd =?";
+		PreparedStatement stmt;
+		Connection con = this.connect();
+		try {
+			stmt = con.prepareStatement(rqt);
+			stmt.setString(1, demande.getNumCli());
+			stmt.setString(2, demande.getNumRep());
+			stmt.setString(3, demande.getRefProd());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 	

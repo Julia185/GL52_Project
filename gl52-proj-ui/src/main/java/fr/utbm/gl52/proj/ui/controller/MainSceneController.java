@@ -250,19 +250,24 @@ public class MainSceneController extends AbstractController implements Initializ
 	@FXML
 	public void modifyReparation() throws IOException {
 
-		Reparation updatedReparation = new Reparation(this.currentSAV.getReparation().getNumRep(),
-				this.etatReparationMenuBtn.getSelectionModel().getSelectedItem());
-		Demande updatedDemande = new Demande(this.currentSAV.getDemande().getNumRep(),
-				this.currentSAV.getDemande().getNumCli(), this.naturePanneTxtField.getText(),
-				this.descSavTxtArea.getText(), this.currentSAV.getDemande().getRefProd(),
-				this.currentSAV.getDemande().getNumFct());
-		this.savController.modifySAV(updatedReparation, updatedDemande);
-		this.savList.setItems(FXCollections.observableArrayList(this.savController.getAllSav()));
+		if (this.currentSAV != null) {
+			Reparation updatedReparation = new Reparation(this.currentSAV.getReparation().getNumRep(),
+					this.etatReparationMenuBtn.getSelectionModel().getSelectedItem());
+			Demande updatedDemande = new Demande(this.currentSAV.getDemande().getNumRep(),
+					this.currentSAV.getDemande().getNumCli(), this.naturePanneTxtField.getText(),
+					this.descSavTxtArea.getText(), this.currentSAV.getDemande().getRefProd(),
+					this.currentSAV.getDemande().getNumFct());
+			this.savController.modifySAV(updatedReparation, updatedDemande);
+			this.savList.setItems(FXCollections.observableArrayList(this.savController.getAllSav()));
+		}
 	}
 
 	@FXML
 	public void deleteReparation() {
-
+		if (this.currentSAV!= null) {
+			this.savController.deleteSAV(this.currentSAV.getDemande());
+			this.savList.setItems(FXCollections.observableArrayList(this.savController.getAllSav()));
+		}
 	}
 
 	@FXML

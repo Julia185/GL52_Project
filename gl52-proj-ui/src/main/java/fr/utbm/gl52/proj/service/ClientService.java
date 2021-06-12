@@ -81,7 +81,7 @@ public class ClientService extends IConnectDbService {
 		return clientList;
 	}
 
-	public void inserClient(Client client) {
+	public void insertClient(Client client) {
 		String rqt = "INSERT INTO T_CLIENT (numcli,nomcli,prenomcli,telcli,mailcli,ruecli,villecli,cpcli,payscli) VALUES (?,?,?,?,?,?,?,?,?) ";
 		PreparedStatement stmt;
 		Connection con = this.connect();

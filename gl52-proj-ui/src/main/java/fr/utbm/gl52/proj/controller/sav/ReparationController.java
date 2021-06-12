@@ -15,7 +15,7 @@ public class ReparationController {
 	}
 	
 	public void insertNewReparation(Reparation reparation) {
-		this.service.inserReparation(reparation);
+		this.service.insertReparation(reparation);
 	}
 
 	public Reparation getById(String numRep) {
@@ -23,7 +23,11 @@ public class ReparationController {
 	}
 
 	public void modifyReparation(Reparation reparation) {
-		
+		this.service.updateReparation(reparation);
+	}
+
+	public void deleteReparation(String numRep) {
+		this.service.deleteReparation( numRep);
 	}
 
 	
