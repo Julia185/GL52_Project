@@ -7,7 +7,6 @@ public class EmployeeController {
 	private EmployeeService service = new EmployeeService();
 	
 	public EmployeeController() {
-		// TODO Auto-generated constructor stub
 	}
 
 }
