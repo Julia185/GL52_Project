@@ -11,8 +11,8 @@
             <Button layoutX="684.0" layoutY="479.0" mnemonicParsing="false" onAction="#switchToMainSceneValidate" text="Valider" />
             <Button layoutX="596.0" layoutY="479.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Annuler" />
             <Label layoutX="13.0" layoutY="417.0" text="Description panne :"  />
-            <TextArea fx:id="reparationDescriptionTxtArea" layoutX="13.0" layoutY="449.0" prefHeight="43.0" prefWidth="497.0" />
-            <TextField layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="380.0" text="Recherche client" />
+        	<TextArea fx:id="reparationDescriptionTxtArea" layoutX="13.0" layoutY="449.0" prefHeight="43.0" prefWidth="497.0" />
+            <TextField fx:id="searchClientTxtField" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="380.0" text="Recherche client" onAction="#getSearchClientVente"/>
             <ListView fx:id="clientListView" layoutX="13.0" layoutY="43.0" prefHeight="166.0" prefWidth="500.0" onMouseReleased="#setClientProduct" />
             <Label layoutX="13.0" layoutY="220.0" text="Référence Produit : " />
             <ListView fx:id="productClientListView" layoutX="13.0" layoutY="244.0" prefHeight="166.0" prefWidth="500.0" />

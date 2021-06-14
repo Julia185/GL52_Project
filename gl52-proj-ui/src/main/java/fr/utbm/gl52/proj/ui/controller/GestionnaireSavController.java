@@ -32,6 +32,8 @@ public class GestionnaireSavController extends AbstractController implements Ini
 	private ListView<Produit> productClientListView;
 	@FXML
 	private TextField numEmployeTxtField;
+	@FXML
+	private TextField searchClientTxtField;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -65,14 +67,29 @@ public class GestionnaireSavController extends AbstractController implements Ini
 	}
 
 
-	@FXML
 	public void setClientProduct() {
 		this.productClientListView.setItems(FXCollections.observableArrayList(this.savController
 				.getProductbyClient(this.clientListView.getSelectionModel().getSelectedItem().getNumCli())));
 	}
+	
+	@FXML
+	public void getSearchClientVente() {
+		if (!this.searchClientTxtField.getText().equals("")) {
+			this.clientListView.setItems(FXCollections.observableArrayList(
+					this.clientController.searchByClientName(this.searchClientTxtField.getText())));
+		} else {
+			this.clientListView.setItems(FXCollections.observableArrayList(this.clientController.getAllClient()));
+		}
+	}
 
 	@FXML
 	private void handleReparationDescription(ActionEvent event) {
+	}
+	@FXML
+	private void handleReparationNature(ActionEvent event) {
+	}
+	@FXML
+	private void handleReparationNumEmployee(ActionEvent event) {
 	}
 
 }

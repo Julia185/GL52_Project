@@ -54,7 +54,7 @@ public class LigneFacture {
 
 	@Override
 	public String toString() {
-		return desLigneFct + "	" +mttLigneFct ;
+		return desLigneFct + "	" +mttLigneFct + " €";
 	}
 		
 	

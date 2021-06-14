@@ -8,6 +8,8 @@ import java.util.ResourceBundle;
 import fr.utbm.gl52.proj.controller.ClientController;
 import fr.utbm.gl52.proj.controller.ProduitController;
 import fr.utbm.gl52.proj.controller.sav.SAVController;
+import fr.utbm.gl52.proj.controller.sav.facture.FactureController;
+import fr.utbm.gl52.proj.controller.sav.facture.LigneFactureController;
 import fr.utbm.gl52.proj.controller.vente.LigneVenteController;
 import fr.utbm.gl52.proj.controller.vente.VenteController;
 import fr.utbm.gl52.proj.model.Client;
@@ -15,6 +17,7 @@ import fr.utbm.gl52.proj.model.Produit;
 import fr.utbm.gl52.proj.model.sav.Demande;
 import fr.utbm.gl52.proj.model.sav.Reparation;
 import fr.utbm.gl52.proj.model.sav.SAV;
+import fr.utbm.gl52.proj.model.sav.facture.LigneFacture;
 import fr.utbm.gl52.proj.model.vente.Vente;
 import fr.utbm.gl52.proj.ui.App;
 import javafx.collections.FXCollections;
@@ -90,12 +93,15 @@ public class MainSceneController extends AbstractController implements Initializ
 	private ListView<Produit> sellList;
 	@FXML
 	private ListView<SAV> savList;
+	@FXML
+	private ListView<LigneFacture> factureLineList;
 
 	private ClientController clientController = new ClientController();
 	private ProduitController produitController = new ProduitController();
 	private SAVController savController = new SAVController();
 	private VenteController venteController = new VenteController();
 	private LigneVenteController ligneVenteController = new LigneVenteController();
+	private LigneFactureController ligneFactureController = new LigneFactureController();
 
 	private ObservableList<Produit> productToSellList;
 	private float mttTotal;
@@ -253,7 +259,6 @@ public class MainSceneController extends AbstractController implements Initializ
 		if (this.currentSAV != null) {
 			Reparation updatedReparation = new Reparation(this.currentSAV.getReparation().getNumRep(),
 					this.etatReparationMenuBtn.getSelectionModel().getSelectedItem());
-			System.out.println(this.etatReparationMenuBtn.getSelectionModel().getSelectedItem());
 			Demande updatedDemande = new Demande(this.currentSAV.getDemande().getNumRep(),
 					this.currentSAV.getDemande().getNumCli(), this.naturePanneTxtField.getText(),
 					this.descSavTxtArea.getText(), this.currentSAV.getDemande().getRefProd(),
@@ -265,7 +270,7 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	@FXML
 	public void deleteReparation() {
-		if (this.currentSAV!= null) {
+		if (this.currentSAV != null) {
 			this.savController.deleteSAV(this.currentSAV.getDemande());
 			this.initialize(null, null);
 		}
@@ -282,22 +287,37 @@ public class MainSceneController extends AbstractController implements Initializ
 		this.naturePanneTxtField.setText(currentSAV.getDemande().getNatureRep());
 		this.descSavTxtArea.setText(currentSAV.getDemande().getDescRep());
 		this.etatReparationMenuBtn.setValue(currentSAV.getReparation().getEtatRep());
+		this.factureLineList.setItems(FXCollections.observableArrayList(this.ligneFactureController
+				.getByIdFct(this.savList.getSelectionModel().getSelectedItem().getFacture().getNumFct())));
 
 	}
 
 	@FXML
 	public void addFactureLine() throws IOException {
-		App.setRoot("GestionnaireFacture");
+		if (this.savList.getSelectionModel().getSelectedItem() != null) {
+			App.setRoot("GestionnaireFacture");
+			GestionnaireFactureController gfc = App.getFxmlLoader().getController();
+			gfc.setNumFct(this.savList.getSelectionModel().getSelectedItem().getDemande().getNumFct());
+		}
 	}
 
 	@FXML
 	public void modifyFactureLine() throws IOException {
-		App.setRoot("GestionnaireFacture");
+		if (this.factureLineList.getSelectionModel().getSelectedItem() != null) {
+			App.setRoot("GestionnaireFacture");
+			GestionnaireFactureController gfc = App.getFxmlLoader().getController();
+			gfc.setDataForUpdate(factureLineList.getSelectionModel().getSelectedItem());
+		}
 	}
 
 	@FXML
 	public void deleteFactureLine() {
-
+		if (this.factureLineList.getSelectionModel().getSelectedItem() != null) {
+			this.ligneFactureController
+					.deleteLigneFactureById(this.factureLineList.getSelectionModel().getSelectedItem().getIdLigneFct());
+			this.factureLineList.setItems(FXCollections.observableArrayList(this.ligneFactureController
+					.getByIdFct(this.savList.getSelectionModel().getSelectedItem().getFacture().getNumFct())));
+		}
 	}
 
 // STOCK PANEL //

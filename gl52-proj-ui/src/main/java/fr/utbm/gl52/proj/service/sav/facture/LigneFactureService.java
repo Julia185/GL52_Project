@@ -28,7 +28,7 @@ public class LigneFactureService extends IConnectDbService {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				factureList.add(new LigneFacture(rs.getString("idLigneFct"), rs.getString("numFct"),
-						rs.getString("miitLigneFct"), rs.getString("desLigneFct")));
+						rs.getString("montantLignFct"), rs.getString("descLigneFct")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -52,7 +52,7 @@ public class LigneFactureService extends IConnectDbService {
 	}
 
 	public void insertNewLigneFacture(LigneFacture ligneFacture) {
-		String rqt = "INSERT INTO T_LIGNE_FACTURE (idLigneFct,numFct,miitLigneFct,desLigneFct) VALUES (?,?,?,?) ";
+		String rqt = "INSERT INTO T_LIGNE_FACTURE (idLigneFct,numFct,montantLignFct,descLigneFct) VALUES (?,?,?,?) ";
 		PreparedStatement stmt;
 		Connection con = this.connect();
 		try {
@@ -87,7 +87,7 @@ public class LigneFactureService extends IConnectDbService {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				lignefacture = new LigneFacture(rs.getString("idLigneFct"), rs.getString("numFct"),
-						rs.getString("mttLigneFct"), rs.getString("desLigneFct"));
+						rs.getString("montantLignFct"), rs.getString("descLigneFct"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -104,7 +104,7 @@ public class LigneFactureService extends IConnectDbService {
 	}
 
 	public void updateLigneFacture(LigneFacture ligneFacture) {
-		String rqt = "UPDATE  T_LIGNE_FACTURE SET idLigneFct=?,numFct=?,mttLigneFct=?,desLigneFct=? where idLigneFct=? ";
+		String rqt = "UPDATE  T_LIGNE_FACTURE SET idLigneFct=?,numFct=?,montantLignFct=?,descLigneFct=? where idLigneFct=? ";
 		PreparedStatement stmt;
 		Connection con = this.connect();
 		try {
@@ -139,7 +139,7 @@ public class LigneFactureService extends IConnectDbService {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				lignefacture = new LigneFacture(rs.getString("idLigneFct"), rs.getString("numFct"),
-						rs.getString("miitLigneFct"), rs.getString("desLigneFct"));
+						rs.getString("montantLignFct"), rs.getString("descLigneFct"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
