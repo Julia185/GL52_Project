@@ -4,20 +4,20 @@ public class LigneFacture {
 
 	private String idLigneFct;
 	private String numFct;
-	private String MttLigneFct;
-	private String dseLigneFct;
+	private String mttLigneFct;
+	private String desLigneFct;
 	
 	
 	public LigneFacture() {
 		super();
 	}
 
-	public LigneFacture(String idLigneFct, String numFct, String mttLigneFct, String dseLigneFct) {
+	public LigneFacture(String idLigneFct, String numFct, String mttLigneFct, String desLigneFct) {
 		super();
 		this.idLigneFct = idLigneFct;
 		this.numFct = numFct;
-		MttLigneFct = mttLigneFct;
-		this.dseLigneFct = dseLigneFct;
+		this.mttLigneFct = mttLigneFct;
+		this.desLigneFct = desLigneFct;
 	}
 
 	public String getIdLigneFct() {
@@ -37,24 +37,24 @@ public class LigneFacture {
 	}
 
 	public String getMttLigneFct() {
-		return MttLigneFct;
+		return mttLigneFct;
 	}
 
 	public void setMttLigneFct(String mttLigneFct) {
-		MttLigneFct = mttLigneFct;
+		this.mttLigneFct = mttLigneFct;
 	}
 
-	public String getDseLigneFct() {
-		return dseLigneFct;
+	public String getDesLigneFct() {
+		return desLigneFct;
 	}
 
-	public void setDseLigneFct(String dseLigneFct) {
-		this.dseLigneFct = dseLigneFct;
+	public void setDseLigneFct(String desLigneFct) {
+		this.desLigneFct = desLigneFct;
 	}
 
 	@Override
 	public String toString() {
-		return dseLigneFct + "	" +MttLigneFct ;
+		return desLigneFct + "	" +mttLigneFct ;
 	}
 		
 	

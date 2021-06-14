@@ -96,38 +96,6 @@
                                  <children>
                                     <VBox layoutX="-3.0" layoutY="-2.0" prefHeight="677.0" prefWidth="299.0">
                                        <children>
-                                          <MenuBar>
-                                            <menus>
-                                              <Menu mnemonicParsing="false" text="Filtrer">
-                                                <items>
-                                                      <MenuItem mnemonicParsing="false" text="État Réparation">
-                                                         <graphic>
-                                                            <CheckBox fx:id="etatCheckBox" mnemonicParsing="false" />
-                                                         </graphic>
-                                                      </MenuItem>
-                                                      <MenuItem mnemonicParsing="false" text="Nom">
-                                                         <graphic>
-                                                            <CheckBox  fx:id="nomCheckBox" mnemonicParsing="false" />
-                                                         </graphic>
-                                                      </MenuItem>
-                                                      <SeparatorMenuItem mnemonicParsing="false" />
-                                                  <MenuItem mnemonicParsing="false" text="Close" />
-                                                </items>
-                                              </Menu>
-                                              <Menu mnemonicParsing="false" text="Rechercher">
-                                                <items>
-                                                      <MenuItem mnemonicParsing="false">
-                                                         <graphic>
-                                                            <TextField fx:id="savSearchTextField"/>
-                                                         </graphic>
-                                                      </MenuItem>
-                                                      <SeparatorMenuItem mnemonicParsing="false" />
-                                                      <MenuItem mnemonicParsing="false" text="Close" />
-                                                </items>
-                                              </Menu>
-                                            </menus>
-                                          </MenuBar>
-                                          <Separator prefWidth="200.0" />
                                           <HBox prefHeight="589.0" prefWidth="299.0">
                                              <children>
                                                 <ListView fx:id="savList" prefHeight="589.0" prefWidth="300.0" onMouseReleased="#changeSavTextFieldValues"/>

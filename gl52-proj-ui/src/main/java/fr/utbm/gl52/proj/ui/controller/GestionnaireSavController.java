@@ -5,11 +5,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import fr.utbm.gl52.proj.controller.ClientController;
-import fr.utbm.gl52.proj.controller.ProduitController;
 import fr.utbm.gl52.proj.controller.sav.SAVController;
 import fr.utbm.gl52.proj.model.Client;
 import fr.utbm.gl52.proj.model.Produit;
-import fr.utbm.gl52.proj.model.sav.SAV;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +21,6 @@ public class GestionnaireSavController extends AbstractController implements Ini
 
 	private SAVController savController = new SAVController();
 	private ClientController clientController = new ClientController();
-	private boolean isNew = true;
 
 	@FXML
 	private TextArea reparationDescriptionTxtArea;

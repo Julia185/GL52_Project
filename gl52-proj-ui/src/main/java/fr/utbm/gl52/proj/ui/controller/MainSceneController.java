@@ -286,17 +286,6 @@ public class MainSceneController extends AbstractController implements Initializ
 	}
 
 	@FXML
-	public void savFiltre() {
-
-	}
-
-	@FXML
-	public void SAVRecherche() {
-
-	}
-
-
-	@FXML
 	public void addFactureLine() throws IOException {
 		App.setRoot("GestionnaireFacture");
 	}
