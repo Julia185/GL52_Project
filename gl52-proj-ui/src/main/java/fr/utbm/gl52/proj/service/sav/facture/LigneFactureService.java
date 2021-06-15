@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.utbm.gl52.proj.model.sav.Demande;
 import fr.utbm.gl52.proj.model.sav.facture.LigneFacture;
 import fr.utbm.gl52.proj.service.IConnectDbService;
 

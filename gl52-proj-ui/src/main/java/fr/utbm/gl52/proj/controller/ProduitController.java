@@ -17,6 +17,7 @@ public class ProduitController {
 	}
 
 	public void insertNewProduit(Produit produit) {
+		this.service.insertProduit(produit);
 	}
 	
     public void modifyProduit(Produit produit) {

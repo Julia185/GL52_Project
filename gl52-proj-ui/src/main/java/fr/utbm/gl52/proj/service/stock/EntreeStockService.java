@@ -19,7 +19,7 @@ public class EntreeStockService extends IConnectDbService{
 	}
 
 	public String getNextValId() {
-		String rqt = "SELECT * FROM T_ENTREE_STOCK c WHERE c.numCli=(SELECT max(c.numCli) FROM T_ENTREE_STOCK c )";
+		String rqt = "SELECT * FROM T_ENTREE_STOCK c WHERE c.identr=(SELECT max(c.identr) FROM T_ENTREE_STOCK c )";
 
 		List<EntreeStock> entreStockList = new ArrayList<EntreeStock>();
 		PreparedStatement stmt;
@@ -29,7 +29,7 @@ public class EntreeStockService extends IConnectDbService{
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				entreStockList.add(new EntreeStock(rs.getString("identr"), rs.getString("refprod"), rs.getString("qteentstk"),
-						rs.getString("datentr")));
+						rs.getString("dateentr")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

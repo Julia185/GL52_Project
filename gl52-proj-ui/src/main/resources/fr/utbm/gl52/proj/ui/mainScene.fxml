@@ -142,7 +142,6 @@
                                     <Button ellipsisString="" layoutX="14.0" layoutY="378.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Ajouter ligne facture" textAlignment="CENTER" wrapText="true" onAction="#addFactureLine"/>
                                     <Button ellipsisString="" layoutX="14.0" layoutY="437.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Modifier ligne facture" textAlignment="CENTER" wrapText="true" onAction="#modifyFactureLine"/>
                                     <Button ellipsisString="" layoutX="14.0" layoutY="494.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Supprimer ligne facture" textAlignment="CENTER" wrapText="true" onAction="#deleteFactureLine" />
-                                    <Button layoutX="496.0" layoutY="595.0" mnemonicParsing="false" text="Notifier client" />
                                     <TextField fx:id="naturePanneTxtField" layoutX="146.0" layoutY="325.0" prefHeight="25.0" prefWidth="264.0" />
                                     <Label layoutX="17.0" layoutY="329.0" text="Nature réparation :" />
                                  </children>

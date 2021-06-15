@@ -45,9 +45,22 @@ public class GestionProduitController extends AbstractController implements Init
 	
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		this.isNew();
-		super.switchToMainScene();
+		if (!this.checkTextFieldIsNull()) {
+			this.isNew();
+			super.switchToMainScene();
+		}
 	}
+
+	private boolean checkTextFieldIsNull() {
+		return this.desProdTxtField.getSelectedText().isEmpty() &&
+				this.prixHTTxtField.getSelectedText().isEmpty() &&
+				this.prixTTCTxtField.getSelectedText().isEmpty() &&
+				this.qteProdTxtField.getSelectedText().isEmpty() &&
+				this.refProdTxtField.getSelectedText().isEmpty() &&
+				this.tVAProdTxtField.getSelectedText().isEmpty() ;
+				
+	}
+
 
 	private void isNew() throws IOException {
 		if (isNew) {

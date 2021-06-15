@@ -2,6 +2,8 @@ package fr.utbm.gl52.proj.ui.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import fr.utbm.gl52.proj.controller.ClientController;
@@ -54,10 +56,25 @@ public class GestionnaireClientController extends AbstractController implements 
 
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		this.isNew();
-		super.switchToMainScene();
+		if (!this.checkTextFieldIsNull()) {
+			this.isNew();
+			super.switchToMainScene();
+		}
 	}
 	
+	private boolean checkTextFieldIsNull() {
+		return this.cpClientTxtField.getSelectedText().isEmpty() &&
+				this.emailClientTxtField.getSelectedText().isEmpty() &&
+				this.firstNameClientTxtField.getSelectedText().isEmpty() &&
+				this.lastNameClientTxtField.getSelectedText().isEmpty() &&
+				this.numRueClientTxtField.getSelectedText().isEmpty() &&
+				this.paysClientTxtField.getSelectedText().isEmpty() &&
+				this.paysClientTxtField.getSelectedText().isEmpty() &&
+				this.phoneClientTxtField.getSelectedText().isEmpty() &&
+				this.rueClientTxtField.getSelectedText().isEmpty() &&
+				this.villeClientTxtField.getSelectedText().isEmpty() ;
+	}
+
 	private void isNew() throws IOException {
 		if (isNew) {
 			this.newClient();

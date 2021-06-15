@@ -30,8 +30,15 @@ public class GestionnaireFactureController extends AbstractController {
 	
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		this.isNew();
-		super.switchToMainScene();
+		if (!this.checkTextFieldIsNull()) {
+			this.isNew();
+			super.switchToMainScene();
+		}
+	}
+
+	private boolean checkTextFieldIsNull() {
+		return this.desRepTxtField.getSelectedText().isEmpty() &&
+				this.prixRepTxtField.getSelectedText().isEmpty() ;
 	}
 
 	private void isNew() throws IOException {

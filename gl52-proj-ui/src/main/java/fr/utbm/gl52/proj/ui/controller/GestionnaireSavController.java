@@ -49,10 +49,18 @@ public class GestionnaireSavController extends AbstractController implements Ini
 
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		this.newSAV();
-		super.switchToMainScene();
+		if (!this.checkTextFieldIsNull()) {
+			this.newSAV();
+			super.switchToMainScene();
+		}
 	}
 
+
+	private boolean checkTextFieldIsNull() {
+		return this.numEmployeTxtField.getSelectedText().isEmpty() &&
+				this.natureReparationTxtArea.getSelectedText().isEmpty() &&
+				this.reparationDescriptionTxtArea.getSelectedText().isEmpty();
+	}
 
 	private void newSAV() throws IOException {
 		if (this.clientListView.getSelectionModel().getSelectedItem() != null

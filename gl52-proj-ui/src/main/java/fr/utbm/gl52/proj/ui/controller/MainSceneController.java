@@ -144,10 +144,11 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	@FXML
 	public void modifyClient() throws IOException {
-
-		App.setRoot("GestionnaireClient");
-		GestionnaireClientController gcc = App.getFxmlLoader().getController();
-		gcc.setDataForUpdate(clientList.getSelectionModel().getSelectedItem());
+		if (this.clientList.getSelectionModel().getSelectedItem() != null) {
+			App.setRoot("GestionnaireClient");
+			GestionnaireClientController gcc = App.getFxmlLoader().getController();
+			gcc.setDataForUpdate(clientList.getSelectionModel().getSelectedItem());
+		}
 	}
 
 	@FXML
@@ -171,7 +172,7 @@ public class MainSceneController extends AbstractController implements Initializ
 	public void changeMontantVenteValue() {
 		String qtt = qttSellTxtField.getText();
 		Produit tempProduct = productList.getSelectionModel().getSelectedItem();
-		if (Integer.parseInt(qtt) < Integer.parseInt(tempProduct.getQteProd())) {
+		if (tempProduct != null && Integer.parseInt(qtt) < Integer.parseInt(tempProduct.getQteProd())) {
 			tempProduct.setQteProd(qtt);
 			this.productToSellList.add(tempProduct);
 			mttTotal = mttTotal + Float.parseFloat(tempProduct.getPrixTTCProd()) * Integer.parseInt(qtt);
@@ -213,22 +214,26 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	@FXML
 	public void sell() {
-		Vente current = this.setSell();
-		if (current != null) {
-			List<Produit> list = this.produitController.getAllProduit();
-			for (Produit produit : productToSellList) {
-				if (list.contains(produit)) {
+		if (!this.sellList.getItems().isEmpty()) {
+			Vente current = this.setSell();
+			if (current != null) {
+				List<Produit> list = this.produitController.getAllProduit();
+				for (Produit produit : productToSellList) {
+					if (list.contains(produit)) {
 
-					Integer temp = Integer.parseInt(list.get(list.indexOf(produit)).getQteProd())
-							- Integer.parseInt(produit.getQteProd());
-					produit.setQteProd(temp + "");
-					this.setSellLine(current.getNumVte(), produit.getRefProd(), produit.getQteProd());
+						Integer temp = Integer.parseInt(list.get(list.indexOf(produit)).getQteProd())
+								- Integer.parseInt(produit.getQteProd());
+						produit.setQteProd(temp + "");
+						this.setSellLine(current.getNumVte(), produit.getRefProd(), produit.getQteProd());
+					}
 				}
+
 			}
+			this.produitController.modifyProduitList(productToSellList);
+			this.cancelSell();
 
 		}
-		this.produitController.modifyProduitList(productToSellList);
-		this.cancelSell();
+
 	}
 
 	private Vente setSell() {
@@ -329,16 +334,19 @@ public class MainSceneController extends AbstractController implements Initializ
 
 	@FXML
 	public void modifyProduit() throws IOException {
-
-		App.setRoot("GestionnaireProduit");
-		GestionProduitController gpc = App.getFxmlLoader().getController();
-		gpc.setDataForUpdate(this.stockTable.getSelectionModel().getSelectedItem());
+		if (this.stockTable.getSelectionModel().getSelectedItem() != null) {
+			App.setRoot("GestionnaireProduit");
+			GestionProduitController gpc = App.getFxmlLoader().getController();
+			gpc.setDataForUpdate(this.stockTable.getSelectionModel().getSelectedItem());
+		}
 	}
 
 	@FXML
 	public void deleteProduit() throws IOException {
-		this.produitController.deleteProduit(this.stockTable.getSelectionModel().getSelectedItem().getRefProd());
-		this.initialize(null, null);
+		if (this.stockTable.getSelectionModel().getSelectedItem() != null) {
+			this.produitController.deleteProduit(this.stockTable.getSelectionModel().getSelectedItem().getRefProd());
+			this.initialize(null, null);
+		}
 	}
 
 	@FXML
