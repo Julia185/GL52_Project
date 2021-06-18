@@ -221,10 +221,9 @@ public class MainSceneController extends AbstractController implements Initializ
 				for (Produit produit : productToSellList) {
 					if (list.contains(produit)) {
 
-						Integer temp = Integer.parseInt(list.get(list.indexOf(produit)).getQteProd())
-								- Integer.parseInt(produit.getQteProd());
+						Integer temp = Integer.parseInt(list.get(list.indexOf(produit)).getQteProd())- Integer.parseInt(produit.getQteProd());
 						produit.setQteProd(temp + "");
-						this.setSellLine(current.getNumVte(), produit.getRefProd(), produit.getQteProd());
+						this.setSellLine(current.getNumVte(), produit.getRefProd(), temp.toString());
 					}
 				}
 

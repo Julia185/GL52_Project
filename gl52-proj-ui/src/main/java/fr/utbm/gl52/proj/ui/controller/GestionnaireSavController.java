@@ -49,17 +49,9 @@ public class GestionnaireSavController extends AbstractController implements Ini
 
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		if (!this.checkTextFieldIsNull()) {
-			this.newSAV();
-			super.switchToMainScene();
-		}
-	}
 
-
-	private boolean checkTextFieldIsNull() {
-		return this.numEmployeTxtField.getSelectedText().isEmpty() &&
-				this.natureReparationTxtArea.getSelectedText().isEmpty() &&
-				this.reparationDescriptionTxtArea.getSelectedText().isEmpty();
+		this.newSAV();
+		super.switchToMainScene();
 	}
 
 	private void newSAV() throws IOException {
@@ -74,12 +66,11 @@ public class GestionnaireSavController extends AbstractController implements Ini
 
 	}
 
-
 	public void setClientProduct() {
 		this.productClientListView.setItems(FXCollections.observableArrayList(this.savController
 				.getProductbyClient(this.clientListView.getSelectionModel().getSelectedItem().getNumCli())));
 	}
-	
+
 	@FXML
 	public void getSearchClientVente() {
 		if (!this.searchClientTxtField.getText().equals("")) {
@@ -93,9 +84,11 @@ public class GestionnaireSavController extends AbstractController implements Ini
 	@FXML
 	private void handleReparationDescription(ActionEvent event) {
 	}
+
 	@FXML
 	private void handleReparationNature(ActionEvent event) {
 	}
+
 	@FXML
 	private void handleReparationNumEmployee(ActionEvent event) {
 	}

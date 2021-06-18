@@ -162,7 +162,7 @@ public class ProduitService extends IConnectDbService {
 				+ "from \r\n"
 				+ "	T_VENTE vte inner join T_LIGNE_VENTE lgnvte\r\n"
 				+ "		on vte.numvte = lgnvte.numvte\r\n"
-				+ "	inner join T_PRODUIT cli\r\n"
+				+ "	inner join T_CLIENT cli\r\n"
 				+ "		on vte.numcli = cli.numcli\r\n"
 				+ "	inner join T_PRODUIT prod\r\n"
 				+ "		on prod.refprod = lgnvte.refprod\r\n"

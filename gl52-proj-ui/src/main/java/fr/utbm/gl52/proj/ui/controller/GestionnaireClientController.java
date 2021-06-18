@@ -56,10 +56,8 @@ public class GestionnaireClientController extends AbstractController implements 
 
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		if (!this.checkTextFieldIsNull()) {
 			this.isNew();
 			super.switchToMainScene();
-		}
 	}
 	
 	private boolean checkTextFieldIsNull() {
@@ -77,7 +75,9 @@ public class GestionnaireClientController extends AbstractController implements 
 
 	private void isNew() throws IOException {
 		if (isNew) {
-			this.newClient();
+			if (!this.checkTextFieldIsNull()) {
+				this.newClient();
+			}
 		} else {
 			this.modifyClient();
 		}

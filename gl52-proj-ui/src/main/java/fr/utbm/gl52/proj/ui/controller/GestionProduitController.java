@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 public class GestionProduitController extends AbstractController implements Initializable {
-	
+
 	private ProduitController produitController = new ProduitController();
 	private EntreeStockController entreeStockController = new EntreeStockController();
 
@@ -29,42 +29,29 @@ public class GestionProduitController extends AbstractController implements Init
 	private TextField prixTTCTxtField;
 	@FXML
 	private TextField tVAProdTxtField;
-		
+
 	private boolean isNew = true;
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
-	
-	
+
 	@FXML
 	@Override
 	public void switchToMainScene() throws IOException {
 		super.switchToMainScene();
 	}
-	
+
 	@FXML
 	public void switchToMainSceneValidate() throws IOException {
-		if (!this.checkTextFieldIsNull()) {
-			this.isNew();
-			super.switchToMainScene();
-		}
-	}
 
-	private boolean checkTextFieldIsNull() {
-		return this.desProdTxtField.getSelectedText().isEmpty() &&
-				this.prixHTTxtField.getSelectedText().isEmpty() &&
-				this.prixTTCTxtField.getSelectedText().isEmpty() &&
-				this.qteProdTxtField.getSelectedText().isEmpty() &&
-				this.refProdTxtField.getSelectedText().isEmpty() &&
-				this.tVAProdTxtField.getSelectedText().isEmpty() ;
-				
+		this.isNew();
+		super.switchToMainScene();
 	}
-
 
 	private void isNew() throws IOException {
 		if (isNew) {
-			this.newProduit();
+				this.newProduit();
 		} else {
 			this.modifyProduit();
 		}
@@ -76,14 +63,14 @@ public class GestionProduitController extends AbstractController implements Init
 		this.entreeStockController.insertNewEntree(produit);
 		super.switchToMainScene();
 	}
-	
+
 	private void modifyProduit() throws IOException {
 		Produit produit = this.setProduit();
 		this.produitController.modifyProduit(produit);
 		this.entreeStockController.insertNewEntree(produit);
 		super.switchToMainScene();
 	}
-	
+
 	private Produit setProduit() throws IOException {
 		String referenceProd = this.refProdTxtField.getText();
 		String descriptionProduct = this.desProdTxtField.getText();
@@ -91,11 +78,11 @@ public class GestionProduitController extends AbstractController implements Init
 		String prixHTT = this.prixHTTxtField.getText();
 		String prixTTC = this.prixTTCTxtField.getText();
 		String TVA = this.tVAProdTxtField.getText();
-		Produit produit = new Produit(referenceProd,descriptionProduct,quantity,prixHTT,prixTTC,TVA);
+		Produit produit = new Produit(referenceProd, descriptionProduct, quantity, prixHTT, prixTTC, TVA);
 		return produit;
 	}
-	
-	public void setDataForUpdate(@SuppressWarnings("exports") Produit produit) {	
+
+	public void setDataForUpdate(@SuppressWarnings("exports") Produit produit) {
 		this.refProdTxtField.setText(produit.getRefProd());
 		this.desProdTxtField.setText(produit.getDesProd());
 		this.prixHTTxtField.setText(produit.getPrixHTProd());
@@ -103,30 +90,31 @@ public class GestionProduitController extends AbstractController implements Init
 		this.qteProdTxtField.setText(produit.getQteProd());
 		this.tVAProdTxtField.setText(produit.getTVAProd());
 		this.isNew = false;
-		
+
 	}
-	
+
 	@FXML
 	private void handleProductReference(ActionEvent event) {
 	}
-	
+
 	@FXML
 	private void handleProductDescription(ActionEvent event) {
 	}
-	
+
 	@FXML
 	private void handleProductHTPrice(ActionEvent event) {
 	}
-	
+
 	@FXML
 	private void handleProductTTCPrice(ActionEvent event) {
 	}
-	
+
 	@FXML
 	private void handleProductQuantity(ActionEvent event) {
 	}
-	
-	@FXML void handleProductTVA(ActionEvent event ) {
-		
+
+	@FXML
+	void handleProductTVA(ActionEvent event) {
+
 	}
 }
